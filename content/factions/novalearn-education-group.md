@@ -4,6 +4,8 @@ kind: "Education & knowledge"
 group: "corporate"
 weight: 216
 ---
+**Headquarters:** United Terran Federation
+
 **Sector:** Education & knowledge
 
 **Controls:**
@@ -26,4 +28,4 @@ They write all school textbooks.
 
 **Corporate power bloc:** Stability Bloc
 
-Source: [A Guide to UTF Corporate Interests](/library/utf-corporate-interests/).
+For more information: [A Guide to UTF Corporate Interests](/library/utf-corporate-interests/).

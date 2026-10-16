@@ -4,6 +4,8 @@ kind: "Construction and planetary infrastructure"
 group: "corporate"
 weight: 219
 ---
+**Headquarters:** United Terran Federation
+
 **Sector:** Construction and planetary infrastructure
 
 **Controls:**
@@ -26,4 +28,4 @@ They literally build the worlds people live on.
 
 **Corporate power bloc:** Prosperity Bloc
 
-Source: [A Guide to UTF Corporate Interests](/library/utf-corporate-interests/).
+For more information: [A Guide to UTF Corporate Interests](/library/utf-corporate-interests/).

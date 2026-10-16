@@ -4,6 +4,8 @@ kind: "Government services"
 group: "corporate"
 weight: 215
 ---
+**Headquarters:** United Terran Federation
+
 **Sector:** Government services
 
 Handles the outsourced state.
@@ -29,4 +31,4 @@ The “democratic process” is run by a corporation.
 
 **Corporate power bloc:** Stability Bloc
 
-Source: [A Guide to UTF Corporate Interests](/library/utf-corporate-interests/).
+For more information: [A Guide to UTF Corporate Interests](/library/utf-corporate-interests/).

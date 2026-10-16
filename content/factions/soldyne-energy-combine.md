@@ -4,6 +4,8 @@ kind: "Energy production"
 group: "corporate"
 weight: 212
 ---
+**Headquarters:** United Terran Federation
+
 **Sector:** Energy production
 
 Controls nearly all:
@@ -26,4 +28,4 @@ They can black out entire sectors.
 
 **Corporate power bloc:** Prosperity Bloc
 
-Source: [A Guide to UTF Corporate Interests](/library/utf-corporate-interests/).
+For more information: [A Guide to UTF Corporate Interests](/library/utf-corporate-interests/).

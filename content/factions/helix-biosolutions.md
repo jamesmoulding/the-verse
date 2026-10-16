@@ -4,6 +4,8 @@ kind: "Healthcare, biotech, pharmaceuticals"
 group: "corporate"
 weight: 213
 ---
+**Headquarters:** United Terran Federation
+
 **Sector:** Healthcare, biotech, pharmaceuticals
 
 **Controls:**
@@ -27,4 +29,4 @@ Helix effectively decides who lives longer.
 
 **Corporate power bloc:** Prosperity Bloc
 
-Source: [A Guide to UTF Corporate Interests](/library/utf-corporate-interests/).
+For more information: [A Guide to UTF Corporate Interests](/library/utf-corporate-interests/).

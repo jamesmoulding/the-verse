@@ -4,6 +4,8 @@ kind: "Shipping, freight, jump logistics"
 group: "corporate"
 weight: 211
 ---
+**Headquarters:** United Terran Federation
+
 **Sector:** Shipping, freight, jump logistics
 
 **Controls:**
@@ -26,4 +28,4 @@ If Horizon blocks you, your world starves.
 
 **Corporate power bloc:** Expansion Bloc
 
-Source: [A Guide to UTF Corporate Interests](/library/utf-corporate-interests/).
+For more information: [A Guide to UTF Corporate Interests](/library/utf-corporate-interests/).

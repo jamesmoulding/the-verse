@@ -4,6 +4,8 @@ kind: "Food supply"
 group: "corporate"
 weight: 217
 ---
+**Headquarters:** United Terran Federation
+
 **Sector:** Food supply
 
 **Controls:**
@@ -26,4 +28,4 @@ If OmniFood cuts shipments, entire planets riot.
 
 **Corporate power bloc:** Prosperity Bloc
 
-Source: [A Guide to UTF Corporate Interests](/library/utf-corporate-interests/).
+For more information: [A Guide to UTF Corporate Interests](/library/utf-corporate-interests/).

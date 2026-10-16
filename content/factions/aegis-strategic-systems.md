@@ -4,6 +4,8 @@ kind: "Military–Industrial Complex"
 group: "corporate"
 weight: 210
 ---
+**Headquarters:** United Terran Federation
+
 **Sector:** Military–Industrial Complex
 
 **Nickname:** “The Arsenal”
@@ -27,4 +29,4 @@ They maintain close relationships with the Federal Navy Admiralty.
 
 **Corporate power bloc:** Expansion Bloc
 
-Source: [A Guide to UTF Corporate Interests](/library/utf-corporate-interests/).
+For more information: [A Guide to UTF Corporate Interests](/library/utf-corporate-interests/).

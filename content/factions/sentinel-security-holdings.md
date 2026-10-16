@@ -4,6 +4,8 @@ kind: "Internal security"
 group: "corporate"
 weight: 218
 ---
+**Headquarters:** United Terran Federation
+
 **Sector:** Internal security
 
 **Controls:**
@@ -26,4 +28,4 @@ They run the surveillance state.
 
 **Corporate power bloc:** Expansion Bloc
 
-Source: [A Guide to UTF Corporate Interests](/library/utf-corporate-interests/).
+For more information: [A Guide to UTF Corporate Interests](/library/utf-corporate-interests/).

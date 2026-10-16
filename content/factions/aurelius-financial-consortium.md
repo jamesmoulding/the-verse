@@ -4,6 +4,8 @@ kind: "Banking and finance"
 group: "corporate"
 weight: 214
 ---
+**Headquarters:** United Terran Federation
+
 **Sector:** Banking and finance
 
 **Controls:**
@@ -26,4 +28,4 @@ Every megacorp owes them money.
 
 **Corporate power bloc:** Stability Bloc
 
-Source: [A Guide to UTF Corporate Interests](/library/utf-corporate-interests/).
+For more information: [A Guide to UTF Corporate Interests](/library/utf-corporate-interests/).
