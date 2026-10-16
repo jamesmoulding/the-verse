@@ -91,7 +91,7 @@ a.card h2 { color: var(--link); }
 .latest h2 a { color: var(--text); }
 .button { display: inline-block; background: var(--accent); color: var(--bg); font-weight: 700; text-decoration: none; padding: .55rem 1rem; border-radius: .5rem; margin: .6rem .8rem .2rem 0; }
 .button:hover { color: var(--bg); filter: brightness(1.1); }
-.banner { display: block; width: 100%; max-width: 40rem; border-radius: .7rem; margin-bottom: 1rem; }
+.banner { display: block; width: 100%; max-width: 56rem; border-radius: .7rem; margin-bottom: 1rem; }
 .intro p { font-size: 1.1rem; }
 
 /* Headline lists */

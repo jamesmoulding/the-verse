@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="wrap">
-  <img class="banner" src="{{ "images/guide/sector5-banner.png" | relURL }}" alt="Sector 5">
+  <img class="banner" src="{{ "images/guide/sector5-banner.jpg" | relURL }}" alt="Sector 5">
   <div class="prose intro">{{ .Content }}</div>
 
   {{- $latest := index (sort (where site.RegularPages "Section" "gnn") "Params.turn" "desc") 0 }}
