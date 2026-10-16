@@ -1,17 +1,18 @@
 # Diplomatic relation grid, copied from "Treaties of the Verse".
 # Read each row left to right: the row faction's relationship with the column faction.
-# Codes: T = trade, S = strategic trade, W = war, NA = non-aggression pact, AA = alliance.
+# Codes: T = trade, S = strategic trade, W = war, CF = ceasefire, NA = non-aggression pact,
+# AA = alliance.
 # Combine with a space, e.g. "T NA". Leave a faction out for no relationship.
 order: [AFCO, ASE, CPA, LGR, PFR, SILK, SKC, SNG, UTF, VC, VCW]
 rows:
   AFCO: {LGR: T, PFR: T, SILK: T, SKC: T, VC: T, VCW: T}
-  ASE:  {CPA: S, LGR: W, PFR: T, SILK: T, SNG: T NA, UTF: T AA, VCW: T NA}
+  ASE:  {CPA: S, LGR: CF, PFR: T, SILK: T, SNG: T NA, UTF: T AA, VCW: T NA}
   CPA:  {ASE: S}
-  LGR:  {AFCO: T, ASE: W, SILK: T, SKC: T, UTF: W}
+  LGR:  {AFCO: T, ASE: CF, SILK: T, SKC: T, UTF: CF}
   PFR:  {AFCO: T, ASE: T, SILK: T}
   SILK: {AFCO: T, ASE: T, CPA: T, LGR: T, PFR: T, SKC: S, SNG: T, VCW: T}
   SKC:  {AFCO: T, LGR: T, SILK: S, SNG: S, VC: S, VCW: T}
   SNG:  {ASE: T NA, SKC: S, VCW: T NA}
-  UTF:  {ASE: T AA, LGR: W}
+  UTF:  {ASE: T AA, LGR: CF}
   VC:   {AFCO: T, SKC: S}
   VCW:  {AFCO: T, ASE: T NA, SILK: T, SKC: T, SNG: T}

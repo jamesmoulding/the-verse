@@ -4,6 +4,7 @@
 <ul class="legend">
   <li><span class="rel t">T</span> Non-strategic trade</li>
   <li><span class="rel s">S</span> Strategic trade</li>
+  <li><span class="rel cf">CF</span> Ceasefire</li>
   <li><span class="rel w">War</span> War</li>
   <li><span class="rel">NA</span> Non-aggression pact</li>
   <li><span class="rel">AA</span> Alliance</li>
@@ -19,7 +20,7 @@
       {{- else }}
         {{- $v := index (index $d.rows $row | default dict) $col | default "" }}
         {{- $codes := split $v " " }}
-        {{- $cls := cond (in $codes "W") "w" (cond (in $codes "S") "s" (cond (in $codes "T") "t" "")) }}
+        {{- $cls := cond (in $codes "W") "w" (cond (in $codes "CF") "cf" (cond (in $codes "S") "s" (cond (in $codes "T") "t" ""))) }}
         <td class="{{ $cls }}">{{ replace (replace $v "W" "War") " " " · " }}</td>
       {{- end }}
     {{- end }}
