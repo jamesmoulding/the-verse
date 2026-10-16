@@ -3,6 +3,7 @@ title: "OmniFood Agricultural Trust"
 kind: "HQ within UTF"
 group: "corporate"
 weight: 217
+gnn_mentions: ["OmniFood"]
 ---
 **Headquarters:** United Terran Federation
 

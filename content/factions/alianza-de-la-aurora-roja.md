@@ -4,4 +4,5 @@ short: "AAR"
 kind: "Interstellar faction"
 group: "state"
 weight: 107
+gnn_mentions: ["Aurora Roja"]
 ---

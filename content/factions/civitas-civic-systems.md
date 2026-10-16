@@ -3,6 +3,7 @@ title: "Civitas Civic Systems"
 kind: "HQ within UTF"
 group: "corporate"
 weight: 215
+gnn_mentions: ["Civitas"]
 ---
 **Headquarters:** United Terran Federation
 

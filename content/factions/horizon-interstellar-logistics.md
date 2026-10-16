@@ -3,6 +3,7 @@ title: "Horizon Interstellar Logistics"
 kind: "HQ within UTF"
 group: "corporate"
 weight: 211
+gnn_mentions: ["Horizon Interstellar", "Horizon Freight", "Horizon Logistics"]
 ---
 **Headquarters:** United Terran Federation
 

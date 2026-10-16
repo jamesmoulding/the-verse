@@ -4,4 +4,5 @@ short: "QH"
 kind: "Interstellar faction"
 group: "state"
 weight: 103
+gnn_mentions: ["Queeg"]
 ---

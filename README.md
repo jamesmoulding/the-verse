@@ -53,6 +53,8 @@ Player factions, other sovereign states and corporations all live in `content/fa
 the name on its card, and `weight` sets the order.
 
 `gnn_keywords` in a faction page's header lists the words that link GNN headlines to it.
+The sovereign state and corporate pages use `gnn_mentions` instead, which searches the whole
+text of every story, not just the headline.
 `flag`, `portrait` and `caption` set its images.
 
 ## Diplomacy grid

@@ -3,6 +3,7 @@ title: "SolDyne Energy Combine"
 kind: "HQ within UTF"
 group: "corporate"
 weight: 212
+gnn_mentions: ["SolDyne"]
 ---
 **Headquarters:** United Terran Federation
 

@@ -3,6 +3,7 @@ title: "Sentinel Security Holdings"
 kind: "HQ within UTF"
 group: "corporate"
 weight: 218
+gnn_mentions: ["Sentinel Security", "Sentinel Enforcement", "Sentinel Civic"]
 ---
 **Headquarters:** United Terran Federation
 

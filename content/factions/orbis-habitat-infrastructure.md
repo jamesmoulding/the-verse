@@ -3,6 +3,7 @@ title: "Orbis Habitat & Infrastructure"
 kind: "HQ within UTF"
 group: "corporate"
 weight: 219
+gnn_mentions: ["Orbis"]
 ---
 **Headquarters:** United Terran Federation
 

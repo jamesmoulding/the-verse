@@ -3,6 +3,7 @@ title: "Aurelius Financial Consortium"
 kind: "HQ within UTF"
 group: "corporate"
 weight: 214
+gnn_mentions: ["Aurelius"]
 ---
 **Headquarters:** United Terran Federation
 

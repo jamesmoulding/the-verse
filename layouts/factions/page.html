@@ -33,6 +33,10 @@
   {{- end }}
   {{- if eq $found 0 }}<p>No headlines yet.</p>{{ end }}
   {{- end }}
+  {{- with .Params.gnn_mentions }}
+  <h2 id="in-the-gnn">In the GNN</h2>
+  {{ partial "gnn-mentions.html" (dict "terms" .) }}
+  {{- end }}
   <p class="back"><a href="{{ "factions/" | relURL }}">← All factions</a></p>
 </article>
 {{ end }}

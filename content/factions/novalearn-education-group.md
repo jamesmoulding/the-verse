@@ -3,6 +3,7 @@ title: "NovaLearn Education Group"
 kind: "HQ within UTF"
 group: "corporate"
 weight: 216
+gnn_mentions: ["NovaLearn"]
 ---
 **Headquarters:** United Terran Federation
 

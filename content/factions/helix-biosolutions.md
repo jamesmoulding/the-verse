@@ -3,6 +3,7 @@ title: "Helix BioSolutions"
 kind: "HQ within UTF"
 group: "corporate"
 weight: 213
+gnn_mentions: ["Helix"]
 ---
 **Headquarters:** United Terran Federation
 

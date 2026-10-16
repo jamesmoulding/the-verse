@@ -3,6 +3,7 @@ title: "VoxCom Media Conglomerate"
 kind: "HQ within UTF"
 group: "corporate"
 weight: 220
+gnn_mentions: ["VoxCom", "VoxNews"]
 ---
 **Headquarters:** United Terran Federation
 

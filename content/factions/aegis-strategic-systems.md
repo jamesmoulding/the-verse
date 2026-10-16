@@ -3,6 +3,7 @@ title: "Aegis Strategic Systems"
 kind: "HQ within UTF"
 group: "corporate"
 weight: 210
+gnn_mentions: ["Aegis"]
 ---
 **Headquarters:** United Terran Federation
 
