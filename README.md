@@ -48,7 +48,7 @@ Commit and push. The site updates in about a minute; progress shows under the re
 ## Diplomacy grid
 
 The grid on the Diplomatic Relations page is drawn from `data/relations.yaml`. Each row lists that
-faction's relationships: `T` trade, `S` strategic trade, `W` war, `CF` ceasefire, `NA` non-aggression pact,
+faction's relationships: `T` trade agreement, `S` strategic trade, `W` war, `CF` ceasefire, `NA` non-aggression pact,
 `AA` alliance, combined with a space (`T NA`). Leave a faction out for no relationship.
 
 ## Library pages
