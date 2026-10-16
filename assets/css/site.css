@@ -222,3 +222,8 @@ td.self { background: repeating-linear-gradient(45deg, var(--border) 0 4px, tran
 .archive-cards .card h4 { margin: 0 0 .2rem; font-size: 1.08rem; }
 .archive-cards .card .headlines { font-size: .93rem; }
 .archive-cards .more { margin: .3rem 0 0; font-size: .9rem; font-weight: 600; }
+
+/* Home: banner and intro share one centred column; intro text justified */
+.home-intro { max-width: var(--measure); margin: 0 auto; }
+.home-intro .banner { width: 100%; max-width: none; margin: 0 0 1.25rem; }
+.home-intro .intro { max-width: none; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
