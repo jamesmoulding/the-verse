@@ -287,3 +287,24 @@ td.self { background: repeating-linear-gradient(45deg, var(--border) 0 4px, tran
 .mini-card strong { display: block; color: var(--link); font-size: .95rem; }
 .mini-card small { color: var(--muted); font-size: .78rem; }
 .map-desc { margin: 0; font-size: .95rem; line-height: 1.55; }
+
+/* Map: fleets and distance tools */
+.map-forces { list-style: none; padding: 0; margin: 0; font-size: .9rem; }
+.map-forces li { margin: .3rem 0; }
+.map-app .small { font-size: .8rem; margin: .3rem 0 0; }
+.map-tool { position: absolute; left: .75rem; bottom: .75rem; z-index: 4; width: min(22rem, calc(100% - 1.5rem)); max-height: 60%; overflow-y: auto; background: rgba(10,13,24,.92); border: 1px solid #2a3042; border-radius: .7rem; padding: .7rem 1rem; font-size: .88rem; backdrop-filter: blur(5px); }
+.map-tool h2 { margin: 0 0 .4rem; font-size: 1rem; color: #f0b429; }
+.map-tool p { margin: .35rem 0; }
+.route-stops { font-weight: 600; }
+.route-legs { padding-left: 1.1rem; margin: .4rem 0; }
+.route-legs li { margin: .4rem 0; }
+.route-legs li.over b { color: #ff9a3c; }
+.map-tool .warn { color: #ff9a3c; font-weight: 700; }
+.tool-actions button { font: inherit; font-size: .8rem; color: #e6e8ef; background: #151925; border: 1px solid #2a3042; border-radius: 2rem; padding: .2rem .6rem; cursor: pointer; }
+.range-key { list-style: none; padding: 0; margin: .3rem 0; }
+.range-key li { display: flex; align-items: center; gap: .45rem; margin: .2rem 0; }
+.band { width: 1.1rem; height: .75rem; border-radius: .15rem; display: inline-block; }
+.band.b1 { background: rgba(255,154,60,.75); } .band.b2 { background: rgba(255,154,60,.52); } .band.b3 { background: rgba(255,154,60,.32); } .band.b4 { background: rgba(255,154,60,.18); }
+.band.hyper { border: 2px dashed rgba(255,154,60,.6); }
+.map-app.tooling .map-legend { display: none; }
+@media (max-width: 700px) { .map-tool { max-height: 45%; } }

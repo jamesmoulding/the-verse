@@ -19,6 +19,7 @@ every time something is pushed to `main`.
 | Map: star systems | `assets/map/systems.csv` |
 | Map: founders, colours, grades | `data/founders.yaml`, `data/map_factions.yaml`, `data/grades.yaml` |
 | Map: system descriptions | `data/descriptions.yaml` |
+| Map: fleets and squadrons | `assets/map/units.csv` |
 | Images | `static/images/` |
 | QR code for player packs | `static/images/qr/the-verse-qr.png` (and `.svg` for print) |
 
@@ -87,6 +88,27 @@ development (most for CC, a handful for AA, AC, BA and PC).
 
 Descriptions in the panel come from `data/descriptions.yaml`, one line per system. Only add text
 that players are allowed to know.
+
+## Fleets and squadrons on the map
+
+`assets/map/units.csv` holds one row per unit per turn. Columns: `turn`, `faction` (a code from
+`data/map_factions.yaml`, including NPCs such as CASI, NSSF and BIONID), `name`, `category`
+(`space`, `ground` or `bionid`), `unit_class`, `system` (system name or hex code), `status`,
+`silent`, `public`.
+
+A unit appears only if `public` is `yes`, `silent` is `no` and `status` is `based`. Units in
+hyperspace (`transit`), under `repair`, under `construction` or with an `unknown` location stay
+hidden. The map shows each unit's name, class and faction, never its strength, doctrine, ROE or
+TEL. Keep one row per turn for each unit: the **Trails** button draws its moves between turns.
+Pirates are not entered.
+
+## Distance tools on the map
+
+**Measure** plots a route between systems and shows, for each leg, the cost of leaving, the hexes
+crossed and the cost of entering, in movement points and days, with any leg over 100 days flagged.
+**Range** shades every system a unit could reach and enter within one turn. Each system's entry
+cost is the `mp` column in `systems.csv` (1, 2 or 5; Skaro and Pheervaska are the Deep Gravity
+Wells). Routes can be shared as links, e.g. `/map/#route=E18,H6,J8`.
 
 ## Diplomacy grid
 

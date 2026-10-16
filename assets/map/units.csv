@@ -1,0 +1,27 @@
+turn,faction,name,category,unit_class,system,status,silent,public
+11,AFCO,Fifth Fleet,space,Battle Squadron,Earthsea,based,no,no
+11,AFCO,Home Army,ground,Regular Ground Force Division,Dalek,based,no,no
+11,AFCO,Volunteer Corps,space,,,unknown,no,no
+11,ASE,Hammer of Aliria,space,Battle Squadron,Gloriana,based,no,no
+11,ASE,Ashborn legion,ground,,,unknown,no,no
+11,CPA,Orehammer Fleet (Fleet),space,Battle Squadron,New Devon,based,no,no
+11,CPA,The Rockhounds (Ground Force),space,Humanitarian Fleet,New Cornwall,based,no,no
+11,LGR,1st Strike Group De Gaulle,space,Battle Squadron,Amity Station,based,no,no
+11,LGR,First Ground Forces Division  - The Sans Culotte Brigade,ground,Regular Ground Force Division,,construction,no,no
+11,LGR,Second Ground Force Division - The Phrygian Guard,ground,,,unknown,no,no
+11,PFR,PFRN 1st Squadron 'Vanguard',ground,,New Berlin,based,no,no
+11,PFR,PFRN 2nd Squadron 'Valiant',space,Battle Squadron,Turing,repair,no,no
+11,PFR,PFRN Marines Division,ground,,,unknown,no,no
+11,SILK,1st Fleet Taffetarion,space,Battle Squadron,Prime,based,no,no
+11,SILK,"1st Division ""The Worms"" (ground forces)",ground,,,unknown,no,no
+11,SKC,Exploration and Rescue,space,Battle Squadron,Tumber,based,no,no
+11,SKC,Humanitarian Relief Division,ground,,,unknown,no,no
+11,SNG,Mah'alleinir Fleet,space,Battle Squadron,Andor,based,no,no
+11,SNG,Morrigan Tactical Division,ground,,,unknown,no,no
+11,UTF,Strike Force Alpha 'Felgor's Fury',space,Battle Squadron,H11,based,no,no
+11,UTF,Strike Force Bravo 'Empires Revenge',space,Battle Squadron,Rigel,based,no,no
+11,UTF,First Terran 'Grounder Pounder' Division,ground,,,unknown,no,no
+11,VC,First Fleet (The White Star Fleet),space,Battle Squadron,Earthsea,based,no,no
+11,VC,First Ground Forces Division  (Death Monks),ground,,,unknown,no,no
+11,VCW,The Pegasus,space,Battle Squadron,Kedros,based,no,no
+11,VCW,Vertinia's Guardians,ground,,,unknown,no,no

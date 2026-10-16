@@ -10,6 +10,9 @@
     <datalist id="map-system-list"></datalist>
     <button type="button" id="map-labels-toggle" aria-pressed="true">Names</button>
     <button type="button" id="map-board" aria-pressed="false">Board</button>
+    <button type="button" id="map-trails" aria-pressed="false">Trails</button>
+    <button type="button" id="map-measure" aria-pressed="false">Measure</button>
+    <button type="button" id="map-range" aria-pressed="false">Range</button>
     <button type="button" id="map-reset">Whole sector</button>
   </div>
 
@@ -19,6 +22,12 @@
     <p class="map-help">Drag to pan. Cmd-drag (Mac) or Alt-drag (Windows) to rotate, or right-drag. Scroll or pinch to zoom where you point. Click a star to visit its colony.</p>
   </details>
 
+  <section class="map-tool" id="map-tool" hidden aria-live="polite">
+    <h2>Distances</h2>
+    <div id="map-tool-body"></div>
+    <p class="map-help">20 movement points a turn (100 days). 1 MP per hex (5 days); entering or leaving a system costs its MP. Messages: 2.5 days per hex.</p>
+  </section>
+
   <aside class="map-panel" id="map-panel" hidden aria-live="polite">
     <button type="button" class="map-back" id="map-back">← Back to map</button>
     <div id="map-panel-body"></div>
@@ -26,7 +35,7 @@
 
   <noscript><p class="map-noscript">The map needs JavaScript to run.</p></noscript>
 </div>
-<script type="application/json" id="map-data">{{ dict "systems" ((resources.Get "map/systems.csv") | transform.Unmarshal) "factions" hugo.Data.map_factions "founders" hugo.Data.founders "grades" hugo.Data.grades "descriptions" hugo.Data.descriptions | jsonify | safeJS }}</script>
+<script type="application/json" id="map-data">{{ dict "systems" ((resources.Get "map/systems.csv") | transform.Unmarshal) "factions" hugo.Data.map_factions "founders" hugo.Data.founders "grades" hugo.Data.grades "descriptions" hugo.Data.descriptions "units" ((resources.Get "map/units.csv") | transform.Unmarshal) | jsonify | safeJS }}</script>
 <script type="importmap">{"imports": {"three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 {{- $js := resources.Get "js/map.js" | fingerprint }}
 <script type="module" src="{{ $js.RelPermalink }}"></script>

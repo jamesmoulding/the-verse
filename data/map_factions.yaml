@@ -12,4 +12,7 @@ UTF: {name: "United Terran Federation", colour: "#a4a4a4", url: "/factions/utf/"
 VC: {name: "Viśvanivāsaḥ Confederacy", colour: "#3d6fe8", url: "/factions/vc/"}              # 5880c0
 VCW: {name: "Vertinia Commonwealth", colour: "#2ee87a", url: "/factions/vcw/"}               # 58d080
 "UNITY 5": {name: "Unity 5", colour: "#8f45ff", url: "/library/unity-5/"}                    # 6830d8
+CASI: {name: "Concordant Assembly of Systematic Intellect", colour: "#36c9d0", url: "/factions/casi/"}
+NSSF: {name: "New Star Socialist Federation", colour: "#ff7ad1", url: "/factions/nssf/"}
+BIONID: {name: "Bionid Hivemind Entity", colour: "#ffb000", url: "/library/bionid-briefing/"}
 IND: {name: "Independent", colour: "", url: ""}

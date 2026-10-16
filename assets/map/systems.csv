@@ -1,173 +1,173 @@
-hex,system,control,grade,sv,population_m,planets,belts,m25_au,founder,planet_type,star_type,gnn_terms,planet_note
-A13,Refuge,SKC,AC,4,0.108,3,1,10.0,ICB,archipelago,K,,
-B2,New Berlin,IND,PC,1,1.6,9,1,16.0,,temperate,K,,
-B6,Thermidor,LGR,AA,6,29.16,11,1,22.0,IOL,tundra,K,,
-B7,Morbis,IND,JS,0,0.069336,12,0,25.0,ICB,jungle,F,,
-B9,Assembly,LGR,AC,4,0,6,0,26.0,HI,archipelago,M,(?<!Concordant )\bAssembly\b(?! of Systematic| passed),
-B14,Y6,IND,SC,0,1.026432,6,0,16.0,,jungle,M,,Faction sheet (appearance only)
-B16,Chiana,IND,SC,0,3.9051072,10,2,20.0,ZB,alpine,G,,Faction sheet (appearance only)
-C2,Khornish,IND,SC,0,0,3,1,22.0,,savannah,G,,
-C5,Unison,LGR,PC,1,3.24,9,0,18.0,HI,arid,G,,
-C7,Reason,LGR,CC,20,57.24,10,0,21.0,ICB,jungle,G,(?<!Altars of )\bReason\b,
-C9,Mankey,IND,UI,0,0,9,0,27.0,,arid,K,,Rich arid ecosystem
-C10,Kroot,IND,JS,0,0.3709476,5,1,20.0,ICB,savannah,K,,"Class M, multiple continents of savannah"
-C11,Edict,SKC,JS,-1,0.0432,3,0,11.0,NLA,arid,G,,
-C12,Ur-Lucent,SKC,SC,0,0.14641,8,0,26.0,,barren,G,,Faction sheet (appearance only)
-C16,Journey's End,SKC,SC,0,0.77,5,1,18.0,TY,forest,K,,
-C18,Pendragon,IND,SC,0,1.69884,7,0,27.0,UNCI,temperate,K,,
-C20,Drazi,IND,SC,0,0.242,8,0,20.0,,forest,M,,
-D2,Durruti,IND,SC,0,1.889568,6,2,16.0,UNCI,arid,G,,
-D4,Consensus,LGR,JS,0,0.66,7,1,29.0,HI,savannah,G,,
-D6,Unity,LGR,PC,1,8.64,8,0,21.0,ICB,temperate,G,\bUnity colony\b|\bworld of Unity\b,
-D13,Epiphany,SKC,RC,10,23.69,4,0,6.0,UNCI,archipelago,G,,
-D14,First Honesty,SKC,PC,1,6.48,4,0,15.0,JKA,temperate,F,,
-D17,Harper's Station,IND,PC,1,1.6,11,0,27.0,,forest,K,,
-E2,Amity Station,LGR,SC,0,2.16,9,0,15.0,HI,temperate,K,,
-E3,Riker II,IND,SC,0,1.62,5,1,17.0,ICB,savannah,G,,
-E5,Nominar Secundus,ASE,JS,-1,0.0432,10,0,15.0,ASI,tundra,K,,
-E7,Consent,LGR,PC,1,0.108,5,1,26.0,ICB,jungle,M,,
-E8,T'akshama,ASE,PC,1,9.9,7,0,23.0,ASI,jungle,G,,
-E9,Sanctuaria,ASE,AC,4,33.48,5,0,27.0,ICB,arid,G,,
-E11,Tiber,UTF,AC,4,28.08,3,1,9.0,ICB,temperate,F,,
-E13,Sirx Siricius,SKC,AC,4,12.96,4,0,15.0,ICB,temperate,G,,
-E14,Sirx Soter,SKC,RC,10,49.5,8,0,9.0,IMEX,forest,K,,
-E16,Venta,IND,SC,0,2.65,6,1,21.0,ICB,savannah,K,,Faction sheet (appearance only)
-E18,Ladle,AFCO,RC,10,45.1,7,0,22.0,UNCI,arid,G,,
-F4,Pheervaska,ASE,UI,0,0.054,10,1,16.0,ASI,forest,M,,
-F5,Gloriana,ASE,CC,20,47.3,12,0,18.0,ASI,industrial,G,,Faction sheet (appearance only)
-F6,Luminaris,ASE,PC,1,8.64,4,1,22.0,ICB,jungle,M,,
-F10,Æsveera,ASE,VR,15,55,1,1,18.0,UNCI,desert,B,,Faction sheet (appearance only)
-F11,Big,UTF,AC,4,23.1,6,1,20.0,ICB,jungle,K,,
-F15,Tumber,IND,JS,0,0.54,6,1,17.0,UNCI,tundra,M,,
-F17,Force Six,AFCO,RC,10,64.8,9,1,19.0,ICB,arid,K,,
-G3,Shalkarol,ASE,JS,-1,0.54,4,1,16.0,ASI,archipelago,K,,
-G6,Novara,IND,SC,0,1.08,9,1,19.0,,arid,G,,
-G7,Epigreia,ASE,PC,1,9.63,9,0,22.0,ASI,arid,G,,
-G8,Sacramentis,ASE,AC,4,26.78,5,1,21.0,ICB,temperate,F,,
-G11,Fodder,UTF,VR,15,22.68,4,0,21.0,ICB,forest,G,,
-G13,Warden,AFCO,VP,0,5.5,7,0,28.0,AFCO,archipelago,K,,
-G14,Semak IV,UTF,AC,4,28.89,6,1,10.0,ICB,jungle,G,,
-G19,Nausicaa,IND,JS,0,0,3,1,27.0,ICB,jungle,K,,
-G20,Hand of God,IND,UI,0,0.29282,6,1,26.0,MSI,temperate,K,,
-H3,Celestalis,ASE,JS,-1,0.256608,8,0,25.0,ASI,jungle,G,,
-H6,Skaro,ASE,SC,0,0.05,8,2,120.0,AI,ocean-rocky,F,\bSkaro\b(?! Pact),"Rocky world with a large ocean, inside the Bramble Patch Nebula (James)"
-H7,Temidura,ASE,PC,1,8.64,6,1,24.0,ICB,arid,G,,
-H9,O'Neill,IND,SC,0,0.1452,5,1,25.0,VTX,archipelago,K,,
-H11,Hence,UTF,AC,4,47.3,9,1,16.0,ICB,ocean,G,,
-H12,Thork,UTF,RC,10,19.57,2,1,13.0,UNCI,temperate,F,,
-H13,Perik,UTF,PC,1,7.56,11,1,25.0,UNCI,temperate,G,,
-H15,Voluptus,SILK,UI,0,0.214,11,1,22.0,SSP,arid,G,,
-H17,Dalek,AFCO,RC,10,54,6,1,19.0,AFCO,savannah,G,,
-H18,Meero,IND,JS,0,0.11,6,1,29.0,UNCI,jungle,K,,
-H19,,,,,,,,,,,K,,Star marker on the Turn 9 map with no record
-I1,Garibaldi,IND,SC,0,3.9051072,7,1,20.0,UNCI,ocean,F,,
-I3,New Slough,IND,JS,0,0.33,10,0,18.0,UNCI,archipelago,K,,
-I10,Nord,UTF,RC,10,23.76,10,1,18.0,LKX,forest,K,,
-I11,Felgor,UTF,CC,20,47.52,10,0,28.0,ICB,archipelago,G,,
-I12,Belstaff,UTF,RC,10,24.2,6,0,21.0,UNCI,tundra,G,,
-I16,Foobusant,SILK,PC,1,7.56,3,1,11.0,ICB,archipelago,K,,
-I17,Squideen,SILK,SC,0,0.66,4,1,17.0,SSP,savannah,G,,
-J7,New Devon,CPA,AC,4,0.324,4,3,23.0,CPA,arid,F,,
-J8,Parliament,UNITY 5,SC,0,0,2,1,17.0,,arid,K,(?:planet of|above|over|on|orbiting) Parliament\b,"Unity 5 orbital station above an arid world, as in the station image"
-J10,Rigel,UTF,PC,1,8.8,7,0,17.0,UNCI,tundra,M,\bRigel\b(?! Mosley),
-J13,Bix,IND,SC,0,0,4,1,21.0,ICB,savannah,M,,
-J14,Sbreenar,SILK,AC,4,11.33,1,0,21.0,SSP,temperate,K,,
-J18,Snog,IND,SC,0,5.038848,10,0,16.0,,tundra,M,,
-K4,Re'kateera,ASE,PC,1,9.9,10,1,27.0,ASI,temperate,K,,
-K5,Sigmaris,ASE,SC,0,6.48,6,1,24.0,ASI,savannah,F,,
-K7,Gosnell,IND,JS,0,0.535,9,0,19.0,UNCI,arid,G,,
-K8,Sheridan,PFR,AC,4,33.48,10,1,27.0,UNCI,forest,G,,
-K9,Isen,IND,SC,0,0.256608,10,3,23.0,ZPA,temperate,F,,
-K10,,,,,,,,,,,M,,Star marker on the Turn 9 map with no record
-K12,Crashdump,SILK,AC,4,23.76,10,1,28.0,ICB,industrial,G,,Renowned nightclubs
-K14,Lindor Outpost,UTF,SC,0,0.972,4,0,27.0,UNCI,archipelago,K,,
-K15,Prime,SILK,CC,20,33.48,5,1,29.0,SSP,forest,K,(?<!Unity )\bPrime\b(?! Minister),
-K16,Donnamar,SILK,PC,1,10.8,5,0,22.0,SSP,savannah,K,,
-K17,Overflow,SILK,RC,10,29.7,11,0,13.0,UNCI,jungle,K,,
-L1,Newspeak,IND,UI,0,0.02,11,0,22.0,,forest,M,,
-L5,Mivic II,PFR,AC,4,14.3,2,1,18.0,UNCI,jungle,G,,
-L9,Kopperberget-B,CPA,JS,-1,0.11,7,1,16.0,CPA,arid,K,,
-L10,Flint Jord Outpost,CPA,PC,1,29.96,11,1,16.0,CPA,archipelago,K,,
-L11,Smooov,SILK,JS,-1,0.756,2,1,18.0,SSP,temperate,K,,
-L12,Kolar Fields,CPA,VR,15,23.54,4,0,23.0,CPA,ocean,K,,
-L18,BB-Q,SILK,JS,-1,0.324,5,1,13.0,SSP,jungle,G,,
-M2,Zedong,IND,UI,0,0.0488,8,0,17.0,,tundra,M,,
-M3,Chengdu 7,IND,UI,0,0,8,1,15.0,PLCE,temperate,G,,
-M5,Starkiller,PFR,SC,0,0.321,6,0,16.0,ICB,ocean,G,(?<!Duke )\bStarkiller\b,
-M8,Arbazan,PFR,RC,10,95.04,16,1,30.0,ICB,jungle,K,,
-M10,Horus,IND,SC,0,0,4,1,24.0,ICB,ocean,G,,
-M11,New Cornwall,CPA,CC,20,65.88,10,1,25.0,CPA,arid,M,,
-M12,Grimes Well,CPA,PC,1,0,10,0,26.0,CPA,ocean,G,,
-M13,Kimberia,CPA,SC,0,0,4,1,20.0,UEX,arid,K,,
-M14,Pankhurst,IND,UI,0,0.87846,9,0,21.0,,arid,G,,
-M15,Subprime,SILK,VR,15,37.4,10,1,28.0,ICB,archipelago,K,,
-M17,Terrenz Matheus,SILK,JS,-1,0.972,7,0,140.0,SSP,savannah,F,,
-N5,Rogan's World,PFR,AC,4,22.68,5,0,21.0,UNCI,temperate,M,,
-N6,Pelican,PFR,AC,4,29.16,5,0,25.0,ZB,temperate,K,,
-N7,Turing,PFR,CC,20,47.3,10,0,15.0,UNCI,industrial,G,,Colonial capital
-N10,Potoss-6,CPA,SC,0,0.3744144,8,2,21.0,CPA,tundra,F,,
-N12,Hades IV,CPA,AC,4,67.1,7,2,27.0,CPA,jungle,K,,
-N13,Bal-D,CPA,SC,0,8.2371168,10,0,21.0,,arid,G,,
-N14,Galaga-D,SILK,BA,2,67.1,8,0,24.0,SSP,arid,F,,
-N15,Spideros,SILK,JS,-1,0.648,10,0,17.0,SSP,ocean,G,,
-O6,New Edinburgh,PFR,AC,4,22.68,10,0,26.0,ICB,arid,G,,
-O7,Glint,PFR,VR,15,55.08,6,0,16.0,ICB,archipelago,K,,
-O8,Kinjun,PFR,PC,1,8.64,10,1,19.0,ICB,ocean,M,,
-O9,Serpentis,PFR,AC,4,34.56,6,0,10.0,ICB,temperate,G,,
-O11,Chakravaat,VCW,JS,-1,0.108,10,0,24.0,UNCI,toxic,K,,"Toxic clouds, constant acid monsoons"
-O14,Tempest Grove,VCW,AA,6,48.4,8,1,22.0,VCW,storm-ocean,F,,"Lush, stormy ocean"
-O16,Arbok,IND,SC,0,0.4945968,7,0,18.0,,archipelago,G,,
-O18,Neo Sendai,IND,JS,0,0.108,9,1,21.0,UNCI,archipelago,F,,
-O20,Crichton,IND,SC,0,0,7,1,21.0,,temperate,G,,
-P3,Thatcher,IND,SC,0,2.2674816,10,0,15.0,,ocean,K,\bThatcher\b(?! Makepeace),
-P4,Nob,IND,SC,0,0.1259712,10,1,23.0,,savannah,G,,
-P6,O'Rourke,PFR,RC,10,29.7,10,0,20.0,UNCI,temperate,G,,
-P11,Brightest Den,VCW,PC,1,9.72,9,0,25.0,VCW,scorched,M,,"People live underground, close to sun"
-P12,Kedros,VCW,CC,20,38.5,6,1,26.0,VCW,forest,G,,Forest
-P14,Barren Red,VCW,PC,1,9.72,5,0,25.0,EFC,barren,G,,Mining
-P19,Aeryn,IND,SC,0,0.7558272,6,0,25.0,,jungle,M,,
-Q1,Teal'c,IND,SC,0,1.836,5,1,22.0,,temperate,K,,
-Q9,Gont,VC,AC,4,47.3,8,0,17.0,AUR,ocean,G,,
-Q14,Vándor,VCW,VR,15,29.7,4,0,26.0,VCW,ice,K,,Space iceland
-R6,Osskil,VC,VP,0,0.256608,11,1,16.0,AUR,temperate,M,,
-R7,Earthsea,VC,VR,15,60.48,7,0,26.0,AUR,archipelago,G,,Inferred from the name only
-R8,Bajor,PFR,PC,1,8.8,7,0,2.0,ICB,forest,K,,
-R10,Frigid Spring,VCW,SC,0,3.24,5,1,22.0,VCW,tundra,K,,Barren & misty
-R11,Aeithalis,VCW,AA,6,19.44,12,1,18.0,UNCI,jungle,K,,Rainforest
-R12,Dross,IND,JS,0,0.108,3,1,24.0,VTX,temperate,G,,Large class M planet with a rich biosphere
-R15,Sakura,SNG,VP,0,6.6,2,0,17.0,SNG,temperate,G,,
-R16,Polgara,SNG,AC,4,44.28,11,1,24.0,SNG,temperate,K,,
-S2,Trotsky,IND,SC,0,0.54,8,1,18.0,RPI,jungle,G,,
-S5,Atuan,VC,BA,2,9.72,5,1,16.0,AUR,archipelago,G,,
-S7,Havnor,VC,AA,6,29.16,4,0,27.0,AUR,temperate,K,,
-S9,Hellebore,IND,JS,0,0.06,8,3,23.0,UNCI,arid,K,,
-S11,Kahawai,VCW,UI,1,0.864,4,0,25.0,VCW,archipelago,G,,Archipelagos
-S12,Moon Weaver,VCW,SC,0,2.06,12,0,26.0,VCW,temperate,G,,Lots of moons
-S13,Kahurangi,VCW,JS,-1,0,6,0,25.0,VCW,archipelago,K,,Archipelago
-S15,Osquivel,SNG,RC,10,34.56,6,0,16.0,SNG,barren,K,,Rich in rare industrial elements
-S16,Zhaan,IND,SC,0,4.1215965,5,0,27.0,,ocean,K,,
-S19,Y5,IND,SC,0,0.8817984,3,1,21.0,,barren,G,,"Barren wastes, domed colonies"
-S20,X14,IND,SC,0,0,3,1,15.0,,archipelago,F,,
-T2,Mollari,IND,SC,0,1.1,10,0,26.0,,jungle,K,,Equatorial mountainous rainforest
-T3,Urbani,IND,SC,0,0,9,1,18.0,,savannah,G,,
-T4,Selidor,VC,VP,0,0,8,0,23.0,AUR,arid,K,,
-T8,Y15,IND,SC,0,0.8309961386,9,0,18.0,,temperate,K,,
-T10,Dragon,VCW,JS,-1,0.33,9,0,23.0,VCW,volcanic,K,,Volcanic
-T15,Luna Piena,SNG,CC,20,25.92,3,0,14.0,HSC,jungle,M,,
-T19,Monokoke,IND,SC,0,0.06,4,0,23.0,ICB,temperate,K,,
-U3,BA17,IND,SC,0,1.026432,8,0,16.0,UEX,arid,G,,
-U6,Gordon,IND,JS,0,6.48,8,1,17.0,UNCI,ocean,K,,
-U13,Usagi,SNG,PC,1,9.72,10,0,26.0,SNG,tundra,K,,
-U17,Caesar,IND,SC,0,0.004,4,1,27.0,,savannah,K,,
-U19,Andor,IND,UI,0,0.0,6,0,27.0,ICB,bionid,G,,Bionid hive on the surface
-V4,Krennix,IND,SC,0,0,10,0,20.0,,jungle,G,,
-V7,Rimmer,IND,JS,0,0.77,8,0,22.0,UNCI,arid,M,,
-V10,Rakshasa-9,IND,SC,0,0.7558272,6,0,132.0,,jungle,K,,
-V11,Typhon's Maw,SNG,BA,2,9.72,7,1,24.0,SNG,industrial,G,,Host to major shipyards
-V13,Morana,SNG,UI,0,0.054,2,1,13.0,SNG,ice,K,,"Undergoing magnetic pole shift, ice age"
-V16,Cubone,IND,SC,0,9.8257536,4,0,21.0,,archipelago,K,,
-W1,Klendathu,IND,SC,0,0.0847,4,1,15.0,,arid,G,,Bionid-scarred; spore removal completed
-W2,Markab,IND,JS,0,0.972,11,2,21.0,ICB,temperate,K,,
-W5,Kryten,IND,SC,0,0.1089,4,2,23.0,,archipelago,K,,
-W9,Z'ha'dum,IND,SC,0,0.121,4,1,15.0,,savannah,K,,
-W17,Shire,IND,SC,0,0,3,1,24.0,,forest,G,,
+hex,system,control,grade,sv,population_m,planets,belts,m25_au,mp,founder,planet_type,star_type,gnn_terms,planet_note
+A13,Refuge,SKC,AC,4,0.108,3,1,10.0,2,ICB,archipelago,K,,
+B2,New Berlin,IND,PC,1,1.6,9,1,16.0,2,,temperate,K,,
+B6,Thermidor,LGR,AA,6,29.16,11,1,22.0,2,IOL,tundra,K,,
+B7,Morbis,IND,JS,0,0.069336,12,0,25.0,2,ICB,jungle,F,,
+B9,Assembly,LGR,AC,4,0,6,0,26.0,2,HI,archipelago,M,(?<!Concordant )\bAssembly\b(?! of Systematic| passed),
+B14,Y6,IND,SC,0,1.026432,6,0,16.0,2,,jungle,M,,Faction sheet (appearance only)
+B16,Chiana,IND,SC,0,3.9051072,10,2,20.0,2,ZB,alpine,G,,Faction sheet (appearance only)
+C2,Khornish,IND,SC,0,0,3,1,22.0,2,,savannah,G,,
+C5,Unison,LGR,PC,1,3.24,9,0,18.0,2,HI,arid,G,,
+C7,Reason,LGR,CC,20,57.24,10,0,21.0,2,ICB,jungle,G,(?<!Altars of )\bReason\b,
+C9,Mankey,IND,UI,0,0,9,0,27.0,2,,arid,K,,Rich arid ecosystem
+C10,Kroot,IND,JS,0,0.3709476,5,1,20.0,2,ICB,savannah,K,,"Class M, multiple continents of savannah"
+C11,Edict,SKC,JS,-1,0.0432,3,0,11.0,2,NLA,arid,G,,
+C12,Ur-Lucent,SKC,SC,0,0.14641,8,0,26.0,2,,barren,G,,Faction sheet (appearance only)
+C16,Journey's End,SKC,SC,0,0.77,5,1,18.0,2,TY,forest,K,,
+C18,Pendragon,IND,SC,0,1.69884,7,0,27.0,2,UNCI,temperate,K,,
+C20,Drazi,IND,SC,0,0.242,8,0,20.0,2,,forest,M,,
+D2,Durruti,IND,SC,0,1.889568,6,2,16.0,2,UNCI,arid,G,,
+D4,Consensus,LGR,JS,0,0.66,7,1,29.0,1,HI,savannah,G,,
+D6,Unity,LGR,PC,1,8.64,8,0,21.0,2,ICB,temperate,G,\bUnity colony\b|\bworld of Unity\b,
+D13,Epiphany,SKC,RC,10,23.69,4,0,6.0,2,UNCI,archipelago,G,,
+D14,First Honesty,SKC,PC,1,6.48,4,0,15.0,2,JKA,temperate,F,,
+D17,Harper's Station,IND,PC,1,1.6,11,0,27.0,2,,forest,K,,
+E2,Amity Station,LGR,SC,0,2.16,9,0,15.0,1,HI,temperate,K,,
+E3,Riker II,IND,SC,0,1.62,5,1,17.0,2,ICB,savannah,G,,
+E5,Nominar Secundus,ASE,JS,-1,0.0432,10,0,15.0,2,ASI,tundra,K,,
+E7,Consent,LGR,PC,1,0.108,5,1,26.0,2,ICB,jungle,M,,
+E8,T'akshama,ASE,PC,1,9.9,7,0,23.0,2,ASI,jungle,G,,
+E9,Sanctuaria,ASE,AC,4,33.48,5,0,27.0,2,ICB,arid,G,,
+E11,Tiber,UTF,AC,4,28.08,3,1,9.0,2,ICB,temperate,F,,
+E13,Sirx Siricius,SKC,AC,4,12.96,4,0,15.0,2,ICB,temperate,G,,
+E14,Sirx Soter,SKC,RC,10,49.5,8,0,9.0,2,IMEX,forest,K,,
+E16,Venta,IND,SC,0,2.65,6,1,21.0,2,ICB,savannah,K,,Faction sheet (appearance only)
+E18,Ladle,AFCO,RC,10,45.1,7,0,22.0,1,UNCI,arid,G,,
+F4,Pheervaska,ASE,UI,0,0.054,10,1,16.0,5,ASI,forest,M,,
+F5,Gloriana,ASE,CC,20,47.3,12,0,18.0,1,ASI,industrial,G,,Faction sheet (appearance only)
+F6,Luminaris,ASE,PC,1,8.64,4,1,22.0,2,ICB,jungle,M,,
+F10,Æsveera,ASE,VR,15,55,1,1,18.0,2,UNCI,desert,B,,Faction sheet (appearance only)
+F11,Big,UTF,AC,4,23.1,6,1,20.0,2,ICB,jungle,K,,
+F15,Tumber,IND,JS,0,0.54,6,1,17.0,2,UNCI,tundra,M,,
+F17,Force Six,AFCO,RC,10,64.8,9,1,19.0,1,ICB,arid,K,,
+G3,Shalkarol,ASE,JS,-1,0.54,4,1,16.0,2,ASI,archipelago,K,,
+G6,Novara,IND,SC,0,1.08,9,1,19.0,2,,arid,G,,
+G7,Epigreia,ASE,PC,1,9.63,9,0,22.0,1,ASI,arid,G,,
+G8,Sacramentis,ASE,AC,4,26.78,5,1,21.0,2,ICB,temperate,F,,
+G11,Fodder,UTF,VR,15,22.68,4,0,21.0,2,ICB,forest,G,,
+G13,Warden,AFCO,VP,0,5.5,7,0,28.0,2,AFCO,archipelago,K,,
+G14,Semak IV,UTF,AC,4,28.89,6,1,10.0,2,ICB,jungle,G,,
+G19,Nausicaa,IND,JS,0,0,3,1,27.0,2,ICB,jungle,K,,
+G20,Hand of God,IND,UI,0,0.29282,6,1,26.0,1,MSI,temperate,K,,
+H3,Celestalis,ASE,JS,-1,0.256608,8,0,25.0,1,ASI,jungle,G,,
+H6,Skaro,ASE,SC,0,0.05,8,2,120.0,5,AI,ocean-rocky,F,\bSkaro\b(?! Pact),"Rocky world with a large ocean, inside the Bramble Patch Nebula (James)"
+H7,Temidura,ASE,PC,1,8.64,6,1,24.0,2,ICB,arid,G,,
+H9,O'Neill,IND,SC,0,0.1452,5,1,25.0,2,VTX,archipelago,K,,
+H11,Hence,UTF,AC,4,47.3,9,1,16.0,2,ICB,ocean,G,,
+H12,Thork,UTF,RC,10,19.57,2,1,13.0,2,UNCI,temperate,F,,
+H13,Perik,UTF,PC,1,7.56,11,1,25.0,2,UNCI,temperate,G,,
+H15,Voluptus,SILK,UI,0,0.214,11,1,22.0,2,SSP,arid,G,,
+H17,Dalek,AFCO,RC,10,54,6,1,19.0,2,AFCO,savannah,G,,
+H18,Meero,IND,JS,0,0.11,6,1,29.0,2,UNCI,jungle,K,,
+H19,,,,,,,,,,,,K,,Star marker on the Turn 9 map with no record
+I1,Garibaldi,IND,SC,0,3.9051072,7,1,20.0,1,UNCI,ocean,F,,
+I3,New Slough,IND,JS,0,0.33,10,0,18.0,2,UNCI,archipelago,K,,
+I10,Nord,UTF,RC,10,23.76,10,1,18.0,2,LKX,forest,K,,
+I11,Felgor,UTF,CC,20,47.52,10,0,28.0,2,ICB,archipelago,G,,
+I12,Belstaff,UTF,RC,10,24.2,6,0,21.0,2,UNCI,tundra,G,,
+I16,Foobusant,SILK,PC,1,7.56,3,1,11.0,1,ICB,archipelago,K,,
+I17,Squideen,SILK,SC,0,0.66,4,1,17.0,2,SSP,savannah,G,,
+J7,New Devon,CPA,AC,4,0.324,4,3,23.0,2,CPA,arid,F,,
+J8,Parliament,UNITY 5,SC,0,0,2,1,17.0,2,,arid,K,(?:planet of|above|over|on|orbiting) Parliament\b,"Unity 5 orbital station above an arid world, as in the station image"
+J10,Rigel,UTF,PC,1,8.8,7,0,17.0,2,UNCI,tundra,M,\bRigel\b(?! Mosley),
+J13,Bix,IND,SC,0,0,4,1,21.0,2,ICB,savannah,M,,
+J14,Sbreenar,SILK,AC,4,11.33,1,0,21.0,2,SSP,temperate,K,,
+J18,Snog,IND,SC,0,5.038848,10,0,16.0,2,,tundra,M,,
+K4,Re'kateera,ASE,PC,1,9.9,10,1,27.0,2,ASI,temperate,K,,
+K5,Sigmaris,ASE,SC,0,6.48,6,1,24.0,2,ASI,savannah,F,,
+K7,Gosnell,IND,JS,0,0.535,9,0,19.0,2,UNCI,arid,G,,
+K8,Sheridan,PFR,AC,4,33.48,10,1,27.0,2,UNCI,forest,G,,
+K9,Isen,IND,SC,0,0.256608,10,3,23.0,2,ZPA,temperate,F,,
+K10,,,,,,,,,,,,M,,Star marker on the Turn 9 map with no record
+K12,Crashdump,SILK,AC,4,23.76,10,1,28.0,1,ICB,industrial,G,,Renowned nightclubs
+K14,Lindor Outpost,UTF,SC,0,0.972,4,0,27.0,2,UNCI,archipelago,K,,
+K15,Prime,SILK,CC,20,33.48,5,1,29.0,2,SSP,forest,K,(?<!Unity )\bPrime\b(?! Minister),
+K16,Donnamar,SILK,PC,1,10.8,5,0,22.0,2,SSP,savannah,K,,
+K17,Overflow,SILK,RC,10,29.7,11,0,13.0,2,UNCI,jungle,K,,
+L1,Newspeak,IND,UI,0,0.02,11,0,22.0,2,,forest,M,,
+L5,Mivic II,PFR,AC,4,14.3,2,1,18.0,2,UNCI,jungle,G,,
+L9,Kopperberget-B,CPA,JS,-1,0.11,7,1,16.0,1,CPA,arid,K,,
+L10,Flint Jord Outpost,CPA,PC,1,29.96,11,1,16.0,2,CPA,archipelago,K,,
+L11,Smooov,SILK,JS,-1,0.756,2,1,18.0,2,SSP,temperate,K,,
+L12,Kolar Fields,CPA,VR,15,23.54,4,0,23.0,2,CPA,ocean,K,,
+L18,BB-Q,SILK,JS,-1,0.324,5,1,13.0,2,SSP,jungle,G,,
+M2,Zedong,IND,UI,0,0.0488,8,0,17.0,2,,tundra,M,,
+M3,Chengdu 7,IND,UI,0,0,8,1,15.0,2,PLCE,temperate,G,,
+M5,Starkiller,PFR,SC,0,0.321,6,0,16.0,2,ICB,ocean,G,(?<!Duke )\bStarkiller\b,
+M8,Arbazan,PFR,RC,10,95.04,16,1,30.0,2,ICB,jungle,K,,
+M10,Horus,IND,SC,0,0,4,1,24.0,2,ICB,ocean,G,,
+M11,New Cornwall,CPA,CC,20,65.88,10,1,25.0,2,CPA,arid,M,,
+M12,Grimes Well,CPA,PC,1,0,10,0,26.0,1,CPA,ocean,G,,
+M13,Kimberia,CPA,SC,0,0,4,1,20.0,2,UEX,arid,K,,
+M14,Pankhurst,IND,UI,0,0.87846,9,0,21.0,2,,arid,G,,
+M15,Subprime,SILK,VR,15,37.4,10,1,28.0,2,ICB,archipelago,K,,
+M17,Terrenz Matheus,SILK,JS,-1,0.972,7,0,140.0,2,SSP,savannah,F,,
+N5,Rogan's World,PFR,AC,4,22.68,5,0,21.0,2,UNCI,temperate,M,,
+N6,Pelican,PFR,AC,4,29.16,5,0,25.0,2,ZB,temperate,K,,
+N7,Turing,PFR,CC,20,47.3,10,0,15.0,2,UNCI,industrial,G,,Colonial capital
+N10,Potoss-6,CPA,SC,0,0.3744144,8,2,21.0,2,CPA,tundra,F,,
+N12,Hades IV,CPA,AC,4,67.1,7,2,27.0,2,CPA,jungle,K,,
+N13,Bal-D,CPA,SC,0,8.2371168,10,0,21.0,1,,arid,G,,
+N14,Galaga-D,SILK,BA,2,67.1,8,0,24.0,2,SSP,arid,F,,
+N15,Spideros,SILK,JS,-1,0.648,10,0,17.0,2,SSP,ocean,G,,
+O6,New Edinburgh,PFR,AC,4,22.68,10,0,26.0,2,ICB,arid,G,,
+O7,Glint,PFR,VR,15,55.08,6,0,16.0,2,ICB,archipelago,K,,
+O8,Kinjun,PFR,PC,1,8.64,10,1,19.0,2,ICB,ocean,M,,
+O9,Serpentis,PFR,AC,4,34.56,6,0,10.0,2,ICB,temperate,G,,
+O11,Chakravaat,VCW,JS,-1,0.108,10,0,24.0,2,UNCI,toxic,K,,"Toxic clouds, constant acid monsoons"
+O14,Tempest Grove,VCW,AA,6,48.4,8,1,22.0,2,VCW,storm-ocean,F,,"Lush, stormy ocean"
+O16,Arbok,IND,SC,0,0.4945968,7,0,18.0,1,,archipelago,G,,
+O18,Neo Sendai,IND,JS,0,0.108,9,1,21.0,2,UNCI,archipelago,F,,
+O20,Crichton,IND,SC,0,0,7,1,21.0,2,,temperate,G,,
+P3,Thatcher,IND,SC,0,2.2674816,10,0,15.0,2,,ocean,K,\bThatcher\b(?! Makepeace),
+P4,Nob,IND,SC,0,0.1259712,10,1,23.0,2,,savannah,G,,
+P6,O'Rourke,PFR,RC,10,29.7,10,0,20.0,2,UNCI,temperate,G,,
+P11,Brightest Den,VCW,PC,1,9.72,9,0,25.0,1,VCW,scorched,M,,"People live underground, close to sun"
+P12,Kedros,VCW,CC,20,38.5,6,1,26.0,2,VCW,forest,G,,Forest
+P14,Barren Red,VCW,PC,1,9.72,5,0,25.0,2,EFC,barren,G,,Mining
+P19,Aeryn,IND,SC,0,0.7558272,6,0,25.0,2,,jungle,M,,
+Q1,Teal'c,IND,SC,0,1.836,5,1,22.0,2,,temperate,K,,
+Q9,Gont,VC,AC,4,47.3,8,0,17.0,2,AUR,ocean,G,,
+Q14,Vándor,VCW,VR,15,29.7,4,0,26.0,2,VCW,ice,K,,Space iceland
+R6,Osskil,VC,VP,0,0.256608,11,1,16.0,2,AUR,temperate,M,,
+R7,Earthsea,VC,VR,15,60.48,7,0,26.0,2,AUR,archipelago,G,,Inferred from the name only
+R8,Bajor,PFR,PC,1,8.8,7,0,2.0,2,ICB,forest,K,,
+R10,Frigid Spring,VCW,SC,0,3.24,5,1,22.0,2,VCW,tundra,K,,Barren & misty
+R11,Aeithalis,VCW,AA,6,19.44,12,1,18.0,2,UNCI,jungle,K,,Rainforest
+R12,Dross,IND,JS,0,0.108,3,1,24.0,2,VTX,temperate,G,,Large class M planet with a rich biosphere
+R15,Sakura,SNG,VP,0,6.6,2,0,17.0,2,SNG,temperate,G,,
+R16,Polgara,SNG,AC,4,44.28,11,1,24.0,1,SNG,temperate,K,,
+S2,Trotsky,IND,SC,0,0.54,8,1,18.0,2,RPI,jungle,G,,
+S5,Atuan,VC,BA,2,9.72,5,1,16.0,1,AUR,archipelago,G,,
+S7,Havnor,VC,AA,6,29.16,4,0,27.0,2,AUR,temperate,K,,
+S9,Hellebore,IND,JS,0,0.06,8,3,23.0,2,UNCI,arid,K,,
+S11,Kahawai,VCW,UI,1,0.864,4,0,25.0,2,VCW,archipelago,G,,Archipelagos
+S12,Moon Weaver,VCW,SC,0,2.06,12,0,26.0,1,VCW,temperate,G,,Lots of moons
+S13,Kahurangi,VCW,JS,-1,0,6,0,25.0,2,VCW,archipelago,K,,Archipelago
+S15,Osquivel,SNG,RC,10,34.56,6,0,16.0,1,SNG,barren,K,,Rich in rare industrial elements
+S16,Zhaan,IND,SC,0,4.1215965,5,0,27.0,2,,ocean,K,,
+S19,Y5,IND,SC,0,0.8817984,3,1,21.0,2,,barren,G,,"Barren wastes, domed colonies"
+S20,X14,IND,SC,0,0,3,1,15.0,2,,archipelago,F,,
+T2,Mollari,IND,SC,0,1.1,10,0,26.0,2,,jungle,K,,Equatorial mountainous rainforest
+T3,Urbani,IND,SC,0,0,9,1,18.0,2,,savannah,G,,
+T4,Selidor,VC,VP,0,0,8,0,23.0,2,AUR,arid,K,,
+T8,Y15,IND,SC,0,0.8309961386,9,0,18.0,2,,temperate,K,,
+T10,Dragon,VCW,JS,-1,0.33,9,0,23.0,2,VCW,volcanic,K,,Volcanic
+T15,Luna Piena,SNG,CC,20,25.92,3,0,14.0,2,HSC,jungle,M,,
+T19,Monokoke,IND,SC,0,0.06,4,0,23.0,2,ICB,temperate,K,,
+U3,BA17,IND,SC,0,1.026432,8,0,16.0,2,UEX,arid,G,,
+U6,Gordon,IND,JS,0,6.48,8,1,17.0,2,UNCI,ocean,K,,
+U13,Usagi,SNG,PC,1,9.72,10,0,26.0,2,SNG,tundra,K,,
+U17,Caesar,IND,SC,0,0.004,4,1,27.0,2,,savannah,K,,
+U19,Andor,IND,UI,0,0.0,6,0,27.0,2,ICB,bionid,G,,Bionid hive on the surface
+V4,Krennix,IND,SC,0,0,10,0,20.0,2,,jungle,G,,
+V7,Rimmer,IND,JS,0,0.77,8,0,22.0,2,UNCI,arid,M,,
+V10,Rakshasa-9,IND,SC,0,0.7558272,6,0,132.0,2,,jungle,K,,
+V11,Typhon's Maw,SNG,BA,2,9.72,7,1,24.0,2,SNG,industrial,G,,Host to major shipyards
+V13,Morana,SNG,UI,0,0.054,2,1,13.0,2,SNG,ice,K,,"Undergoing magnetic pole shift, ice age"
+V16,Cubone,IND,SC,0,9.8257536,4,0,21.0,2,,archipelago,K,,
+W1,Klendathu,IND,SC,0,0.0847,4,1,15.0,2,,arid,G,,Bionid-scarred; spore removal completed
+W2,Markab,IND,JS,0,0.972,11,2,21.0,2,ICB,temperate,K,,
+W5,Kryten,IND,SC,0,0.1089,4,2,23.0,2,,archipelago,K,,
+W9,Z'ha'dum,IND,SC,0,0.121,4,1,15.0,2,,savannah,K,,
+W17,Shire,IND,SC,0,0,3,1,24.0,2,,forest,G,,

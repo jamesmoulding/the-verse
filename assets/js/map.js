@@ -252,7 +252,7 @@ systems.forEach((s) => {
   const el = document.createElement("div");
   el.className = "map-label" + (unrecorded ? " unrecorded" : "");
   el.textContent = s.system || s.hex;
-  el.addEventListener("click", () => select(s));
+  el.addEventListener("click", () => onSystemClick(s));
   const lab = new CSS2DObject(el); lab.position.set(0, st.size * 0.42 + 0.15, 0); group.add(lab);
   s.label = el; labelObjects.push({ s, el });
 });
@@ -330,7 +330,7 @@ canvas.addEventListener("pointerup", (ev) => {
   const moved = Math.hypot(ev.clientX - downAt[0], ev.clientY - downAt[1]);
   downAt = null;
   if (moved > 6) return;
-  const s = pick(ev); if (s) select(s);
+  const s = pick(ev); if (s) onSystemClick(s);
 });
 
 // ---------------------------------------------------------------- camera flights
@@ -841,7 +841,9 @@ async function renderPanel(s) {
       ${row("Asteroid belts", s.belts !== "" ? esc(s.belts) : "Not recorded")}
       ${row("M25 limit", s.m25_au !== "" ? esc(parseFloat(s.m25_au)) + " AU" : "Not recorded")}
       ${row("Colonised by", s.founder ? (f ? `${esc(f)} (${esc(s.founder)})` : esc(s.founder)) : "Not recorded")}
+      ${row("Enter or leave", `${systemMP(s)} MP (${systemMP(s) * DAYS_PER_MP} days)${systemMP(s) === 5 ? ", Deep Gravity Well" : ""}`)}
     </dl>
+    ${forcesHTML(s)}
     ${descriptions[s.system] ? `<h3>Description</h3><p class="map-desc">${esc(descriptions[s.system])}</p>` : ""}
     <h3>In the GNN</h3><div id="map-gnn"><p class="muted">Loading…</p></div>
     <h3>Adjacent systems</h3>
@@ -921,6 +923,205 @@ async function backToMap() {
 document.getElementById("map-back").addEventListener("click", backToMap);
 window.addEventListener("keydown", (e) => { if (e.key === "Escape") backToMap(); });
 
+// ---------------------------------------------------------------- movement rules (Game Guide)
+// 20 movement points per 100-day turn. 1 MP = one 5-parsec hex in hyperspace = 5 days.
+// Entering or leaving a system costs its MP (usually 2; 5 for a Deep Gravity Well; some 1).
+// Messages travel at 2 parsecs a day: 2.5 days per hex.
+const MP_PER_TURN = 20, DAYS_PER_MP = 5, MSG_DAYS_PER_HEX = 2.5;
+function cube(code) { const { c, r } = parseHex(code); const z = r - (c - (c & 1)) / 2; return { x: c, z, y: -c - z }; }
+function hexDistance(a, b) { const p = cube(a), q = cube(b); return Math.max(Math.abs(p.x - q.x), Math.abs(p.y - q.y), Math.abs(p.z - q.z)); }
+function systemMP(s) { const v = parseInt(s.mp, 10); return v === 1 || v === 2 || v === 5 ? v : 2; }
+function legCost(a, b) {
+  const hexes = hexDistance(a.hex, b.hex), leave = systemMP(a), enter = systemMP(b);
+  const mp = leave + hexes + enter;
+  return { a, b, hexes, leave, enter, mp, days: mp * DAYS_PER_MP, msg: hexes * MSG_DAYS_PER_HEX, ok: mp <= MP_PER_TURN };
+}
+
+// ---------------------------------------------------------------- fleets and squadrons
+// Only units marked public, not running silent, based at a system (not in hyperspace, under
+// repair or under construction) appear. Each unit shows its latest recorded turn.
+const unitRows = (() => {
+  const raw = RAW.units || [];
+  if (!raw.length) return [];
+  const [h, ...rs] = raw;
+  return rs.filter((r) => r.length >= h.length - 1).map((r) => Object.fromEntries(h.map((k, i) => [k, (r[i] ?? "").trim()])));
+})();
+const yes = (v) => /^(y|yes|true|1)$/i.test(v || "");
+function resolveSystem(v) {
+  if (!v) return null;
+  return byHex.get(v.toUpperCase()) || systems.find((s) => s.system.toLowerCase() === v.toLowerCase()) || null;
+}
+const unitHistory = new Map(); // faction|name -> rows by turn
+unitRows.forEach((u) => {
+  if (!yes(u.public) || yes(u.silent)) return;
+  const key = u.faction + "|" + u.name;
+  if (!unitHistory.has(key)) unitHistory.set(key, []);
+  unitHistory.get(key).push({ ...u, turnN: parseInt(u.turn, 10) || 0, sys: resolveSystem(u.system) });
+});
+unitHistory.forEach((rows) => rows.sort((a, b) => a.turnN - b.turnN));
+const unitsAt = new Map(); // hex -> latest visible units there
+unitHistory.forEach((rows) => {
+  const last = rows[rows.length - 1];
+  if (last.status === "based" && last.sys) {
+    if (!unitsAt.has(last.sys.hex)) unitsAt.set(last.sys.hex, []);
+    unitsAt.get(last.sys.hex).push(last);
+  }
+});
+
+function unitIcon(category, colour) {
+  const c = document.createElement("canvas"); c.width = c.height = 64;
+  const g = c.getContext("2d");
+  g.fillStyle = colour || "#cfd6e6"; g.strokeStyle = "rgba(0,0,0,0.85)"; g.lineWidth = 5;
+  g.beginPath();
+  if (category === "ground") g.rect(14, 14, 36, 36);                       // division: square counter
+  else if (category === "bionid") { g.arc(32, 32, 20, 0, Math.PI * 2); }   // hive fleet: disc
+  else { g.moveTo(32, 8); g.lineTo(56, 52); g.lineTo(32, 42); g.lineTo(8, 52); g.closePath(); } // squadron: arrowhead
+  g.stroke(); g.fill();
+  if (category === "bionid") { g.fillStyle = "#1a0718"; g.font = "bold 28px system-ui"; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText("☣", 32, 34); }
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+const unitTokens = new THREE.Group(); mapScene.add(unitTokens);
+unitsAt.forEach((units, hex) => {
+  const s = byHex.get(hex); if (!s) return;
+  units.forEach((u, i) => {
+    const f = factions[u.faction];
+    const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: unitIcon(u.category, f && f.colour), depthWrite: false, transparent: true }));
+    const a = -0.6 + i * 0.55;
+    sp.position.copy(s.pos).add(new THREE.Vector3(0.62 * Math.cos(a), 0.35 + 0.18 * Math.sin(a) + (i > 3 ? 0.3 : 0), 0.62 * Math.sin(a) * 0.4));
+    sp.scale.setScalar(0.34);
+    sp.userData.system = s;
+    unitTokens.add(sp); pickables.push(sp);
+  });
+});
+
+function forcesHTML(s) {
+  const units = unitsAt.get(s.hex);
+  if (!units || !units.length) return "";
+  const turn = Math.max(...units.map((u) => u.turnN));
+  return `<h3>Forces present</h3><ul class="map-forces">${units.map((u) => {
+    const f = factions[u.faction];
+    const cls = u.unit_class || (u.category === "ground" ? "Ground force" : u.category === "bionid" ? "Hive fleet" : "Space force");
+    return `<li><span class="swatch" style="background:${(f && f.colour) || "transparent"}"></span><strong>${esc(u.name)}</strong> <span class="muted">${esc(cls)} · ${esc(u.faction)}</span></li>`;
+  }).join("")}</ul><p class="muted small">As at Turn ${turn}.</p>`;
+}
+
+// Movement trails: a curved line for each move between recorded turns.
+const trailGroup = new THREE.Group(); trailGroup.visible = false; mapScene.add(trailGroup);
+unitHistory.forEach((rows) => {
+  const stops = rows.filter((r) => r.status === "based" && r.sys);
+  for (let i = 1; i < stops.length; i++) {
+    const a = stops[i - 1].sys, b = stops[i].sys; if (a === b) continue;
+    const f = factions[stops[i].faction];
+    const mid = a.pos.clone().add(b.pos).multiplyScalar(0.5); mid.y += 0.6 + a.pos.distanceTo(b.pos) * 0.12;
+    const curve = new THREE.QuadraticBezierCurve3(a.pos.clone(), mid, b.pos.clone());
+    const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(curve.getPoints(40)),
+      new THREE.LineDashedMaterial({ color: (f && f.colour) || "#cfd6e6", dashSize: 0.25, gapSize: 0.14, transparent: true, opacity: 0.9 }));
+    line.computeLineDistances(); trailGroup.add(line);
+    const head = new THREE.Mesh(new THREE.ConeGeometry(0.09, 0.26, 10), new THREE.MeshBasicMaterial({ color: (f && f.colour) || "#cfd6e6" }));
+    const p = curve.getPoint(0.94), q = curve.getPoint(1);
+    head.position.copy(p); head.lookAt(q); head.rotateX(Math.PI / 2); trailGroup.add(head);
+  }
+});
+const trailsBtn = document.getElementById("map-trails");
+trailsBtn.addEventListener("click", () => { trailGroup.visible = !trailGroup.visible; trailsBtn.setAttribute("aria-pressed", String(trailGroup.visible)); });
+
+// ---------------------------------------------------------------- distance tools
+let toolMode = null; // "measure" | "range" | null
+let route = [];
+const tool = document.getElementById("map-tool"), toolBody = document.getElementById("map-tool-body");
+const measureBtn = document.getElementById("map-measure"), rangeBtn = document.getElementById("map-range");
+const routeGroup = new THREE.Group(); mapScene.add(routeGroup);
+let rangePlane = null;
+
+function onSystemClick(s) {
+  if (toolMode && s.system) { toolClick(s); return; }
+  select(s);
+}
+function setTool(m) {
+  toolMode = toolMode === m ? null : m;
+  measureBtn.setAttribute("aria-pressed", String(toolMode === "measure"));
+  rangeBtn.setAttribute("aria-pressed", String(toolMode === "range"));
+  app.classList.toggle("tooling", !!toolMode);
+  if (toolMode !== "range") clearRange();
+  if (toolMode !== "measure") { route = []; drawRoute(); }
+  tool.hidden = !toolMode;
+  renderTool();
+}
+measureBtn.addEventListener("click", () => setTool("measure"));
+rangeBtn.addEventListener("click", () => setTool("range"));
+function toolClick(s) {
+  if (toolMode === "measure") { if (route[route.length - 1] !== s) route.push(s); drawRoute(); renderTool(); }
+  else if (toolMode === "range") { showRange(s); renderTool(s); }
+}
+
+function drawRoute() {
+  routeGroup.clear();
+  route.forEach((s, i) => {
+    const ring = new THREE.Mesh(new THREE.RingGeometry(0.42, 0.52, 32), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.9, side: THREE.DoubleSide, depthWrite: false }));
+    ring.rotation.x = -Math.PI / 2; const { x, z } = hexXZ(s.hex); ring.position.set(x, 0.03, z); routeGroup.add(ring);
+    if (i === 0) return;
+    const a = route[i - 1], leg = legCost(a, s);
+    const p = hexXZ(a.hex), q = hexXZ(s.hex);
+    const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(p.x, 0.04, p.z), new THREE.Vector3(q.x, 0.04, q.z)]),
+      new THREE.LineDashedMaterial({ color: leg.ok ? 0xffffff : 0xff9a3c, dashSize: 0.35, gapSize: 0.18 }));
+    line.computeLineDistances(); routeGroup.add(line);
+  });
+  const codes = route.map((s) => s.hex).join(",");
+  history.replaceState(null, "", route.length ? "#route=" + codes : location.pathname);
+}
+
+function renderTool(origin) {
+  if (!toolMode) return;
+  if (toolMode === "measure") {
+    if (!route.length) { toolBody.innerHTML = "<p>Click a star to start a route, then click each stop in turn.</p>"; return; }
+    let total = 0, msg = 0;
+    const legs = route.slice(1).map((s, i) => legCost(route[i], s));
+    toolBody.innerHTML = `<p class="route-stops">${route.map((s) => esc(s.system)).join(" → ")}</p>` +
+      (legs.length ? `<ol class="route-legs">${legs.map((l) => { total += l.days; msg += l.msg; return `<li class="${l.ok ? "" : "over"}">
+        <strong>${esc(l.a.system)} → ${esc(l.b.system)}</strong><br>
+        leave ${l.leave} MP + ${l.hexes} hex${l.hexes === 1 ? "" : "es"} + enter ${l.enter} MP = <b>${l.mp} MP, ${l.days} days</b>
+        ${l.ok ? "" : `<br><span class="warn">Over the 100-day limit for one turn</span>`}
+        <br><span class="muted">Message: ${l.msg} days</span></li>`; }).join("")}</ol>
+        <p><b>Total: ${total} days</b> <span class="muted">(${(total / 100).toFixed(2)} turns) · messages ${msg} days</span></p>` : "<p>Now click the next stop.</p>") +
+      `<p class="tool-actions"><button type="button" id="route-undo">Undo stop</button> <button type="button" id="route-clear">Clear</button> <button type="button" id="route-copy">Copy link</button></p>`;
+    document.getElementById("route-undo").onclick = () => { route.pop(); drawRoute(); renderTool(); };
+    document.getElementById("route-clear").onclick = () => { route = []; drawRoute(); renderTool(); };
+    document.getElementById("route-copy").onclick = (e) => { navigator.clipboard && navigator.clipboard.writeText(location.href); e.target.textContent = "Link copied"; };
+  } else {
+    toolBody.innerHTML = origin
+      ? `<p><b>Reach from ${esc(origin.system)}</b> in one turn (leaving costs ${systemMP(origin)} MP).</p>
+         <ul class="range-key"><li><span class="band b1"></span>Arrive within 25 days</li><li><span class="band b2"></span>50 days</li><li><span class="band b3"></span>75 days</li><li><span class="band b4"></span>100 days</li><li><span class="band hyper"></span>Reachable in hyperspace, no arrival this turn</li></ul>
+         <p class="muted">Arrival means reaching the colony world, so each system's entry cost is included.</p>`
+      : "<p>Click a star to see where a unit based there can reach in one turn.</p>";
+  }
+}
+
+function clearRange() { if (rangePlane) { mapScene.remove(rangePlane); rangePlane.material.map.dispose(); rangePlane = null; } }
+function showRange(origin) {
+  clearRange();
+  const c = document.createElement("canvas"); c.width = Math.ceil(W * 48); c.height = Math.ceil(H * 48);
+  const g = c.getContext("2d"), P = 48;
+  const toPx = (x, z) => [(x - minX) * P, (z - minZ) * P];
+  const leave = systemMP(origin);
+  // Orange lightness ramp: brighter means sooner.
+  const band = (days) => days <= 25 ? "rgba(255,154,60,0.62)" : days <= 50 ? "rgba(255,154,60,0.44)" : days <= 75 ? "rgba(255,154,60,0.28)" : "rgba(255,154,60,0.16)";
+  for (let col = 0; col < COLS; col++) for (let row = 1; row <= ROWS; row++) {
+    const code = hexCode(col, row), d = hexDistance(origin.hex, code), s = byHex.get(code);
+    const { x, z } = hexXZ(code);
+    const pts = Array.from({ length: 6 }, (_, k) => toPx(x + 0.94 * Math.cos((Math.PI / 3) * k), z + 0.94 * Math.sin((Math.PI / 3) * k)));
+    g.beginPath(); pts.forEach(([px, pz], i) => (i ? g.lineTo(px, pz) : g.moveTo(px, pz))); g.closePath();
+    if (s && s.system && s !== origin) {
+      const mp = leave + d + systemMP(s);
+      if (mp <= MP_PER_TURN) { g.fillStyle = band(mp * DAYS_PER_MP); g.fill(); continue; }
+    }
+    if (leave + d <= MP_PER_TURN && s !== origin) { g.strokeStyle = "rgba(255,154,60,0.35)"; g.lineWidth = 2; g.setLineDash([5, 5]); g.stroke(); g.setLineDash([]); }
+  }
+  const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace;
+  rangePlane = new THREE.Mesh(new THREE.PlaneGeometry(W, H), new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false }));
+  rangePlane.rotation.x = -Math.PI / 2; rangePlane.position.set(minX + W / 2, 0.02, minZ + H / 2);
+  mapScene.add(rangePlane);
+}
+
 // ---------------------------------------------------------------- toolbar and key
 const list = document.getElementById("map-system-list");
 systems.filter((s) => s.system).sort((a, b) => a.system.localeCompare(b.system)).forEach((s) => {
@@ -990,6 +1191,8 @@ function frame() {
       s.glow.scale.setScalar(s.baseScale * near * (1 + 0.05 * Math.sin(t * 1.7 + s.twinkle)));
     });
     if (hazard) hazard.material.opacity = 0.75 + 0.25 * Math.sin(t * 2.4);
+    // Fleet tokens keep a readable size on screen however far out the camera is.
+    unitTokens.children.forEach((sp) => sp.scale.setScalar(Math.max(0.34, camera.position.distanceTo(sp.position) * 0.024)));
     updateLabels(camera);
     renderer.render(mapScene, camera);
     labelRenderer.domElement.style.visibility = "visible";
@@ -1001,6 +1204,9 @@ function frame() {
 resize();
 frame();
 
-// Open a system named in the address, e.g. /map/#H6.
+// Open a system named in the address (/map/#H6) or a shared route (/map/#route=E18,H6,J8).
 const startHex = decodeURIComponent(location.hash.slice(1));
-if (startHex && byHex.get(startHex)) setTimeout(() => select(byHex.get(startHex)), 400);
+if (startHex.startsWith("route=")) {
+  const stops = startHex.slice(6).split(",").map((h) => byHex.get(h.trim().toUpperCase())).filter((s) => s && s.system);
+  if (stops.length) { setTool("measure"); route = stops; drawRoute(); renderTool(); }
+} else if (startHex && byHex.get(startHex)) setTimeout(() => select(byHex.get(startHex)), 400);
