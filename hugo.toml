@@ -50,3 +50,7 @@ disableKinds = ["taxonomy", "term", "RSS"]
     name = "Library"
     pageRef = "/library"
     weight = 5
+  [[menus.main]]
+    name = "Map"
+    pageRef = "/map"
+    weight = 6

@@ -1,0 +1,14 @@
+# Controlling powers on the map: display name, Turn 9 map colour, and the page the panel links to.
+AFCO: {name: "Association of Free Colonies", colour: "#f8b070", url: "/factions/afco/"}
+ASE: {name: "Alarian Star Empire", colour: "#f88080", url: "/factions/ase/"}
+CPA: {name: "Cerean Planetary Alliance", colour: "#389058", url: "/factions/cpa/"}
+LGR: {name: "Le Grande Republique", colour: "#c8e0ff", url: "/factions/lgr/"}
+PFR: {name: "Proxima Federal Republic", colour: "#88b0f8", url: "/factions/pfr/"}
+SILK: {name: "Sexy Intelligent Lady Komputer", colour: "#ffe070", url: "/factions/silk/"}
+SKC: {name: "Seekers Commonwealth", colour: "#fff8c8", url: "/factions/skc/"}
+SNG: {name: "Solas na Gealaí", colour: "#f8e0c0", url: "/factions/sng/"}
+UTF: {name: "United Terran Federation", colour: "#787878", url: "/factions/utf/"}
+VC: {name: "Viśvanivāsaḥ Confederacy", colour: "#5880c0", url: "/factions/vc/"}
+VCW: {name: "Vertinia Commonwealth", colour: "#58d080", url: "/factions/vcw/"}
+"UNITY 5": {name: "Unity 5", colour: "#6830d8", url: "/library/unity-5/"}
+IND: {name: "Independent", colour: "", url: ""}

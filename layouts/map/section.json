@@ -1,0 +1,11 @@
+{{- /* Story index for the map's GNN links: one entry per bulletin story. */ -}}
+{{- $stories := slice }}
+{{- range sort (where site.RegularPages "Section" "gnn") "Params.turn" "desc" }}
+  {{- $p := . }}
+  {{- range after 1 (split $p.Content "<h2") }}
+    {{- $id := index (index (findRESubmatch ` id="([^"]+)"` . 1) 0) 1 }}
+    {{- $title := index (index (findRESubmatch `^[^>]*>(.*?)</h2>` . 1) 0) 1 }}
+    {{- $stories = $stories | append (dict "turn" $p.Params.turn "url" (printf "%s#%s" $p.RelPermalink $id) "title" ($title | plainify | htmlUnescape) "text" (printf "<h2%s" . | plainify | htmlUnescape)) }}
+  {{- end }}
+{{- end }}
+{{- $stories | jsonify }}
