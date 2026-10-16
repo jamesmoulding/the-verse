@@ -1,7 +1,6 @@
 ---
 title: "OmniFood Agricultural Trust"
 kind: "HQ within UTF"
-detail: "Food supply"
 group: "corporate"
 weight: 217
 ---

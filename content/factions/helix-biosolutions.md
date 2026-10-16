@@ -1,7 +1,6 @@
 ---
 title: "Helix BioSolutions"
 kind: "HQ within UTF"
-detail: "Healthcare, biotech, pharmaceuticals"
 group: "corporate"
 weight: 213
 ---

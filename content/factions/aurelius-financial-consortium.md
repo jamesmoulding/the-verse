@@ -1,7 +1,6 @@
 ---
 title: "Aurelius Financial Consortium"
 kind: "HQ within UTF"
-detail: "Banking and finance"
 group: "corporate"
 weight: 214
 ---

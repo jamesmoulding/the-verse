@@ -1,7 +1,6 @@
 ---
 title: "VoxCom Media Conglomerate"
 kind: "HQ within UTF"
-detail: "Media, culture, information"
 group: "corporate"
 weight: 220
 ---
