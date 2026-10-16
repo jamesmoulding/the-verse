@@ -140,7 +140,7 @@ figcaption { color: var(--muted); font-size: .9rem; font-style: italic; margin-t
 .prose figure img, .prose > p > img { border-radius: .5rem; display: block; }
 
 /* Faction pages: flag under the title, leader portrait floated into the text */
-.faction-page .flag { display: block; max-height: 11rem; width: auto; border-radius: .5rem; margin: .5rem 0 1.25rem; }
+.faction-page .flag { display: block; width: auto; max-width: 100%; height: auto; border-radius: .5rem; margin: .75rem auto 1.5rem; }
 .faction-page .portrait { float: right; width: 42%; max-width: 20rem; margin: .3rem 0 1rem 1.5rem; }
 .faction-page .portrait img { width: 100%; border-radius: .5rem; }
 .faction-page .portrait figcaption { max-width: none; }
