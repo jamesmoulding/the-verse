@@ -8,6 +8,8 @@ date: 2025-10-26
 
 ## VC PLANS NEW INTERSTELLAR FORUM
 
+![Sng fleet deploys against pirates](/images/gnn/turn-04/01.jpg)
+
 Above the planet of Parliament, Viśvanivāsaḥ constructors have begun development of a brand new orbital arcology. Earlier this week GNN spoke to VC officials at the site, who reported to us of a new hope for peace for Sector 5 - that this isn’t just a new space station, but part of a new interstellar effort at brokering stronger relations between worlds. The new station will be called Unity 5, they say.
 
 ## LEAKED TRANSCRIPT OF NEW INTERSTELLAR ALLIANCE

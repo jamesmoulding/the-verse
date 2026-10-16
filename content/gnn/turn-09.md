@@ -6,7 +6,9 @@ date: 2026-06-18
 ---
 
 
-### BATTLE OF AMITY STATION: ORBITAL DESTROYED, FLEETS MAULED
+![Battle of amity station: orbital destroyed, fleets mauled](/images/gnn/turn-09/01.jpg)
+
+## BATTLE OF AMITY STATION: ORBITAL DESTROYED, FLEETS MAULED
 
 Reporting directly from the frontlines, GNN war correspondent Karim Iftar, embedded with the Grand Republique’s 1st Strike Group De Gaulle aboard the RSS Marat, is calling last cycle’s battle over Amity Station colony the bloodiest single engagement of the war so far. We bring you the latest live from the scene of the engagement.
 
@@ -36,7 +38,9 @@ The horror unleashed in orbit was reflected on the ground. Medicin Sans Frontier
 
 Sector 005’s NEMEX 500 fell suddenly on the news of the destruction of the orbital. Interstellar shipping houses and insurance markets are reeling, with insurance rates skyrocketing as the economic impacts of the war finally hit. Experts warn of immediate recession and increased barriers to trade. Diplomatic officials across major polities have near universally issued statements of condolence over the grievous civilian losses suffered.
 
-### Concern of Cerean financial commitments
+![Concern of Cerean financial commitments](/images/gnn/turn-09/02.jpg)
+
+## Concern of Cerean financial commitments
 
 The Cerean Planetary Alliance has failed to pay its support dues for the Unity 5 coalition, sources say. A recent financial audit undertaken by the new secretariat of the international coalition identifies both the CPA and Vertinians as having missed payments two years in a row since signing the treaty establishing the new organisation.
 
@@ -44,7 +48,9 @@ A Vertinian official responding to GNN’s request for comment suggest the payme
 
 Meanwhile, construction on the new orbital over Parliament proceeds at pace. The new state of the art structure, designed in partnership with El’lyran run Typhon Arcology Design Syndicate will host a specially designed diplomatic assembly and conference area.
 
-### Empress Declares AFCO “Terror Sponsor State”
+![Empress Declares AFCO “Terror Sponsor State”](/images/gnn/turn-09/03.jpg)
+
+## Empress Declares AFCO “Terror Sponsor State”
 
 The Court of Empress Alaria VI has issued an [Imperial Decree from Alioth designating the Association of Free Colonies a Terrorist Sponsoring State](https://docs.google.com/document/d/1UgP23xG4YdJudBB6MqF8NkLkO7sNgmt4TtcqhkGXCRk/edit?tab=t.0), in response to AFCO’s shock confession at last cycle’s diplomatic summit of having funded the White Hand within Sector 005. The proclamation, the first time in living memory the Empress has applied her personal seal to a designation of this kind, demands the surrender of named key persons involved in the funding network, a public and personal acknowledgement by Sector President Tang of his administration’s sponsorship of terror, and reparations paid into an Imperial fund for the bereaved and maimed.
 
@@ -54,7 +60,9 @@ The imperium’s new allies appear taken aback by the pronouncement. The Federat
 
 GNN can confirm multiple AFCO public figures and prominent citizens residing within Alarian territory across human space have been referred to the imperial PROTECT counter extremism programme following the announcement.
 
-### Sector President Tang to face leadership challenge
+![Sector President Tang to face leadership challenge](/images/gnn/turn-09/04.jpg)
+
+## Sector President Tang to face leadership challenge
 
 Protests have rocked the Free Colonies’ Sector Capital on Dalek following Tang’s shock revelation. President W. Tang made the statement in last cycle’s Sector 005 diplomatic summit, boldly standing by their claim to have supported and directly funded the White Hand movement, confirming his government’s role in funding militant groups within the Alarian Imperium.
 
@@ -64,15 +72,25 @@ The Alarian government cited the Sector President’s comments as clear and dire
 
 Despite the approval of the Tang government’s recent arrests of key figures by AFCO chief justices, civil unrest on Dalek and neighbouring worlds is growing. Madeleine Varn, Planetary Governor of Force Six has called for an emergency session of the S5 Sector Association Council. With rising tensions across the sector, popular unrest at home and economic recession gripping key AFCO holdings, experts say Tang is expected to come under intense scrutiny from the SAC and may even face a leadership challenge.
 
-|  |
-| :-: |
-| ### AFCO Sector Association Council (SAC)**The Association Council, a body composed of the elected planetary governors of AFCO colonies, is the primary ruling body of the Association of Free Colonies in each sector.****Whilst in session, the Council can discuss and set sector wide policy, review and audit AFCO state finances, scrutinise key sector appointments and elect a Sector President from among their number.****Each Planetary Governor within the AFCO system is a powerful entity in their own right, with each colony effectively autonomous on all policy areas besides reserved matters, such as common defence and foreign policy - and each Sector Association Council is in turn autonomous in their own right within the wider AFCO governance structure.**  |
+![AFCO Sector Association Council](/images/gnn/turn-09/05.jpg)
 
-### Shigetaki dispatched to Sector 005
+> **AFCO Sector Association Council (SAC)**
+>
+> The Association Council, a body composed of the elected planetary governors of AFCO colonies, is the primary ruling body of the Association of Free Colonies in each sector.
+>
+> Whilst in session, the Council can discuss and set sector wide policy, review and audit AFCO state finances, scrutinise key sector appointments and elect a Sector President from among their number.
+>
+> Each Planetary Governor within the AFCO system is a powerful entity in their own right, with each colony effectively autonomous on all policy areas besides reserved matters, such as common defence and foreign policy - and each Sector Association Council is in turn autonomous in their own right within the wider AFCO governance structure.
+
+![Shigetaki dispatched to Sector 005](/images/gnn/turn-09/06.jpg)
+
+## Shigetaki dispatched to Sector 005
 
 Agent of the Proximan Parliament, Commissioner Shigetaki was recently dispatched to Sector 005 amidst the ongoing tensions and hostilities in the sector. GNN reporter Kara Stuart spoke with Dr Lance Prevaris, Chief Executive of international conflict monitoring NGO Antares Observatory Organisation on the changes, who remarked “this shows the Proximan Parliament are perhaps weighing the role of this fringe sector more heavily in their estimations”. Terran holocaster Samira Ibn Menika questioned the motives of the appointment on her show last week, saying “is Shigetaki just another of PFR’s Man on the Spot?”
 
-### Dross talks to go ahead as animal rights protests grow
+![Dross talks to go ahead as animal rights protests grow](/images/gnn/turn-09/07.jpg)
+
+## Dross talks to go ahead as animal rights protests grow
 
 The Vertinia Commonwealth's coordinated welcome campaign for newly arrived representative Kenz Juba has rolled out across Dross holonet channels this week, framed as a celebration of the planet's biodiversity and a public commitment to work alongside Vertex Colonial Group and local animal welfare voices in shaping the future of the Megavox programme. The campaign leans heavily on VCW's recent collaborative work with SILK biomedical teams on the PAX4 Nimvy vaccine, which passed human trials last cycle. Footage of Vertinia's protected wetlands and xenobotanical research stations is interwoven with conservation talking heads and holosegments showing Juba in markets, schools and at the perimeter of the largest Megavox enclosure, all intercut with close-ups of the animals themselves. Juba has been received on the planet as a public figure of considerable standing, mobbed at one settlement, given honorary status by a Dross cultural association at another, and treated by local holocasters as the celebrity arrival of the cycle.
 
@@ -80,17 +98,23 @@ Moderate animal welfare opinion has responded with similar warmth, with several 
 
 Reception within VCW civil society itself, however, has been considerably less collegial. The radical animal rights movement Anima, long a thorn in the side of a state otherwise known for its staunch animal welfare credentials, has staged protests on Kedros this week accusing Chief Aylen Winterglow of cosying up to corporate interests and demanding the public release of her personal financial records, with VCW Interior Ministry sources warning that Anima has separately dispatched activists to Dross. The Megavox themselves were unavailable for comment.
 
-### Seekers move to secure Venta
+![Seekers move to secure Venta](/images/gnn/turn-09/08.jpg)
+
+## Seekers move to secure Venta
 
 A Seeker Battle Squadron has taken up high orbit over the plains of the northern desert region. The squadron has dispatched forces to secure the extraction site previously visited by CPA survey vessels, and initially excavated by Federation forces. Local so-called “neo-hippy” tribes people were warned away from the region, which usually forms part of their annual migration to visit their ancestral spirits. Local armed buggies, which constitute the bulk of defence forces for the Northern Democratic Colonial Authority (NDCA) in the area watched on as Seeker vessels and starfighters swarmed on the area.
 
 Meanwhile, Chairperson Menelly Perat has announced large scale infrastructure investment across the NDCA, which, she says “will benefit all of our colonists and secure our position as the prime mover on this planet”. Dawnstar Colony officials were not available for comment.
 
-### Paladin publish long read on history of Advanced AI
+![Paladin publish long read on history of Advanced AI](/images/gnn/turn-09/09.jpg)
+
+## Paladin publish long read on history of Advanced AI
 
 The Paladin Civic Journalism Trust, in partnership with Paladin Proxima, the University of the Republic Centre for Advancing Journalism, and The Helios Philanthropic Fund, have [published a long read on the history of humanity’s interaction with advanced artificial intelligence](https://docs.google.com/document/d/e/2PACX-1vSpIimD_AJBl8pn5J8IAW3IV1A8luRz7wBrHyrU7jdKHeU3cbBKP0nz10qRaFPcM5dVZthywrKURQtW/pub) over the past six hundred years. Compiled by the Institute of Cyber Historical Studies, University of New Edinburgh, the report details the history of AI, from CharmingSpear to the fugitive intelligence Grace, and the challenges faced today by the ongoing question of AI proliferation. [Read the Long Read now.](https://docs.google.com/document/d/e/2PACX-1vSpIimD_AJBl8pn5J8IAW3IV1A8luRz7wBrHyrU7jdKHeU3cbBKP0nz10qRaFPcM5dVZthywrKURQtW/pub)
 
-### Riker II “Failed State” claims Terran Federation
+![Riker II “Failed State” claims Terran Federation](/images/gnn/turn-09/10.jpg)
+
+## Riker II “Failed State” claims Terran Federation
 
 Federation Fleet Admiral Skarsgård, speaking to GNN war correspondent Dezsovo Mondák aboard the FSS Franklin, has bluntly described the situation on Riker II as "a quagmire" and the planet itself as "a failed state." His remarks come as the formal LGR ground presence on Riker effectively ceases to exist, ground down across recent cycles by the absence of resupply since the destruction of the LGR troop transports in orbit and by the persistent harassment of Federation pacifier squadrons operating from the orbiting fleet. What surviving individual elements remain of the LGR Ground Force Division have, GNN understands, slipped out of Rikerian Empire territory and folded into the regular military of the neighbouring Algeron Republic under the operational coordination of LGR Military Secretary Wun Punch, who remains at large.
 
@@ -106,13 +130,17 @@ In parallel with its military operations, the UTF has rolled out a coordinated s
 
 Proximan Unity Front leader Lando Morris told independent network MorningStar that "we will not be lectured on anti-imperialism by a Federation embroiled in an expansionist war, but we will also not pretend the Grande Republique came to Riker as liberators." SILK Department of Contact representatives declined to comment publicly, though sources confirm a lengthy private holocall between SILKon-the-fence "Maureen" 14 of 17 and the UTF mission on Henge later the same evening.
 
-### KNIGHTS OF ALARIA CLAIM RESPONSIBILITY FOR ATTACKS ON FOREIGN CITIZENS
+![Knights of alaria claim responsibility for attacks on foreign citizens](/images/gnn/turn-09/11.jpg)
+
+## KNIGHTS OF ALARIA CLAIM RESPONSIBILITY FOR ATTACKS ON FOREIGN CITIZENS
 
 Responding to the violent bombing campaign of 2601 carried out by the AFCO-backed White Hand, militant group Knights of Alaria have claimed responsibility for a spate of violent attacks on foreign citizens. VCW, AFCO and SILK citizens were targeted in an outburst of violence, leaving 1 dead, thirteen critically injured and dozens suffering grievous wounds. The attacks appear to be semi-random, experts say, though some question whether the Alarian state is funding the pro-imperium group.
 
 The Knights of Alaria published a manifesto on the holonet claiming to represent a “True and Pure Alaria, free from the influence of degenerate and malign corruptors”, calling for mass deportation of foreign citizens and all migrants, legal or illegal”.
 
-### SECTOR 5 HEADING FOR MAJOR RECESSION
+![Sector 5 heading for major recession](/images/gnn/turn-09/12.jpg)
+
+## SECTOR 5 HEADING FOR MAJOR RECESSION
 
 SKC based Rowntree Economics Institute has this week published their annual assessment of economic activity across Sector 005. The report highlights significant economic impacts across multiple states from compounding factors, namely the ongoing Alarian-Terran war on LGR, the bionid resurgence on Andor and the NIMVY viral outbreak.
 
@@ -122,7 +150,9 @@ However, whether it’s because of their new Halcyon Hospitality Bureaus, the ne
 
 The general economic downturn, which is likely to further suppress demand and economic activity, has hit several states harder than others, with the Association of Free Colonies and Vertinia deeply affected. Vertinia and SILK both suffered at the hands of the deadly Nimvy virus, whilst the ongoing war between the UTF, AI and LGR has suppressed economic activity across much of the sector.
 
-### FOOD PRICES SPIKE AFTER PIRATE ATTACKS
+![Food prices spike after pirate attacks](/images/gnn/turn-09/13.jpg)
+
+## FOOD PRICES SPIKE AFTER PIRATE ATTACKS
 
 Cargo hauling companies report massive losses after pirate attacks target grain shipments heading for Dalek.
 
@@ -130,7 +160,9 @@ Piracy expert Professor Y’ah Mee-Hartese suggests we may be witnessing the dev
 
 Local AFCO investigations are underway in an effort to determine the provenance and identity of the pirate group. SKC officials interviewed noted the unusual change in pattern for the pirate group, with piracy in recent years affecting the more sparsely populated rimward and trailing areas of the sector, NE, E, SE scouting sectors.
 
-### OUTER RIM ALLIANCE DIGNITARIES MARK THE ANNIVERSARY OF THE BATTLE OF PELOS
+![Outer rim alliance dignitaries mark the anniversary of the battle of pelos](/images/gnn/turn-09/14.jpg)
+
+## OUTER RIM ALLIANCE DIGNITARIES MARK THE ANNIVERSARY OF THE BATTLE OF PELOS
 
 Marking the 80th anniversary of the final victory of the Outer Rim Alliance against the breakaway Free Colonies of Pell, officials from across the sector and wider human settled space (HSS) joined the ORA in marking the occasion.
 
@@ -140,7 +172,9 @@ Long under the sway of the ORA and having thrived from years of investment from 
 
 Small protests and vigils have been held by Independence groups across the former Free Colonies of Pell.
 
-### BLUTO TO CHARM SECTOR 5 IN NEW TOUR
+![Bluto to charm sector 5 in new tour](/images/gnn/turn-09/15.jpg)
+
+## BLUTO TO CHARM SECTOR 5 IN NEW TOUR
 
 PFR holonet star Bluto Charms, who released the [Fivervision Song Contest semi-finalist track two years ago](https://suno.com/s/uvDGwztPYDuCZTcU), has announced a new gig tour of the sector.[ ](https://suno.com/s/uvDGwztPYDuCZTcU)
 
@@ -148,7 +182,9 @@ In an act holobloggers have labelled “unsporting”, Bluto Charms took to the 
 
 With LO0zY out of the picture, Bluto Charms went on to nab the top spot on holonet records across the verse in a tour spanning multiple sectors. Regardless, Bluto’s new album went viral across S5 in a feat that will net the holostar billions in credits. In an effort to recoup public image lost in the act opposing fans are calling the “usurping”, the Proximan born vocalist is committed to investing large sums to those colonies hosting her new gigs.
 
-### NSSF IMPLANT REMOVAL SUCCESSFUL
+![Nssf implant removal successful](/images/gnn/turn-09/16.jpg)
+
+## NSSF IMPLANT REMOVAL SUCCESSFUL
 
 The New Star Socialist Federation has claimed victory over the forces of “barbaric capitalist science”, following success in new trials to test enhanced methods for removal of CASI cybernetic implants.
 

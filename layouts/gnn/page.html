@@ -3,6 +3,7 @@
 {{- $prev := index (where .CurrentSection.Pages "Params.turn" (sub $turn 1)) 0 }}
 {{- $next := index (where .CurrentSection.Pages "Params.turn" (add $turn 1)) 0 }}
 <article class="wrap prose bulletin">
+  <img class="masthead" src="{{ "images/gnn/gnn-breaking-news.jpg" | relURL }}" alt="GNN Breaking News">
   <p class="kicker">Galactic News Network · Sector 005</p>
   <h1>{{ .Title }}</h1>
   <p class="meta">Star Year {{ .Params.staryear }} · Turn {{ $turn }} · Posted {{ .Date | time.Format "2 January 2006" }}</p>

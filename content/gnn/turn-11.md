@@ -7,11 +7,15 @@ date: 2026-09-22
 
 ***This month’s GNN NEWS BULLETIN, brought to you by Morlana Heavy Industries***
 
+![Morlana heavy industries look to invest in sector 005](/images/gnn/turn-11/01.jpg)
+
 ## MORLANA HEAVY INDUSTRIES LOOK TO INVEST IN SECTOR 005
 
 GNN spoke with Morlana corporate representative Soller Karn yesterday about their new plans for the sector, as part of a special investment conference on New Berlin this month.
 
 “We’re working with communities across the sector to create a better future for everyone. War is both a tragedy and an opportunity for a generation of new and better worlds, powered by Morlana Heavy Industries patented technologies. Where you may see a bombed out city, we see cut price real estate, upon which we can construct a brighter future for everyone, and our share holders. To many, Sector 005 is a colonial fringe backwater, but we see it as part of a new beginning for us all - and you can be a part of that too.”
+
+![Proxima republic raid terran colonial capital](/images/gnn/turn-11/02.jpg)
 
 ## PROXIMA REPUBLIC RAID TERRAN COLONIAL CAPITAL
 
@@ -27,6 +31,8 @@ The Proxima Federal Republic released the following statement to GNN following t
 
 Meanwhile, Terran forces invaded the LGR world of Unison causing significant civilian casualties. The Terran Federation Navy executed orbital strikes on civilian centres and have damaged infrastructure across the colony. The colony has declared an immediate state of emergency and requested international humanitarian support. It is understood Terran ground forces are engaged in heavy street to street fighting. Stay tuned for more information on this unfolding situation.
 
+![Free colonies fifth fleet raids gloriana](/images/gnn/turn-11/03.jpg)
+
 ## FREE COLONIES FIFTH FLEET RAIDS GLORIANA
 
 The Association of Free Colonies has struck targets over Gloriana. Alarian Imperial Navy warships under repair from their recent combat operations over Amity Station were destroyed whilst at their moorings over Gloriana, the Imperium’s colonial capital, following a raid by AFCO’s Fifth Fleet.
@@ -41,9 +47,13 @@ Alarian news channels and media outlets celebrating the actions of the Alarian N
 
 This dark new turn compounds wider events across the sector, signalling a dramatic reshaping of a sector in crisis. With Alarian naval forces effectively neutralised and a new front in the war opening up, peace in our time seems a distant hope at best.
 
+![Terran federation forces invade unison](/images/gnn/turn-11/04.jpg)
+
 ## TERRAN FEDERATION FORCES INVADE UNISON
 
 Terran forces invaded the LGR world of Unison causing significant civilian casualties. The Terran Federation Navy executed orbital strikes on civilian centres and damaged infrastructure across the colony. The colony has declared an immediate state of emergency and requested international humanitarian support. It is understood Terran ground forces are engaged in heavy street to street fighting. Stay tuned for more information on this unfolding situation.
+
+![Convoys established as pirate threat surges](/images/gnn/turn-11/05.jpg)
 
 ## CONVOYS ESTABLISHED AS PIRATE THREAT SURGES
 
@@ -53,11 +63,15 @@ Since the attack on Rakshasa two years ago analysts have been working to map and
 
 Meanwhile, the newly established CPA-backed Livingstone Mining & Trade Federation (LTF) has begun work establishing a new HQ on Hades IV. The LTF has announced detailing trade route protections as an urgent task of the new interstellar trade authority.
 
+![Monokoke colony reports ‘zombie’ wildlife](/images/gnn/turn-11/06.jpg)
+
 ## MONOKOKE COLONY REPORTS ‘ZOMBIE’ WILDLIFE
 
 Rangers at the Bill Oddie Memorial Wildlife Reserve on Monokoke have recorded strangely afflicted wildlife. Local colonial officials appeal for international scientific support. Whilst the Endaron Governing Authority (EGA) and other authorities on the planet have now completed the full scale evacuation following the Bionid incident on Andor, holonet influencers from across the sector have descended on Monokoke to capture footage of the wildlife.
 
 Ziv and Glimmr holonet posts from the wildlife reserve show various imported terran species afflicted in various unsettling ways, from ‘frankenstein rabbits’ with horn-like growths, to deer with fleshy protrusions. Wildlife rangers have warned local influencers and other visitors to refrain from visiting the reserve at the current time.
+
+![Andor hive eliminated, report silk-sng](/images/gnn/turn-11/07.jpg)
 
 ## ANDOR HIVE ELIMINATED, REPORT SILK-SNG
 
@@ -67,6 +81,8 @@ Radiation levels on the former colony world currently inhibit further study of t
 
 Citizens of Y5, Monokoke and other neighbouring systems rejoiced at the news. Monokoke has been under full evacuation orders with local citizens from the colony, and colonists from Y5, having found new temporary homes on Usagi within the Solas na Gealaí. Speaking to GNN, refugees on Usagi have shared their response to the news: “I can’t believe it, we can finally return home, what a relief”, “I thought we were going to lose everything, we can’t thank the people of Usagi enough for taking us in when we needed it most”. Two years ago over 400,000 refugees fled for the safety of the SNG, though more than 50,000 have alread decided to take the opportunity to permanently resettle on Usagi, many now expect to return to their homes at long last.
 
+![Trade disrupted by sanctions and asset seizure](/images/gnn/turn-11/08.jpg)
+
 ## TRADE DISRUPTED BY SANCTIONS AND ASSET SEIZURE
 
 With tensions mounting and diplomatic fallout spilling over into changes postures and policy, GNN reports that SILK have enacted sanctions on the Alarian Star Empire and United Terran Federation. The sanctions, SILK’s Contact Department state, will limit regular trade and involves the immediate suspension of the Alarian Star Empire/SILK Mutual Benefit and Voluntary Relocation Treaty.
@@ -74,6 +90,8 @@ With tensions mounting and diplomatic fallout spilling over into changes posture
 SILK announce such measures are being taken in response to Skaro Pact actions involving attempted annexation and vassalisation of the sovereign state of the LGR, that the sector is “at an inflection point” and the “international community cannot allow international norms to regress to the law of the jungle”. SILK state these actions will remain in force until Skaro forces withdraw from LGR territory and Riker II.
 
 Meanwhile, the Seekers Commonwealth has issued a general directive ordering all Seeker-affiliated vessels and traders within Cerean territory in Sector 5 to leave immediately. In a significant escalation of diplomatic tension, the Seekers Commonwealth have seized large quantities of trade goods, assets and state-owned vessels belonging to the Cerean Planetary Alliance throughout SKC space. In addition, CPA citizens have been offered the opportunity to relinquish their citizenship of the CPA and defect to the Commonwealth. Private CPA enterprises and vessels have been instructed to leave SKC territory, with heavy fines levied on those failing to do so, with the further threat of seizure of privately-held assets.
+
+![Seekers denounce cerean planetary alliance](/images/gnn/turn-11/09.jpg)
 
 ## SEEKERS DENOUNCE CEREAN PLANETARY ALLIANCE
 
@@ -85,11 +103,15 @@ Hosting a press event on Sirx Soter, SKC officials [made public the findings of 
 
 Chairperson Perat of the Northern Democratic Colonial Authority has welcomed the release. She noted that it answers the NDCA's demand last year for information pertaining the site and looks forward to further joint working on this issue.
 
+![Sector president tang to face association council](/images/gnn/turn-11/10.jpg)
+
 ## SECTOR PRESIDENT TANG TO FACE ASSOCIATION COUNCIL
 
 Madeleine Varn, Planetary Governor of Force Six has called for an emergency session of the S5 Sector Association Council following the attack on the Alarian Star Empire. With war now raging across the sector, popular unrest at home and economic recession gripping key AFCO holdings, experts say Tang is expected to come under intense scrutiny and should expect a leadership challenge.
 
 Terrence Payne, Planetary Governor of Warden colony, spoke out against the Sector President’s attack on Gloriana, saying ‘the Sector President’s actions now threaten peace and stability at home *and* abroad’. Whilst the strikes previously gridlocking the AFCO economy have now abated following agreements with labour leaders, anti-war protests have now taken their place demanding a peace with foreign powers and an end to the ‘imperialist war’, remarked sources close to the AFCO government.
+
+![Lgr holonets gripped by social debates over future of the republique](/images/gnn/turn-11/11.jpg)
 
 ## LGR HOLONETS GRIPPED BY SOCIAL DEBATES OVER FUTURE OF THE REPUBLIQUE
 
@@ -99,6 +121,8 @@ The viral debates have taken on a life of their own this cycle with citizens que
 
 LGR Consul DanTron recorded a televised holobroadcast from an undisclosed location saying ‘every day bought by our shared sacrifice, by the tragic sacrifice borne by Amity Station, Unison, Assembly, Reason and the men and women of the fleet, is another day closer to freedom, not only for our republic, but for Sector 5 as a whole!’. Meanwhile, Glimmer posts circle on rumours and hopes of a new unifying figure who might yet emerge from the conflict.
 
+![Political situation on riker ii deterioriates](/images/gnn/turn-11/12.jpg)
+
 ## POLITICAL SITUATION ON RIKER II DETERIORIATES
 
 Local Rikerian leaders, including a number of formerly loyal military officers who refused to follow Grand Marshal Loseer's last defence of Beard, have now reinforced the recently established Riker Provisional Authority (RPA), broadcasting appeals for calm and attempting to pull surviving elements of the old Rikerian imperial elite into a single administrative spine. Supported by the neighbouring Algeron Republic, an LGR-aligned Riker Republican Army (RRA) insurgency has developed and has escalated its recent attacks to strike openly on RPA security compounds and patrol convoys in the capital city of Beard. Civilian casualties and sectarianism sentiments are growing in the once unified capital city.
@@ -107,9 +131,13 @@ The Rikerian Republic Triumvirate (RRT) formally established as a government in 
 
 Since the turmoil of recent years, the two colonies have lost considerable population, wealth and resources, with hundreds of thousands fleeing the fighting and the collapsing political situation for greener and safer pastures elsewhere. RPA Acting Governor Riza Tahari has called on the international community to provide humanitarian support and aid in the rebuilding of the Rikerian state. In recent months the former imperial general has notably softened her earlier tone, reframing the RPA as the only possibility for stability on Riker II.
 
+![Visvanivasah warships sighted over skaro colony](/images/gnn/turn-11/13.jpg)
+
 ### VISVANIVASAH WARSHIPS SIGHTED OVER SKARO COLONY
 
 GNN can report the VC White Star Fleet has been sighted orbiting Skaro Colony in defiance of the Alarian Star Empire’s strict quarantine of the ancient relic world. The fleet has been observed deploying a range of shuttles and landing dropships to the surface. Stay tuned for more information.
+
+![Pact members call for creation of new interstellar criminal court in response to amity atrocity](/images/gnn/turn-11/14.jpg)
 
 ## PACT MEMBERS CALL FOR CREATION OF NEW INTERSTELLAR CRIMINAL COURT IN RESPONSE TO AMITY ATROCITY
 

@@ -5,6 +5,8 @@ staryear: 2602
 date: 2026-07-25
 ---
 
+![Mysterious fleet departs new devon, course unknown](/images/gnn/turn-10/01.jpg)
+
 A new star in the night sky now shines down on the colony of Parliament. The new orbiting presence has become a striking symbol of collaboration in a sector that has known little of it recently. Laid down two years ago, the Unity 5 orbital station is a massive joint enterprise between the treaty signatories of the Unity 5 Charter.
 
 The special diplomatic station features a specialised wing of sovereign embassy suites, commercial trading halls, open market arcades and hospitality facilities designed to host merchants, diplomats and travellers from across the sector and beyond. At the core of the station sits the Grand Plenary, a tiered assembly chamber large enough to seat representatives of every polity in Sector 005 with room for observers and press. Adjacent conference halls of varying sizes radiate outward from the Plenary like spokes, intended for committee work, backchannels and the informal negotiations where, as any diplomat will tell you, the real business gets done.
@@ -15,11 +17,15 @@ Thousands from across the sector docked at the station for inaugural celebration
 
 Hundreds of construction crews drawn from across Unity 5 member states have been hard at work for months, finally putting down tools to join in the celebrations. GNN spoke with Vertinian engineers fresh from finishing off work in the central core heading to the celebrations - GNN correspondent Tomas Ishi spoke to them about their plans for the future and about their time on the station, they said “Err, yeah, we love plants. Yeah, love plants, ‘ate pollution. Ain’t that right Feldspar?” “Yeah, love plants we do. Lovely green, leaves, peace, hope, that sort of thing. Err, yeah I guess we’ll build more of these stations. Turned out all right dinnit. This going out on GNN then, oh, Hi Ma, look I’m on the ‘olo!” So there we have it, as war rages across Sector 5, whatever else is happening out there - someone still believes this is worth building.”
 
+![Mysterious fleet departs new devon, course unknown](/images/gnn/turn-10/02.jpg)
+
 ## MYSTERIOUS FLEET DEPARTS NEW DEVON, COURSE UNKNOWN
 
 A squadron of unflagged ships appeared over New Devon this cycle and has holoblogger conspiracy theorists working overtime, GNN reports. The squadron of specialised light ships were sighted under construction at the New Ceres fleet yards in Sector 001 for the past two years. Before arriving over New Devon, the mysterious fleet was also seen taking on additional equipment and fitting out at the Mars Federal Navy Fleet Yards.
 
 GNN spoke to retired Proximan Admiral and intelligence expert Katja Graf, “given their apparent size and design, the squadron appears to be composed of specialised expeditionary ship designs, fitted for extended voyages in deep space”. The unflagged vessels departed New Devon on hyperspace trajectories unknown. SILK military holoblogger Luxxi Li3B3 suggested in a livecast the fleet may be a cover for renewed military operations against the Grande Republique with major implications for the balance of the conflict. Stay tuned for more on this story as it develops. Responding to requests for comment, CPA officials remarked the vessels are a private specialised mining fleet and are tasked by CPA guilds with prospecting for new resources.
+
+![Talks collapse - federation attack reason - cpa fleet fires on seeker allies](/images/gnn/turn-10/03.jpg)
 
 ## TALKS COLLAPSE - FEDERATION ATTACK REASON - CPA FLEET FIRES ON SEEKER ALLIES
 
@@ -53,6 +59,8 @@ A State of Emergency was declared on Reason as Federation ships were first sight
 
 On Amity Station, Alarian troops remain in control of the central colony complex. Large scale LGR and international humanitarian aid relief efforts proceed apace on Amity Station, supported by orbiting Viśvanivāsaḥ fleet elements including the flagship VSS Priyadarkah commanded by the Moulding Essence, and SILK humanitarian teams.
 
+![New dross forum convenes](/images/gnn/turn-10/04.jpg)
+
 ## NEW DROSS FORUM CONVENES
 
 The Dross Sustainability and Conservation Forum held its opening session this cycle, co-chaired by the Vertinia Commonwealth's Kenz Juba and the Seekers Commonwealth's Kiranpeace Har. Vertex Colonial Group, which controls the colony under corporate charter, said in a statement that it "welcomes the Forum as a constructive venue for dialogue with all stakeholders" and reaffirmed its commitment to "responsible and sustainable land use while delivering the long-term commercial value on which the colony's future depends." Har described the launch as "a genuine first step in a spirit of partnership, in which every voice is heard," and confirmed the body would operate on a voluntary, advisory basis. VCG separately confirmed that its Megavox domestication and husbandry programme continues on schedule, with VCG’s stock on the NEMEX 500 rising on the news.
@@ -62,6 +70,8 @@ Away from the conference halls, the picture is less collegial. The radical Verti
 In a further boost to the local economy, SILK scientists have arrived on Dross. The contingent are setting up a new scientific research operation and have begun field work on Megavox cognition, social complexity and welfare needs.
 
 In a related development, the Vertinia Commonwealth has confirmed that Exarch Nina Silverleaf has been dispatched to Sector 005 to work alongside Chief Aylen Winterglow. The Commonwealth described the appointment as a routine administrative appointment, stating “the Exarch has been appointed by the Archon tol serve alongside Winterglow as Steward of the Living Worlds of Sector 005”.
+
+![Pfrn conduct military exercises on rogan’s world](/images/gnn/turn-10/05.jpg)
 
 ## PFRN CONDUCT MILITARY EXERCISES ON ROGAN’S WORLD
 
@@ -75,6 +85,8 @@ GNN defence correspondent Lira Vassenka notes the exercise comes at a time with 
 
 Reaction on Proxima split along familiar lines. Visiting from Sector 001 as part of a political tour of Sector 005, Rigel Mosley of the National Vanguard Movement welcomed the deployment as overdue evidence of Proximan resolve, while the representatives of the Proximan Unity Front warned against "dressing escalation up as training."
 
+![Seeker auction markets high yield weaponry](/images/gnn/turn-10/06.jpg)
+
 ## SEEKER AUCTION MARKETS HIGH YIELD WEAPONRY
 
 Alarian high yield missiles appear to have found their way onto the open market. Lot 4471 at the Galactic Auction House on Sirx Soter was listed simply as "military surplus, provenance unverified", but catalogue imagery clearly showed a full salvo complement of Alarian-manufactured heavy ordnance. When questioned on the provenance of the equipment, Auction House Director Archibald Rex replied only that "business is business".
@@ -82,6 +94,8 @@ Alarian high yield missiles appear to have found their way onto the open market.
 The Mark XXIV "Crucifier" High Yield Heavy Missile is the standard heavy missile armament aboard Alarian capital ships, and its appearance at open auction has raised eyebrows across the sector's defence community. The lot was declared sold to an unknown buyer for an undisclosed sum. Experts suggest the weapons may have been salvaged from one of the sector's various battlefields, though salvage specialists note that recovering intact high yield ordnance from a debris field is difficult, dangerous and rarely accidental.
 
 Responding to GNN’s request for comment, Tribune Peter Pickle, Director of Civil Motivation Operations in Sector 5 said: “the Alarian Imperium is saddened that our weapons are being sold on the black market. But we are not surprised they would be highly sought after given our unmatched expertise in military weapons engineering. But these weapons should not be in the hands of irresponsible actors. The only weapons of Alarian origin we know to be taken from us were the humanitarian aid weapons illegally seized by the LGR from the SS Lucky Strike.”
+
+![Osquivel suffers energy cascade failures](/images/gnn/turn-10/07.jpg)
 
 ## OSQUIVEL SUFFERS ENERGY CASCADE FAILURES
 
@@ -91,6 +105,8 @@ Initial reports suggest an anomalous surge in processing demand exceeding safe t
 
 Maranax Perenthes, Director of the Pull The Plug campaign group, campaigning for divestment and increased restrictions on artificial intelligence applications on Osquivel, remarked “Our researchers have logged significant anomalous power drains in the energy grid prior to these failures, which we flagged to the Assembly but received no reply. We’ve been warning for years, the hallmarks are clear for anyone to see. The government is undertaking secretive advanced intelligence experiments. We must oppose these developments now, before it’s too late.”
 
+![Sng rebuilding effort takes shape on y5](/images/gnn/turn-10/08.jpg)
+
 ## SNG REBUILDING EFFORT TAKES SHAPE ON Y5
 
 Engineers and work crews of the Solas na Gealaí Morrigan Tactical Division have been working alongside colonists of the Benzhar Hegemony on the embattled world of Y5, repairing the damage left in the wake of the Andor emergency. Deployed as a supplementary labour force, the division's engineers have completed the restoration of the first breached habitation dome, returning life support to settlements left dangerously exposed during the recent unrest. Hegemony representatives, previously wary of outside assistance, have spoken warmly of the SNG's contribution, with one describing the arrival of Solas na Gealaí labour and materials as a turning point for a colony that had feared it would be left to fend for itself.
@@ -98,6 +114,8 @@ Engineers and work crews of the Solas na Gealaí Morrigan Tactical Division have
 Alongside the repair works, SNG construction teams have begun raising a network of Bionid Emergency Defence Shelters, or BEDS, close to the colony's larger population domes. The shelters draw on the same hardened protective measures the SNG developed to shield its own fleets, and are intended to buy civilians vital time to respond should any trace of Bionid infestation reach the Y5 system. For a population still shaken by the fate of neighbouring Andor, the sight of the first shelters rising near the domes has been received as a rare piece of reassurance.
 
 GNN understands that SNG defence laboratories are also pressing ahead with the development and productisation of the Thermal Lance TLS-4 "HALO" system, or Hive Ablation Lance Ordnance, the latest iteration of the thermal lance technology credited with disrupting the Andor hive during recent coalition operations. Refined through repeated field testing, the system is now being downscaled and refitted to scout vessels, a move analysts suggest points to a shift from emergency countermeasure to standing capability across the SNG's forward patrols.
+
+![Cpa establishes trade federation on hades iv](/images/gnn/turn-10/09.jpg)
 
 ## CPA ESTABLISHES TRADE FEDERATION ON HADES IV
 
@@ -117,6 +135,8 @@ Admiral Isolda Oremaster of the Cerean Planetary Alliance, standing alongside th
 
 “Our door is open. Come prosper with us." No independent world has yet confirmed accession. Stay tuned for more.
 
+![Ur-lucent colony founded by seekers](/images/gnn/turn-10/10.jpg)
+
 ## DEEP RED ESCALATE ON MOLLARI
 
 Fighting on Mollari has widened significantly this cycle, with the Deep Red insurgency mounting a series of coordinated ambushes against Mollari Republic patrol columns and supply convoys in the equatorial rainforest belt. GNN sources on the ground report at least four separate engagements over a ten day period, a marked escalation from the isolated barracks attack that announced the group's arrival on the planet.
@@ -133,11 +153,15 @@ The Mollari government issued only a brief statement, declining to answer questi
 
 Basha Colony was once more unavailable for comment, the southern continent farming colonies being midway through harvest fortnight celebrations. Reginald Bivvy, Lord Mayor of Basha Colony, did offer a short remark to GNN between engagements, calling upon "both sides in this unhappy business to lay down their tools, break bread together and join us at table, where these disagreements will surely look much less important".
 
+![Ur-lucent colony founded by seekers](/images/gnn/turn-10/11.jpg)
+
 ### UR-LUCENT COLONY FOUNDED BY SEEKERS
 
 The Seekers Commonwealth has confirmed the founding of a new colony on the M-Class world formerly designated X17, now renamed Ur-Lucent, the latest settlement raised under its Direct Investment Colonial Kickstart programme. Commonwealth construction drones first touched down almost two years ago, raising habitats, infrastructure and civic works to house tens of thousands of incoming Seeker colonists.
 
 The build is being financed directly from the Commonwealth treasury rather than left to organic growth. The Tempting Word Directorate framed the effort in familiar terms, declaring that what is left behind on Ur-Lucent will matter more than what is taken from it. True to form, the Commonwealth has opened a full record of every existing inhabitant, new colonist, contractor and drone operator to set foot on the world, the first entries in what will become Ur-Lucent's permanent settlement census.
+
+![Tribune julia tuscano in shock resignation](/images/gnn/turn-10/12.jpg)
 
 ## TRIBUNE JULIA TUSCANO IN SHOCK RESIGNATION
 
@@ -149,11 +173,15 @@ Vertinian sociologist Andreas Mekong, a long outspoken critic of the IBI and Tos
 
 Former celebrity holobroadcaster and CEO of the Alaria First Policy Institute, Helo Virmen, is reportedly the Court favourite in line for taking up the prestigious role at the IBI on Gloriana.
 
+![Amity system suffers scavenger attack](/images/gnn/turn-10/13.jpg)
+
 ## AMITY SYSTEM SUFFERS SCAVENGER ATTACK
 
 Scavenger groups descended on the Amity Station system last month, picking over the hulks of damaged warships and vessels in orbit of Amity Station before being driven off by responding elements of the VC White Star Fleet currently operating in the system. No casualties have been reported, though salvage assessors say several wrecks were stripped of drive components, weapons mounts and sensor arrays before the scavengers withdrew.
 
 The identity of the scavenging groups remains unknown. Experts say the vessels observed do not match any known salvage outfit operating within Sector 005, and may be of extra-sector origin. VC patrol elements remain on station under the command of Rear Admiral Taklung Shenmao, with shipping and humanitarian efforts in the Amity approaches has been advised to exercise caution. The VC Moulding Essence directed VC escort ships to facilitate efficient traffic operations and undertake anti-piracy escort duties, given the loss of the local defence forces to Alarian forces in recent months.
+
+![Proximan pm condemns orbital atrocity](/images/gnn/turn-10/14.jpg)
 
 ## PROXIMAN PM CONDEMNS ORBITAL ATROCITY
 
@@ -167,6 +195,8 @@ GNN’s Sector 005 political editor Bruno Gramaldo remarked, "this is a firm res
 
 The Prime Minister closed with a call for peace across Sector 005 and an immediate cessation of hostilities, and voiced her confidence in the Republic's governing authority in the sector. "I have full faith in Commissioner Shigetaki, Fleet Admiral E.G. Måns, and in Sector Governor J. Oskarsson. They carry Proxima’s hope for a just and lasting peace.”
 
+![Mystiq light up crashdump in explosive debut](/images/gnn/turn-10/15.jpg)
+
 ## MYSTIQ LIGHT UP CRASHDUMP IN EXPLOSIVE DEBUT
 
 There is a new name on every feed in the sector, and almost nobody has met them. MYSTIQ, a synth-pop act out of SILK and the first homegrown Sector 005 group to break this big in years, arrived last cycle with one of the boldest debuts in living memory, seizing the holo-advertising and public address systems across the nightclub district of downtown Crashdump and turning the whole inner city into one vast open-air dancefloor for the surprise drop of their first album.
@@ -176,6 +206,8 @@ Witnesses describe thousands of strangers dancing in the streets until dawn, the
 Riding the response, the group have announced a sector tour over the coming year, with dates promised across SILK, the SNG, the Seekers Commonwealth, the Vertinia Commonwealth, AFCO and the Viśvanivāsaḥ Confederacy. Tickets are already said to be near impossible to find leading to a surge in black market holosales, GNN's Rae Solano reports.
 
 In the wake of the NIMVY crisis the SILK government has worked to support local business and rebuild confidence in the local economy, supporting and subsidising cultural life across Crashdump and Galaga-D from museums to concerts. Hoi-Men Mei of the Crashdump cultural board hailed the recent investments, saying “we’re directing funds for a full refurb of the Crashdump holo arena - Crashdump is already the cultural centre of the Sector, but we’re aiming higher - with headliners like MYSTIQ and this new level of support, we truly think anything is possible.
+
+![Ashborn faces questions over amity](/images/gnn/turn-10/16.jpg)
 
 ## ASHBORN FACES QUESTIONS OVER AMITY
 
@@ -190,6 +222,8 @@ Analysts have been struck less by any single allegation than by their incoherenc
 The Imperium has rejected the coverage and growing commentary without qualification. A statement from the office of the First Child described the reporting as "the work of enemies of the Empress", while S5 Imperial Security warned that "the repetition of foreign lies against a Child of Alaria is not comment but treason, and shall be answered as treason." Holonet restrictions within AI territory are now in force in response.
 
 In other news, the Visvanivasah Confederacy have issued a warrant for the arrest of First Child Lucien Ashborn, who is now deemed a criminal, due to his “personal involvement in brutality and murder of VC civilians”.
+
+![New berlin postpones referendum amidst ongoing conflict](/images/gnn/turn-10/17.jpg)
 
 ## NEW BERLIN POSTPONES REFERENDUM AMIDST ONGOING CONFLICT
 

@@ -5,6 +5,8 @@ staryear: 2601
 date: 2026-04-09
 ---
 
+![Skaro pact declare war on lgr](/images/gnn/turn-08/01.jpg)
+
 ## SKARO PACT DECLARE WAR ON LGR
 
 Alarian Imperium and United Terran Federation forces effected a surprise attack on military forces of Le Grande Republique. The Skaro Pact signatories claim the seizure of the Alarian Imperium vessel *ASS Lucky Strike* as a violation of the treaty, allowing both the UTF and AI to take defensive actions to protect Alarian sovereignty, invoking Article IV of the Skaro Pact.
@@ -23,11 +25,15 @@ In other news, three suspects were killed in a shootout near the Alarian consula
 
 As the sector reels in shock at the news of the new interstellar war, as civilian populations across multiple worlds look at up the sky in fear and trade and supply convoys to colonies across the sector are disrupted with unknown downstream effects for all of us, GNN will work to provide up to date coverage, live on holonet as the news comes in - stay tuned for more updates.
 
+![Unity 5 station nears completion](/images/gnn/turn-08/02.jpg)
+
 ## UNITY 5 STATION NEARS COMPLETION
 
 Construction of the Unity 5 station in orbit above Parliament has entered its final phases, and GNN correspondents granted access to the site describe a structure of extraordinary ambition. The station's primary hull - based off recent shared advances by SNG constructors of the Charlotte Marie Arcology - is a vast rotating torus nearly four kilometres long, anchored to a central spindle that houses the main docking assembly and a full-service ship repair yard capable of servicing vessels up to cruiser displacement. Extending from the spindle's upper axis is the main concourse, a pressurised interior boulevard running the length of the station's dorsal boom, lined with commercial trading halls, open market arcades and hospitality facilities designed to host merchants, diplomats and travellers from across the sector and beyond. The lower decks of the torus house the diplomatic quarter: a ring of sovereign embassy suites, each customisable to the environmental and cultural preferences of its occupying delegation, connected by cloistered walkways to the Grand Plenary, a tiered assembly chamber large enough to seat representatives of every polity in Sector 005 with room for observers and press. Adjacent conference halls of varying sizes radiate outward from the Plenary like spokes, intended for committee work, backchannels and the informal negotiations where, as any diplomat will tell you, the real business gets done. It is not yet confirmed whether the completed station will carry weapons systems beyond limited point-defence arrays, a question that remains politically sensitive among the member worlds. Whilst the various skeletal elements of the partially constructed station orbit Parliament, it is now just a matter of time before they are connected, integrated and wreathed in specially fabricated plating, rumoured to give the final station an aura of beauty, and a symbol of peace among the stars.
 
 Hundreds of construction crews drawn from across Unity 5 member states are now working around the clock to bring the station online, and the site above Parliament has become a striking symbol of collaboration in a sector that has known little of it recently. Viśvanivāsaḥ Confederacy officials of the Nirmana Circle have been a visible presence throughout construction, with tech-priests of the Circle conducting regular consecration rites over newly installed systems and hull sections as they are brought to completion. The station's Essence Support network, a VC spiritual monitoring system that the Nirmana describe as essential to the long-term wellbeing of any inhabited structure, is already operational and able to support several VC Essence Constructs. GNN correspondent Tomas Ishi, reporting from the half-finished Concourse as welding crews from six different nations worked overhead, called the scene "the most hopeful thing I have covered in a year of wars, embargoes and arena executions. Whatever else is happening out there, someone still believes this is worth building."
+
+![Andor hive fleet repelled in historic coalition engagement](/images/gnn/turn-08/03.jpg)
 
 ## ANDOR HIVE FLEET REPELLED IN HISTORIC COALITION ENGAGEMENT
 
@@ -36,6 +42,8 @@ In what military analysts are already calling the most significant Anti-Bionid F
 Central to the operation's success, ABF sources confirm, was the deployment of a new and experimental Bionid Neural Unit embedded with the fleet's intelligence team. The experimental unit, developed from VC-led joint research into Bionid hivemind communication systems, was able to provide fleet command with vague but critical indications of mass concentration points within the hive's neural structure in the critical moments before launch, allowing targeting solutions to be established before the hive had fully cleared the atmosphere. "We were not flying blind," Commander Beren said in a brief statement from Luna Piena fleet anchorage, where the damaged elements of the SNG squadron are now undergoing assessment. "We knew, approximately, where to look. That made the difference." The SNG Thermal Lance Systems (TLS), fielded experimentally aboard Mah'alleinir squadron vessels, are reported to have performed with particular effectiveness during the ascent-window phase of the engagement.
 
 The hive is confirmed to have returned to Andor's surface and bioelectric readings from SILK monitoring assets in the system indicate its signature has dropped dramatically, placing it well below any threshold for spaceborne activity for the foreseeable future. Scientists from the ABF research collective caution that the hive is not destroyed, and that reconstitution, though expected to be very slow, remains possible without a finishing pacification operation. Prof. Henlish SILK41a, operating from the SILK flagship *Succulent Distress*, told GNN that the priority now is maintaining the orbital containment perimeter while the question of a follow-up operation is debated among coalition governments. Across Human Space, the news has been met with considerable relief. On the streets of Dalek, Proxima and Luna Piena, citizens gathered to watch live feeds from the engagement, and GNN holowave metrics report the highest positive sentiment readings on the Andor situation since the crisis began.
+
+![Vcw citizen relations chief dispatched to dross](/images/gnn/turn-08/04.jpg)
 
 ## VCW CITIZEN RELATIONS CHIEF DISPATCHED TO DROSS
 
@@ -46,6 +54,8 @@ Dross, a large and strikingly biodiverse Class M world currently operated by the
 Juba, speaking to GNN ahead of their departure, was characteristically direct. "Dross is a world of genuine wonder. The Megavox alone represent one of the most significant xenobiological discoveries of this generation. The colonists living alongside these creatures every day have something invaluable, a relationship with a living world that most people in Human Space will never experience. We want to support that, celebrate it, and make sure it endures."
 
 Vertex Colonial Group, which controls the Dross colony and its population under a corporate charter, declined to comment on the VCW appointment. A brief statement from VCG's Sector 005 communications office noted that Dross "welcomes visitors with legitimate interests in the colony's development" and that the company "remains committed to responsible and productive land use across all its colonial holdings." VCG recently announced plans to domesticate and commercially breed Megavox as a high-density protein source for interstellar food markets, a programme the company describes as central to Dross's long-term economic viability.
+
+![Casi loyalists issue warning](/images/gnn/turn-08/05.jpg)
 
 ## CASI LOYALISTS ISSUE WARNING
 
@@ -59,11 +69,15 @@ Reports indicate the CASI squadron under the command of Fleet Admiral Tessavine 
 
 The fleet, led by flagship *CNS Regretful Duty*, has been docked at the New Berlin orbital for the past 9 months, after reportedly taking battle damage in fighting in Sector 001 with forces of CASI-breakaway[ McDoolist state](https://drive.google.com/file/d/1yMNa5meT1hKtJ2cFJ2sDzbTu6H3knWTc/view?usp=sharing) New Star Socialist Federation (NSSF), GNN war reporter Dezsovo Mondák reports.
 
+![Alarian crew returned to imperial space](/images/gnn/turn-08/06.jpg)
+
 ## ALARIAN CREW RETURNED TO IMPERIAL SPACE
 
 The Alarian Imperium freighter *ASS Lucky Strike*, seized by Le Grande Republique forces during a blockade run over Riker II last month, has been returned to Imperium custody along with its crew of five and a quantity of humanitarian supplies. LGR officials describe the return as "a gesture of Republican goodwill and magnanimity." The freighter arrived in Imperium space and registered with Imperial Sector Traffic Control moments before news of the first attacks on Riker, Assembly and Amity Station began to reach the holonet, having been dispatched by the LGR prior to outbreak of hostilities.
 
 Compensation for the seized military cargo was also provided, though Alarian sources describe the sum as "beneath contempt". Imperium naval medical authorities who received the crew have declined to comment on their condition, though sources describe the returning sailors as being in a "distressed state." The *Lucky Strike* has been moved to a secure facility. Further details are expected.
+
+![Nimvi.00 vaccine passes human trials](/images/gnn/turn-08/07.jpg)
 
 ## NIMVI.00 VACCINE PASSES HUMAN TRIALS
 
@@ -73,15 +87,21 @@ The Napenthes Monstera Trepani Virus (NMVI.00), named after the exotic plant it 
 
 The virus has come at a grave cost for the economies and social cultural life of the two worlds, with megastar L0oZy postponing her mega-gig at Crashdump holo-arena, due to then skyrocketing insurance costs for large scale events during the epidemic scare.
 
+![Adm. charlotte marie remembered](/images/gnn/turn-08/08.jpg)
+
 ## ADM. CHARLOTTE MARIE REMEMBERED
 
 Solas na Gealaí observed a day of collective mourning across Luna Piena and its sister worlds as the state funeral of Admiral Charlotte Marie was held in the Great Hall of Osquivel, attended by representatives from across the sector and a guard of honour drawn from both the Luna Pienan defence fleet and the E'lyran nomadic heritage units, a pairing that spoke quietly but powerfully to everything Marie stood for. The admiral, lost over Skaro during a Unity 5 diplomatic mission, was remembered not only as a naval commander of distinction but as an architect of the living principles underpinning SNG society: that no community is expendable, that no voice goes unheard, and that every disagreement carries within it the seed of an accord. Eulogies given by SNG civic and military leaders returned again and again to the Usagi settlement of 2596, when Marie personally led months of patient mediation between the SNG colonial authority and the E'lyran nomadic communities whose transit routes crossed the ecologically protected territories of Usagi's great biosphere reserve. The accord she brokered, giving the nomads guaranteed seasonal passage rights while establishing co-managed conservation protocols with the colonial authority, became a model for community governance cited across the sector, and it was Marie's insistence that both sides share the same table, and the same silences, that made it possible.
 
 In a ceremony following the funeral, SNG leaders announced that the recently completed orbital arcology above Polgara will be formally renamed the Charlotte Marie Station, joining Brainsí na gealaí above Osquivel as a permanent landmark of the SNG's commitment to building upward rather than encroaching on the living worlds below. The dedication was met with sustained applause in the chamber and, according to SNG public holo-broadcasters, spontaneous gatherings on the viewing decks of Brainsí na gealaí itself, where citizens watched the new station's running lights illuminated for the first time in her name. GNN's Luna Piena correspondent Seren Fallows, speaking from outside the Great Hall, observed that the mood was one of grief held alongside something resolute, a community reminding itself not only of what it had lost, but of what it had been taught to protect. "She showed us that the hardest thing, and the most necessary thing, is always to stay in the room and stand up for what we share together," Fallows reported one mourner saying. "The station will now remind us every time we look up."
 
+![Bb-q situation resolved, officials report](/images/gnn/turn-08/09.jpg)
+
 ## BB-Q SITUATION RESOLVED, OFFICIALS REPORT
 
 Authorities on BB-Q have moved this week to reassure citizens and neighbouring polities that the situation following the AI containment breach at the Unified Synthetic Intelligence Research Centre has been fully resolved. In a coordinated release across SILK's holosphere, leadership cited the recently concluded AdvanCore independent technical assessment, the absence of any detected external interference, and the successful enactment of Alpha Protocol containment measures as evidence that the incident is closed and poses no ongoing risk to neighbouring systems. The moratorium on BB-Q communications, already lifted, was presented as confirmation of normalcy restored. GNN reached out to AdvanCore separately for comment, who replied they were "extremely busy" and that AI containment was "in hand”.
+
+![Terrans hunt for exiled leader](/images/gnn/turn-08/10.jpg)
 
 ## TERRANS HUNT FOR EXILED LEADER
 
@@ -91,6 +111,8 @@ International relations expert Diya Shaan suggests this “could well be an effo
 
 Petak Loseer, 67, is a veteran statesman and long standing leader of the Rikerian Empire on Riker II, following the breakup of the Riker Colonial Directorate in 2578, which led to the formation of both the Empire and rival Algeronian Republic. The opposing governments of Beard and Imzadi represent two former rivalling approaches to the government of the Riker II colony - the oligarchic and the democratic. Despite long standing tensions - including the alleged bombing of an Algeronian high speed rail line last year - the two neighbouring colonies lived in relative peace until the LGR-Algeronian invasion of the Rikerian Empire.
 
+![Imperium struck by major attacks](/images/gnn/turn-08/11.jpg)
+
 ## IMPERIUM STRUCK BY MAJOR ATTACKS
 
 The White Hand movement appears to have carried out its most ambitious and devastating operation to date, striking simultaneously across four Alarian worlds in two coordinated waves. Most shocking to Imperial Security analysts was the use of a military-grade missile in the attack on Gloriana's primary trade port, disabling the colonial capital's main loading infrastructure and raising urgent questions about how a civil resistance movement has obtained weapons of this specification. The attack on the trade port came shortly before the morning shift change, maximising casualties among dock workers and freighter crews - with severe damage to both the port infrastructure, two adjacent collapsed warehouses and seventeen freighters berthed at the time. A follow-up attack on Gloriana's communications grid compounded the disruption, knocking out emergency services and orbital traffic control for eleven hours, killing 18 in related incidents, in addition to hundreds dead during the space port attack.
@@ -98,6 +120,8 @@ The White Hand movement appears to have carried out its most ambitious and devas
 On Luminaris, the campaign has tipped an already fragile colony into a possible humanitarian crisis. An advanced intrusion disabling the water reclamation network was followed by a bombing of the planet's central food distribution hub, the single facility through which the majority of the colony's goods are processed. With eleven dead, the building severely damaged, and Imperial resupply convoys weeks away, local authorities have declared a state of emergency. On Shalkarol, Imperial Security successfully interdicted an attack on the planetary fuel refinery, though a second attack bombed the planetary administrative offices regardless, killing four officials. On Celestialis, damage was limited to a minor incendiary attack on an army training barracks, with the second cell arrested before it could act. Sporadic armed ambushes on security patrols were also reported on Epigreia and Sigmaris, with outbreaks of violent rioting on Gloriana, Shalkarol and Sigmaris, which were quickly dispersed.
 
 The Imperial colonial government has not yet issued a public statement, though Imperial Security sources describe the campaign as "an act of war against the Empress and her people." Local governors initiated planetary curfews and deployed security forces in response, leading to mass arrests - a large-scale manhunt is now underway for the culprits. Earlier analysis points to a shift in White Hand tactics, away from earlier civil resistance movement strategies towards a hardening and escalation in strategy, focused on small highly trained and well equipped cells engaging high impact targets, likely - experts say - in response to recent imperial crackdowns and tightening of civil liberties. Alarian officials claim many more attacks were underway, but their ongoing counterintelligence operations appear to have prevented worse attacks. But the use of military-grade weaponry across multiple systems in a single coordinated operation marks a profound shift in the White Hand's capabilities, and analysts across the sector are now asking openly whether the movement is receiving outside support - and if so, from whom.
+
+![Gnn exclusive: financial documents allege first child linked to utf-backed funding network](/images/gnn/turn-08/12.jpg)
 
 ## GNN EXCLUSIVE: FINANCIAL DOCUMENTS ALLEGE FIRST CHILD LINKED TO UTF-BACKED FUNDING NETWORK
 
@@ -113,6 +137,8 @@ The timing is politically charged, with relations between the Imperium and sever
 
 More on this story as it develops.
 
+![Cpa investigate utf bombardment of venta](/images/gnn/turn-08/13.jpg)
+
 ## CPA INVESTIGATE UTF BOMBARDMENT OF VENTA
 
 A Cerean Planetary Alliance survey vessel has arrived over Venta to investigate the site of the recent UTF bombardment of the planet's northern desert. CPA vessels conducted a full scan of the mile-deep crater left by the six-hour strike, which the Terran Federation described at the time as a "routine military training exercise."
@@ -120,6 +146,8 @@ A Cerean Planetary Alliance survey vessel has arrived over Venta to investigate 
 Scan data was passed to the CPA's Bureau of Extraction and Enrichment (BEE), the Alliance's mining and resource processing authority, who have now published their findings. The Bureau's report concludes there is "evidence of the removal of a Promethean artefact" from the site.
 
 If accurate, the assessment suggests UTF forces used the bombardment to excavate and extract an item of Promethean origin buried beneath the Ventan crust, raising serious questions about the true nature of the exercise. UTF Sector Command have not responded to requests for comment.
+
+![Boom time for interstellar collectors & gamblers](/images/gnn/turn-08/14.jpg)
 
 ## BOOM TIME FOR INTERSTELLAR COLLECTORS & GAMBLERS
 
@@ -133,11 +161,15 @@ When pressed on the omission at the launch event on Sirx Siricius, Ledger Author
 
 In a move that has raised eyebrows across Sector 005, Le Grande Republique's Assembly has voted to commission a grand new Museum of Republican Triumph Over Primitive Behaviours at the Republic's capital, New Berlin, despite the ongoing pressures of the wider war. The museum, proposed by the LGR Liberté Social Research Nexus, is intended to serve as both an educational institution and a monument to Republican progress - documenting, in the words of its founding charter, "the long and turbulent road from hierarchy, superstition and subjugation to the light of reason and liberty." Critics, including several opposition voices within the Assembly itself, have questioned the timing of such an ambitious cultural project while Republic forces remain engaged offworld. Supporters counter that the museum is precisely the kind of institution that defines what the Republic is fighting for. Construction is expected to begin within the year, with a planned inaugural exhibition focusing on pre-Republican governance structures - though what, exactly, qualifies as "primitive" is, by all accounts, still a matter of some internal debate.
 
+![Seekers honour andor fallen](/images/gnn/turn-08/15.jpg)
+
 ## SEEKERS HONOUR ANDOR FALLEN
 
 The Seekers Commonwealth has launched a sector-wide commemoration campaign for the soldiers lost in the Andor extraction operation last cycle, in which all but two of fourteen assault teams were killed securing a live Bionid sample now in the hands of Anti-Bionid Federation researchers. The Tempting Word Directorate has produced a series of holonet tributes describing the volunteers - who knew the odds before they boarded their transports - as embodying the core Seeker conviction that what is left behind matters more than what is taken, their sacrifice now permanently entered into the Commonwealth's records alongside the names of the first survivors of Revelation Station.
 
 The SKC has simultaneously announced the creation of the Andor Covenant Fund, a state endowment providing families of the fallen with support in excess of the standard military pension, described by Commonwealth spokespeople as a recognition that "those who go into the dark so others do not have to are owed more than pithy words." Reactions from across the sector have been broadly sympathetic, with several polities' civil leaders publicly acknowledging the SKC's contribution to what remains the only successful live Bionid capture on record.
+
+![Tang invokes emergency war powers](/images/gnn/turn-08/16.jpg)
 
 ## TANG INVOKES EMERGENCY WAR POWERS
 

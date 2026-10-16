@@ -8,15 +8,21 @@ date: 2025-12-30
 **
 
 
+![Nmvi.00 virus identified on galaga-d](/images/gnn/turn-05/01.jpg)
+
 ## NMVI.00 VIRUS IDENTIFIED ON GALAGA-D
 
 In recent weeks, despite containment measures and a system wide lockdown, the Napenthes Monstera Trepani Virus (NMVI.00), named after the exotic plant it spread from, has torn through cities across Tempest Grove, with 117,000 now dead, and 100,000s more deathly sick. Tempest Grove medical authorities are under extreme strain with the planetary governor instituting a full planetary lockdown. Commonwealth authorities acted quickly in an attempt to contain the virus, VCW biomedical division are onsite instituting quarantine zones and air purification measures in major cities, which have had a direct impact on transmission rates and prevented the virus from spreading.
 
 As of yesterday, SILK authorities have now confirmed the presence of NMVI.00 or the Nimvy Virus as people are now calling it, on Galaga-D. News of the contagion has caused mass panic on Galaga-D. Galaga-D System Coordinator Mentos Jamiesdottir was not available for comment. Currently just an estimated 3,000 individuals centred on the city of Pocheen have shown signs of contracting the virus, with dozens dead in SILK medical facilities already. Local SILK authorities, acting quickly, have traced the virus to a single starcarrier transport from Tempest Grove. Incubation periods for the virus are still unclear, though transmission has now been traced, thanks to VCW xenobotany efforts, to spores released from the lung tract of infected victims.
 
+![Sng fleet engage bionids over andor](/images/gnn/turn-05/02.jpg)
+
 ## SNG FLEET ENGAGE BIONIDS OVER ANDOR
 
 Solas na Gealaí Fleet Commander Philis Beren has taken command of the 1st Mah'alleinir Defence Fleet and reports they have engaged the Bionids over Andor. As the tip of the spear of the newly formed Anti-Bionid Federation, evoking the Supreme Allied Fleet of the Bionid War, the SNG squadron is composed of two state of the art Battlestar armoured carriers *Macha* and *Badb*, the Long Range Missile Cruiser *Nemain* and the Electronic Warfare Frigate *Anu*. Commissioned just five years ago, the new Battlestars represent a fusion of E’lyran and Luna Pienan technology, primarily defensive in nature with thick armour cladding but deadly in a fight. A small gathering of SNG civilian and merchant vessels gathered at the M25 limit jump point to see them off, signalling “May We Meet Again” - the SNG traditional farewell in difficult times. GNN wishes the squadron good luck and happy hunting.
+
+![Sng squadron retreats from andor](/images/gnn/turn-05/03.jpg)
 
 ## SNG SQUADRON RETREATS FROM ANDOR
 
@@ -26,11 +32,15 @@ Solas na Gealaí Fleet Commander Philis Beren has taken command of the 1st Mah'a
 
 GNN understands the SNG fleet has dispatched fleet rescue and hospital vessels and will likely return to Luna Piena fleet anchorage. Current scans of the fleet indicate the squadron has not been infected, which will come as some relief to Solas Na Gealai leaders.
 
+![Progressive alliance wins proximan elections](/images/gnn/turn-05/04.jpg)
+
 ## PROGRESSIVE ALLIANCE WINS PROXIMAN ELECTIONS
 
 Prime Minister Johnsdottir celebrated the win last week on Proxima as the Federal Progressive Alliance Party (FPA) won a renewed term in the Proxima Federal Republic Parliament. The FPA won with a reduced mandate, gaining 225 seats in the 650 seat Proximan Parliament. With the support of the 120 seat Alliance Party (AP) through a coalition arrangement, Johnsdottir has won herself another four years at the helm of the republic, though with expected significant concessions to her long term coalition partner. Experts expect policy shifts on such areas as increased parliamentary oversight of the Proxima Federal Republic Navy (PFRN) re-armament programme and in key areas on foreign policy, with the AP functioning as a moderating force on the FPAs more muscular response to the United Terran Federation’s recent moves against Pact members.
 
 Sector 5 Governor Wolfgang Lentees and leader of the pro-colonial devolution United Colonial Bloc, celebrates an increased mandate, whilst the Proximan Unity Front suffered from the effects of ongoing party infighting and suffered at the polls as a result. Rigel Mosley of the National Vanguard Movement saw their vote rise with their main thrust of government ‘appeasement’ towards the Terran threat breaking through amongst key demographics. The Prime Minister is expected to give a victory speech tonight in the Hall of the Republic on Proxima at 18.00 galactic standard time, all net, all channels.
+
+![Y5 leaders reject cpa & sng evac](/images/gnn/turn-05/05.jpg)
 
 ## Y5 LEADERS REJECT CPA & SNG EVAC
 
@@ -44,6 +54,8 @@ Professor Cambria gave a speech to the leaders of Y5 last week, saying *"Andor h
 
 The civil authorities on Monokoke report widespread civil unrest in response to the news from Andor, GNN sources say, though evacuation efforts led by the SNG are now proceeding. SILK are rumoured to have offered ‘luxury hotel accommodation’ to the ruling councils of Monokoke and Y5, which both colonies appear to have rejected. Authorities on X14 report they are conferring over the decision to evacuate. Stay tuned for updates.
 
+![Exercise ready lance concludes](/images/gnn/turn-05/06.jpg)
+
 ## EXERCISE READY LANCE CONCLUDES
 
 Galactic News Network reports the successful conclusion of EXERCISE READY LANCE in the Henge system, conducted by Terran Strike Force Alpha ‘Felgor’s Fury’. The exercise focused on refining procedures for intelligence-led, precision strike operations against high-value targets.
@@ -51,6 +63,8 @@ Galactic News Network reports the successful conclusion of EXERCISE READY LANCE 
 Fleet commanders confirm that the drills integrated real-time intelligence analysis with rapid task-group manoeuvre, improving command-and-control responsiveness and inter-unit coordination. Particular emphasis was placed on target verification, collateral risk management, and post-raid extraction protocols.
 
 Terran defence officials describe the exercise as a measured response to recent operational lessons, aimed at improving effectiveness without escalation. The outcome reinforces the fleet’s readiness to support tightly scoped enforcement or interdiction missions should political authorities require it.
+
+![Lgr forces strike rikerian empire](/images/gnn/turn-05/07.jpg)
 
 ## LGR FORCES STRIKE RIKERIAN EMPIRE
 
@@ -62,6 +76,8 @@ Earlier this month, Le Grande Republique Assembly passed an emergency “Protect
 
 The neighbouring Algeron Republic moved to a heightened state of military readiness as news of the attacks reached government officials, whilst Algeron leaders called for their citizens to observe calm and hold steadfast. The Algeronian cities of Thaddeus and Kestra held civil defence preparedness drills and Algeron ground forces are now on full battle alert.
 
+![Cpa specialist team dispatched following governor murder](/images/gnn/turn-05/08.jpg)
+
 ## CPA SPECIALIST TEAM DISPATCHED FOLLOWING GOVERNOR MURDER
 
 Last octant, Planetary Governor Preen was assassinated by suspected mafia elements on Grimes Well. In response the CPA has dispatched a specialist team from the Bureau of Trans-System Crime and Intelligence (BTSCI) to assist local authorities in investigating the assassination. BTSCI agents are also strengthening oversight on intersystem movements, cargo flows and communication channels across Grimes Wells space.
@@ -69,6 +85,8 @@ Last octant, Planetary Governor Preen was assassinated by suspected mafia elemen
 Plagued by increasing mafia activity in recent years, the system’s five regions and moons worst affected by mafia activity are the poorest. Recent independent research has revealed the devastating effect that mafia activity has had on Grimes Well’s economy. Thorun Falstaff, an economics professor in the department of policy analysis and public management at Zserebor University on New Cornwall, has studied the effects of various mafia organisations in the southern colonial regions of Pirenta and Basilor. His research shows that, since the “mafia eruption” of the mid-2580s, which saw an influx of criminal organisations into the colony whilst the wider CPA and sector economy was impacted by the ongoing Bionid War - the murder rate quadrupled in the two regions while their growth rates fell from the highest in the country to the lowest.
 
 Comparing the regions of Pirenta and Basilor with the other colonised regions across CPA space, Falstaff’s research, published in the 2600 issue of the New Economic Journal, calculates that organised crime was responsible for a 20% fall in their economic output between the mid-2280s and mid-2290s. Mafia activity was thought to be easing off after the CPA wide crackdown on blackmarket trade under previous Sector 005 Governor Thorkell the Proud.
+
+![Tensions escalate on venta](/images/gnn/turn-05/09.jpg)
 
 ## TENSIONS ESCALATE ON VENTA
 
@@ -80,9 +98,13 @@ The Northern Democratic Colonial Authority (NDCA) is also amassing military forc
 
 As the NDCA flexes its military muscle, concerns over potential conflict mount. Diplomatic channels remain open, and interstellar observers urge peaceful dialogue to resolve the impasse. The future of peace on Venta hinges on the ability of both parties to find common ground and ensure a stable transition of power in the disputed region.
 
+![Pres. tang honours skaro heroes](/images/gnn/turn-05/10.jpg)
+
 ## SKC ESTABLISH NEW COLONY ON X14
 
 The Seekers Commonwealth broke ground on a new colony this month. Commonwealth construction drones are in place and setting up the skeletons of the first set of new pressure domes on the rocky world, whilst a heavy mining rig, autorefinery and cargo pad complex is being constructed 30km to the south of the new colony.
+
+![Pres. tang honours skaro heroes](/images/gnn/turn-05/11.jpg)
 
 ## PRES. TANG HONOURS SKARO HEROES
 
@@ -92,11 +114,15 @@ Today, Sector President W. Tang celebrated and honoured those who undertook the 
 
 The participating AFCO vessels reported for repair and refuelling over New Devon yesterday, to the surprise of CPA administrators.
 
+![Ai defector disappears on new devon](/images/gnn/turn-05/12.jpg)
+
 ## Y15 HIT IN SUSPECTED PIRATE ATTACK
 
 The Freedom Matters Commonwealth (FMC) colony declared an emergency on Y15. Hundreds have died in a shock pirate attack on the asteroid mining refinery. The raiders sacked the refinery operated by the Steel Mountain Corporation (SMC), stealing large quantities of Enriched Cobalt-60, used in medical and scientific applications across the sector. Following the attack power failed aboard the orbital refinery, the orbital stabilisation thrusters failed and the refinery burned up in Y15’s atmosphere. Fragments of the refinery fell out of the sky damaging property in 750km zone across the Freedom Matters Commonwealth.
 
 The sole FMC Starguard defence unit was unable to intercept the pirate raiders in time, arriving on scene to rescue jettisoned escape pods in the vicinity of the attack. Despite ongoing diplomatic tensions on the planet, neighbouring Y15 colony New Ketala Colonial Authority dispatched emergency response teams to the FMC crash sites and is taking an active role in rescue efforts. GNN spoke with piracy expert Professor Y’ah Mee-Hartese who suggests we may be witnessing the emergence of a new, bolder, pirate faction. Mee-Hartese noted similarities in the attack strategy to the earlier devastating raid on Rakshasa-9.
+
+![Ai defector disappears on new devon](/images/gnn/turn-05/13.jpg)
 
 ## DEEP RED TERROR STRIKE ON MOLLARI
 
@@ -106,6 +132,8 @@ Authorities on Trotsky responded to the news denying any involvement. Lars Makhn
 
 The Mollari Republic’s sister colony on Mollari, the much smaller Basha Colony, was unavailable for comment following the attacks, though it is understood the colonists are currently celebrating a weeklong public holiday commemorating the 10th anniversary of their colony on the southern continent of Mollari.
 
+![Ai defector disappears on new devon](/images/gnn/turn-05/14.jpg)
+
 ## AI DEFECTOR DISAPPEARS ON NEW DEVON
 
 GNN reports the military defector from Alarian Imperium which arrived on New Devon last octant seeking political asylum has disappeared after being granted provisional asylum by CPA authorities. GNN and other news outlets have been following the movements of the individual, who we believe to be a military scientist associated with the Skaro project.
@@ -113,6 +141,8 @@ GNN reports the military defector from Alarian Imperium which arrived on New Dev
 Cerean Planetary Alliance officials stated: "We can confirm that the defector, known as Zalen Burso, arrived on New Devon last month and was held at a CPA facility for questioning and quarantine, but that the individual in question has now gone missing and is no longer in CPA custody.”
 
 It is unclear as to the cause of the defector’s disappearance, but it has caused concern among critics of the Alarian regime, such as Phenom Bengmu, an outspoken critic of the regime and campaigner for transparency of interstellar contracts with the Alarian regime based on Earthsea. “We hope the defector has managed to achieve some measure of safety and we pray for their safe deliverance. The long arm of Alarian brutality stretches across the sector, and this latest disappearance even on another nation’s territories is a stark warning to all those who call the Imperium friend,” said Bengmu speaking to GNN report Kara Stuart earlier today.
+
+![Silk highlight their contribution to sector 5](/images/gnn/turn-05/15.jpg)
 
 ## SILK HIGHLIGHT THEIR CONTRIBUTION TO SECTOR 5
 

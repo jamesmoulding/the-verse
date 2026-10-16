@@ -185,3 +185,7 @@ td.self { background: repeating-linear-gradient(45deg, var(--border) 0 4px, tran
 @media (max-width: 600px) {
   .dropdown-menu { left: auto; right: 0; min-width: 12rem; }
 }
+
+/* GNN bulletin images */
+.bulletin .masthead { display: block; width: 100%; border-radius: .6rem; margin-bottom: 1rem; }
+.bulletin > p > img { width: 100%; border-radius: .5rem; margin: 1.5rem 0 .25rem; }
