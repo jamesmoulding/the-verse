@@ -216,3 +216,9 @@ td.self { background: repeating-linear-gradient(45deg, var(--border) 0 4px, tran
   .section-rules .with-toc .prose { max-width: none; }
 }
 .faction.no-flag { min-height: 5.1rem; }
+
+/* GNN archive cards */
+.archive-cards { list-style: none; padding: 0; display: grid; gap: .9rem; grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); }
+.archive-cards .card h4 { margin: 0 0 .2rem; font-size: 1.08rem; }
+.archive-cards .card .headlines { font-size: .93rem; }
+.archive-cards .more { margin: .3rem 0 0; font-size: .9rem; font-weight: 600; }

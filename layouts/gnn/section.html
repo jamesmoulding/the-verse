@@ -13,13 +13,25 @@
   </section>
   {{- end }}
   <h2>Archive</h2>
-  {{- range $all.GroupByParam "staryear" "desc" }}
-  <h3>Star Year {{ .Key }}</h3>
-  <ul class="archive">
-    {{- range sort .Pages "Params.turn" "desc" }}
-    <li><a href="{{ .RelPermalink }}">Turn {{ .Params.turn }}</a> <span class="meta">posted {{ .Date | time.Format "2 Jan 2006" }}</span></li>
+  {{- $latestTurn := (index $all 0).Params.turn }}
+  {{- $years := slice }}
+  {{- range .Pages }}{{ $years = $years | append .Params.staryear }}{{ end }}
+  {{- range sort (uniq $years) "value" "desc" }}
+  {{- $year := . }}
+  {{- with where (where $.Pages "Params.staryear" $year) "Params.turn" "ne" $latestTurn }}
+  <h3>Star Year {{ $year }}</h3>
+  <ul class="archive-cards">
+    {{- range sort . "Params.turn" "desc" }}
+    {{- $n := len (partial "h2s.html" .) }}
+    <li class="card">
+      <h4><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
+      <p class="meta">Posted {{ .Date | time.Format "2 January 2006" }}</p>
+      {{ partial "headlines.html" (dict "page" . "limit" 4) }}
+      {{- if gt $n 4 }}<p class="more"><a href="{{ .RelPermalink }}">All {{ $n }} stories →</a></p>{{ end }}
+    </li>
     {{- end }}
   </ul>
+  {{- end }}
   {{- end }}
 </div>
 {{ end }}
