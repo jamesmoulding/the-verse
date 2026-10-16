@@ -1,14 +1,15 @@
-# Controlling powers on the map: display name, Turn 9 map colour, and the page the panel links to.
-AFCO: {name: "Association of Free Colonies", colour: "#f8b070", url: "/factions/afco/"}
-ASE: {name: "Alarian Star Empire", colour: "#f88080", url: "/factions/ase/"}
-CPA: {name: "Cerean Planetary Alliance", colour: "#389058", url: "/factions/cpa/"}
-LGR: {name: "Le Grande Republique", colour: "#c8e0ff", url: "/factions/lgr/"}
-PFR: {name: "Proxima Federal Republic", colour: "#88b0f8", url: "/factions/pfr/"}
-SILK: {name: "Sexy Intelligent Lady Komputer", colour: "#ffe070", url: "/factions/silk/"}
-SKC: {name: "Seekers Commonwealth", colour: "#fff8c8", url: "/factions/skc/"}
-SNG: {name: "Solas na Gealaí", colour: "#f8e0c0", url: "/factions/sng/"}
-UTF: {name: "United Terran Federation", colour: "#787878", url: "/factions/utf/"}
-VC: {name: "Viśvanivāsaḥ Confederacy", colour: "#5880c0", url: "/factions/vc/"}
-VCW: {name: "Vertinia Commonwealth", colour: "#58d080", url: "/factions/vcw/"}
-"UNITY 5": {name: "Unity 5", colour: "#6830d8", url: "/library/unity-5/"}
+# Controlling powers on the map: display name, map colour, and the page the panel links to.
+# Colours are brighter versions of the Turn 9 map colours (Turn 9 value in the comment).
+AFCO: {name: "Association of Free Colonies", colour: "#ff9a3c", url: "/factions/afco/"}      # f8b070
+ASE: {name: "Alarian Star Empire", colour: "#ff4d5e", url: "/factions/ase/"}                 # f88080
+CPA: {name: "Cerean Planetary Alliance", colour: "#1fae55", url: "/factions/cpa/"}           # 389058
+LGR: {name: "Le Grande Republique", colour: "#9fd2ff", url: "/factions/lgr/"}                # c8e0ff
+PFR: {name: "Proxima Federal Republic", colour: "#4f8dff", url: "/factions/pfr/"}            # 88b0f8
+SILK: {name: "Sexy Intelligent Lady Komputer", colour: "#ffd21f", url: "/factions/silk/"}    # ffe070
+SKC: {name: "Seekers Commonwealth", colour: "#fff6c2", url: "/factions/skc/"}                # fff8c8
+SNG: {name: "Solas na Gealaí", colour: "#ffc48a", url: "/factions/sng/"}                     # f8e0c0
+UTF: {name: "United Terran Federation", colour: "#a4a4a4", url: "/factions/utf/"}            # 787878
+VC: {name: "Viśvanivāsaḥ Confederacy", colour: "#3d6fe8", url: "/factions/vc/"}              # 5880c0
+VCW: {name: "Vertinia Commonwealth", colour: "#2ee87a", url: "/factions/vcw/"}               # 58d080
+"UNITY 5": {name: "Unity 5", colour: "#8f45ff", url: "/library/unity-5/"}                    # 6830d8
 IND: {name: "Independent", colour: "", url: ""}

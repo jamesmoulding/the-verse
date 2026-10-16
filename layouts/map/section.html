@@ -3,20 +3,20 @@
   <canvas id="map-canvas" aria-label="3D map of Sector 005"></canvas>
   <div id="map-labels" class="map-labels" aria-hidden="true"></div>
   <div class="map-fade" id="map-fade"></div>
-  <div class="station-view" id="station-view" hidden><img alt="Unity 5 orbital station above Parliament" src="{{ "images/map/unity-5-station.jpg" | relURL }}"></div>
 
   <div class="map-toolbar">
     <label class="sr-only" for="map-search">Find a system</label>
     <input id="map-search" type="search" list="map-system-list" placeholder="Find a system…" autocomplete="off">
     <datalist id="map-system-list"></datalist>
     <button type="button" id="map-labels-toggle" aria-pressed="true">Names</button>
+    <button type="button" id="map-board" aria-pressed="false">Board</button>
     <button type="button" id="map-reset">Whole sector</button>
   </div>
 
   <details class="map-legend" open>
     <summary>Key</summary>
     <ul id="map-legend-list"></ul>
-    <p class="map-help">Drag to rotate, right-drag or two fingers to pan, scroll or pinch to zoom. Click a star to visit its colony.</p>
+    <p class="map-help">Drag to pan. Cmd-drag (Mac) or Alt-drag (Windows) to rotate, or right-drag. Scroll or pinch to zoom where you point. Click a star to visit its colony.</p>
   </details>
 
   <aside class="map-panel" id="map-panel" hidden aria-live="polite">
@@ -26,7 +26,7 @@
 
   <noscript><p class="map-noscript">The map needs JavaScript to run.</p></noscript>
 </div>
-<script type="application/json" id="map-data">{{ dict "systems" ((resources.Get "map/systems.csv") | transform.Unmarshal) "factions" hugo.Data.map_factions "founders" hugo.Data.founders "grades" hugo.Data.grades | jsonify | safeJS }}</script>
+<script type="application/json" id="map-data">{{ dict "systems" ((resources.Get "map/systems.csv") | transform.Unmarshal) "factions" hugo.Data.map_factions "founders" hugo.Data.founders "grades" hugo.Data.grades "descriptions" hugo.Data.descriptions | jsonify | safeJS }}</script>
 <script type="importmap">{"imports": {"three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 {{- $js := resources.Get "js/map.js" | fingerprint }}
 <script type="module" src="{{ $js.RelPermalink }}"></script>

@@ -279,3 +279,11 @@ td.self { background: repeating-linear-gradient(45deg, var(--border) 0 4px, tran
   .map-toolbar input { width: 9.5rem; }
 }
 .map-app.closeup .map-legend { display: none; }
+
+/* Controlled-system mini cards on faction pages */
+.mini-cards { list-style: none; padding: 0; display: grid; gap: .5rem; grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); }
+.mini-card { display: block; background: var(--surface); border: 1px solid var(--border); border-radius: .5rem; padding: .5rem .7rem; text-decoration: none; color: var(--text); height: 100%; }
+.mini-card:hover { border-color: var(--accent); }
+.mini-card strong { display: block; color: var(--link); font-size: .95rem; }
+.mini-card small { color: var(--muted); font-size: .78rem; }
+.map-desc { margin: 0; font-size: .95rem; line-height: 1.55; }

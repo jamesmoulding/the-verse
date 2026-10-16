@@ -8,6 +8,7 @@
   {{ end }}
   {{ .Content }}
   <div class="clear"></div>
+  {{ partial "faction-systems.html" . }}
 
   {{- $slug := .File.ContentBaseName }}
   {{- with where (where site.RegularPages "Section" "library") "Params.faction" $slug }}

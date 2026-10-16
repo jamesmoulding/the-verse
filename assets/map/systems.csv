@@ -68,7 +68,7 @@ I12,Belstaff,UTF,RC,10,24.2,6,0,21.0,UNCI,tundra,G,,
 I16,Foobusant,SILK,PC,1,7.56,3,1,11.0,ICB,archipelago,K,,
 I17,Squideen,SILK,SC,0,0.66,4,1,17.0,SSP,savannah,G,,
 J7,New Devon,CPA,AC,4,0.324,4,3,23.0,CPA,arid,F,,
-J8,Parliament,UNITY 5,SC,0,0,2,1,17.0,,station,K,(?:planet of|above|over|on|orbiting) Parliament\b,Unity 5 orbital station (James)
+J8,Parliament,UNITY 5,SC,0,0,2,1,17.0,,arid,K,(?:planet of|above|over|on|orbiting) Parliament\b,"Unity 5 orbital station above an arid world, as in the station image"
 J10,Rigel,UTF,PC,1,8.8,7,0,17.0,UNCI,tundra,M,\bRigel\b(?! Mosley),
 J13,Bix,IND,SC,0,0,4,1,21.0,ICB,savannah,M,,
 J14,Sbreenar,SILK,AC,4,11.33,1,0,21.0,SSP,temperate,K,,
@@ -127,10 +127,10 @@ P12,Kedros,VCW,CC,20,38.5,6,1,26.0,VCW,forest,G,,Forest
 P14,Barren Red,VCW,PC,1,9.72,5,0,25.0,EFC,barren,G,,Mining
 P19,Aeryn,IND,SC,0,0.7558272,6,0,25.0,,jungle,M,,
 Q1,Teal'c,IND,SC,0,1.836,5,1,22.0,,temperate,K,,
-Q9,Gont,VC,AC,4,47.3,8,0,17.0,JBH,ocean,G,,
+Q9,Gont,VC,AC,4,47.3,8,0,17.0,AUR,ocean,G,,
 Q14,Vándor,VCW,VR,15,29.7,4,0,26.0,VCW,ice,K,,Space iceland
-R6,Osskil,VC,VP,0,0.256608,11,1,16.0,JBH,temperate,M,,
-R7,Earthsea,VC,VR,15,60.48,7,0,26.0,JBH,archipelago,G,,Inferred from the name only
+R6,Osskil,VC,VP,0,0.256608,11,1,16.0,AUR,temperate,M,,
+R7,Earthsea,VC,VR,15,60.48,7,0,26.0,AUR,archipelago,G,,Inferred from the name only
 R8,Bajor,PFR,PC,1,8.8,7,0,2.0,ICB,forest,K,,
 R10,Frigid Spring,VCW,SC,0,3.24,5,1,22.0,VCW,tundra,K,,Barren & misty
 R11,Aeithalis,VCW,AA,6,19.44,12,1,18.0,UNCI,jungle,K,,Rainforest
@@ -138,8 +138,8 @@ R12,Dross,IND,JS,0,0.108,3,1,24.0,VTX,temperate,G,,Large class M planet with a r
 R15,Sakura,SNG,VP,0,6.6,2,0,17.0,SNG,temperate,G,,
 R16,Polgara,SNG,AC,4,44.28,11,1,24.0,SNG,temperate,K,,
 S2,Trotsky,IND,SC,0,0.54,8,1,18.0,RPI,jungle,G,,
-S5,Atuan,VC,BA,2,9.72,5,1,16.0,JBH,archipelago,G,,
-S7,Havnor,VC,AA,6,29.16,4,0,27.0,JBH,temperate,K,,
+S5,Atuan,VC,BA,2,9.72,5,1,16.0,AUR,archipelago,G,,
+S7,Havnor,VC,AA,6,29.16,4,0,27.0,AUR,temperate,K,,
 S9,Hellebore,IND,JS,0,0.06,8,3,23.0,UNCI,arid,K,,
 S11,Kahawai,VCW,UI,1,0.864,4,0,25.0,VCW,archipelago,G,,Archipelagos
 S12,Moon Weaver,VCW,SC,0,2.06,12,0,26.0,VCW,temperate,G,,Lots of moons
@@ -150,7 +150,7 @@ S19,Y5,IND,SC,0,0.8817984,3,1,21.0,,barren,G,,"Barren wastes, domed colonies"
 S20,X14,IND,SC,0,0,3,1,15.0,,archipelago,F,,
 T2,Mollari,IND,SC,0,1.1,10,0,26.0,,jungle,K,,Equatorial mountainous rainforest
 T3,Urbani,IND,SC,0,0,9,1,18.0,,savannah,G,,
-T4,Selidor,VC,VP,0,0,8,0,23.0,JBH,arid,K,,
+T4,Selidor,VC,VP,0,0,8,0,23.0,AUR,arid,K,,
 T8,Y15,IND,SC,0,0.8309961386,9,0,18.0,,temperate,K,,
 T10,Dragon,VCW,JS,-1,0.33,9,0,23.0,VCW,volcanic,K,,Volcanic
 T15,Luna Piena,SNG,CC,20,25.92,3,0,14.0,HSC,jungle,M,,

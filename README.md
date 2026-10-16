@@ -18,6 +18,7 @@ every time something is pushed to `main`.
 | Library (background reading) | `content/library/*.md` |
 | Map: star systems | `assets/map/systems.csv` |
 | Map: founders, colours, grades | `data/founders.yaml`, `data/map_factions.yaml`, `data/grades.yaml` |
+| Map: system descriptions | `data/descriptions.yaml` |
 | Images | `static/images/` |
 | QR code for player packs | `static/images/qr/the-verse-qr.png` (and `.svg` for print) |
 
@@ -73,12 +74,19 @@ Open it in a spreadsheet, edit, save as CSV and push. Columns:
 | `population_m` | Population in millions (`0.05` = 50,000) |
 | `planets`, `belts`, `m25_au` | Planets, asteroid belts, M25 limit in AU |
 | `founder` | Founding corporation code, named in `data/founders.yaml` |
-| `planet_type` | Close-up look: temperate, ocean, archipelago, storm-ocean, ocean-rocky, arid, desert, savannah, jungle, forest, alpine, ice, tundra, volcanic, toxic, barren, scorched, industrial, bionid, or `station` (shows the Unity 5 image) |
+| `planet_type` | Close-up look: temperate, ocean, archipelago, storm-ocean, ocean-rocky, arid, desert, savannah, jungle, forest, alpine, ice, tundra, volcanic, toxic, barren, scorched, industrial or bionid. Parliament also shows the 3D Unity 5 station |
 | `star_type` | Star colour and size: B, F, G, K or M. Illustrative, not canon |
 | `gnn_terms` | Optional. A JavaScript regular expression for finding GNN stories about the system, used where the bare name would also match other things (e.g. Prime Minister) |
 | `planet_note` | Where the planet look came from. Not shown on the site |
 
 A system's details panel can be linked directly: `/map/#H6` opens Skaro.
+
+The colony status decides what orbits a planet in close-up: a small station for BA, AC, AA, RC, VR
+and CC colonies; two further small structures for RC, VR and CC; and ship traffic in proportion to
+development (most for CC, a handful for AA, AC, BA and PC).
+
+Descriptions in the panel come from `data/descriptions.yaml`, one line per system. Only add text
+that players are allowed to know.
 
 ## Diplomacy grid
 
