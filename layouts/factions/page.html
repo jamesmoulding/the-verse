@@ -1,0 +1,37 @@
+{{ define "main" }}
+<article class="wrap prose">
+  <p class="kicker">{{ .Params.kind }}</p>
+  <h1>{{ .Title }}</h1>
+  <div class="faction-images">
+    {{ with .Params.flag }}<img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="Flag of the {{ $.Params.short }}">{{ end }}
+    {{ with .Params.portrait }}<figure><img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="{{ $.Params.caption }}">{{ with $.Params.caption }}<figcaption>{{ . }}</figcaption>{{ end }}</figure>{{ end }}
+  </div>
+  {{ .Content }}
+
+  {{- $slug := .File.ContentBaseName }}
+  {{- with where (where site.RegularPages "Section" "library") "Params.faction" $slug }}
+  <h2>Further reading</h2>
+  <ul>{{ range . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}</ul>
+  {{- end }}
+
+  {{- with .Params.gnn_keywords }}
+  {{- $re := printf `(?i)\b(?:%s)` (delimit . "|") }}
+  <h2>In the GNN</h2>
+  {{- $found := 0 }}
+  {{- range sort (where site.RegularPages "Section" "gnn") "Params.turn" "desc" }}
+    {{- $p := . }}
+    {{- $items := slice }}
+    {{- range partial "h2s.html" $p }}
+      {{- if findRE $re .Title 1 }}{{ $items = $items | append . }}{{ end }}
+    {{- end }}
+    {{- with $items }}
+    {{- $found = add $found 1 }}
+    <h3 class="turn-head"><a href="{{ $p.RelPermalink }}">Turn {{ $p.Params.turn }}</a> <small>Star Year {{ $p.Params.staryear }}</small></h3>
+    <ul class="headlines">{{ range . }}<li><a href="{{ $p.RelPermalink }}#{{ .ID }}">{{ .Title | safeHTML }}</a></li>{{ end }}</ul>
+    {{- end }}
+  {{- end }}
+  {{- if eq $found 0 }}<p>No headlines yet.</p>{{ end }}
+  {{- end }}
+  <p class="back"><a href="{{ "factions/" | relURL }}">← All factions</a></p>
+</article>
+{{ end }}

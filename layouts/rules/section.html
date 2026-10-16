@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class="wrap with-toc">
+  <aside class="toc-wrap">
+    <details class="toc" id="toc" open>
+      <summary>Contents</summary>
+      {{ .TableOfContents }}
+    </details>
+  </aside>
+  <article class="prose">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+  </article>
+</div>
+<a class="to-top" href="#toc">Contents ↑</a>
+<script>
+  if (window.matchMedia("(max-width: 959px)").matches) document.getElementById("toc").removeAttribute("open");
+</script>
+{{ end }}

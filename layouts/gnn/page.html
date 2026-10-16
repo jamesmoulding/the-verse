@@ -1,0 +1,20 @@
+{{ define "main" }}
+{{- $turn := .Params.turn }}
+{{- $prev := index (where .CurrentSection.Pages "Params.turn" (sub $turn 1)) 0 }}
+{{- $next := index (where .CurrentSection.Pages "Params.turn" (add $turn 1)) 0 }}
+<article class="wrap prose bulletin">
+  <p class="kicker">Galactic News Network · Sector 005</p>
+  <h1>{{ .Title }}</h1>
+  <p class="meta">Star Year {{ .Params.staryear }} · Turn {{ $turn }} · Posted {{ .Date | time.Format "2 January 2006" }}</p>
+  <details class="toc">
+    <summary>In this bulletin</summary>
+    {{ partial "headlines.html" (dict "page" .) }}
+  </details>
+  {{ .Content }}
+  <nav class="pager" aria-label="Bulletins">
+    {{ with $prev }}<a href="{{ .RelPermalink }}">← Turn {{ .Params.turn }}</a>{{ else }}<span></span>{{ end }}
+    <a href="{{ "gnn/" | relURL }}">All bulletins</a>
+    {{ with $next }}<a href="{{ .RelPermalink }}">Turn {{ .Params.turn }} →</a>{{ else }}<span></span>{{ end }}
+  </nav>
+</article>
+{{ end }}

@@ -1,0 +1,24 @@
+{{ define "main" }}
+<div class="wrap">
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  {{- $all := sort .Pages "Params.turn" "desc" }}
+  {{- with index $all 0 }}
+  <section class="card latest">
+    <p class="kicker">Latest</p>
+    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    <p class="meta">Posted {{ .Date | time.Format "2 January 2006" }}</p>
+    {{ partial "headlines.html" (dict "page" .) }}
+  </section>
+  {{- end }}
+  <h2>Archive</h2>
+  {{- range $all.GroupByParam "staryear" "desc" }}
+  <h3>Star Year {{ .Key }}</h3>
+  <ul class="archive">
+    {{- range sort .Pages "Params.turn" "desc" }}
+    <li><a href="{{ .RelPermalink }}">Turn {{ .Params.turn }}</a> <span class="meta">posted {{ .Date | time.Format "2 Jan 2006" }}</span></li>
+    {{- end }}
+  </ul>
+  {{- end }}
+</div>
+{{ end }}

@@ -1,0 +1,37 @@
+# Site settings. The live address is supplied automatically by the GitHub
+# Actions workflow, so a custom domain needs no change here.
+baseURL = "https://jamesmoulding.github.io/the-verse/"
+locale = "en-GB"
+title = "The Verse"
+disableKinds = ["taxonomy", "term", "RSS"]
+
+[params]
+  description = "Sector 005, Star Year 2600 onwards. An online megagame."
+  mapURL = "https://miro.com/app/board/uXjVJSqYhXY=/?moveToWidget=3458764635680444002&cot=14"
+
+[markup.goldmark.renderer]
+  unsafe = false
+[markup.goldmark.parser]
+  autoHeadingIDType = "github"
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 3
+  ordered = false
+
+[menus]
+  [[menus.main]]
+    name = "GNN"
+    pageRef = "/gnn"
+    weight = 1
+  [[menus.main]]
+    name = "Rules"
+    pageRef = "/rules"
+    weight = 2
+  [[menus.main]]
+    name = "Factions"
+    pageRef = "/factions"
+    weight = 3
+  [[menus.main]]
+    name = "Library"
+    pageRef = "/library"
+    weight = 4

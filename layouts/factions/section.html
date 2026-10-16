@@ -1,0 +1,17 @@
+{{ define "main" }}
+<div class="wrap">
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  <ul class="factions">
+  {{ range .Pages.ByWeight }}
+    <li>
+      <a class="card link faction" href="{{ .RelPermalink }}">
+        {{ with .Params.flag }}<img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="" loading="lazy">{{ end }}
+        <span><strong>{{ .Title }}</strong><small>{{ .Params.kind }}</small></span>
+      </a>
+    </li>
+  {{ end }}
+  </ul>
+  <p class="note">Other states and corporations of human settled space are listed in the <a href="{{ "rules/" | relURL }}#other-factions-of-human-settled-space">rules</a>.</p>
+</div>
+{{ end }}

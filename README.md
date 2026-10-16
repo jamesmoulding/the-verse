@@ -1,0 +1,62 @@
+# The Verse website
+
+Public site for the Verse megagame: the GNN bulletin, the rules and the faction pages.
+Built with [Hugo](https://gohugo.io) and published to GitHub Pages by `.github/workflows/deploy.yml`
+every time something is pushed to `main`.
+
+## Where things live
+
+| What | File |
+|---|---|
+| Home page text | `content/_index.md` |
+| Rules (the Game Guide) | `content/rules/_index.md` |
+| Faction pages | `content/factions/<code>.md`, e.g. `utf.md` |
+| GNN bulletins | `content/gnn/turn-NN.md`, e.g. `turn-11.md` |
+| Library (background reading) | `content/library/*.md` |
+| Images | `static/images/` |
+| QR code for player packs | `static/images/qr/the-verse-qr.png` (and `.svg` for print) |
+
+## Adding a GNN bulletin
+
+Create `content/gnn/turn-12.md` (two digits: `turn-09.md`, `turn-12.md`) starting with:
+
+```
+---
+title: "GNN Bulletin 2602, Turn 12"
+turn: 12
+staryear: 2602
+date: 2026-10-20
+---
+```
+
+`date` is the real-world posting date, written year-month-day. Under the header, paste the
+bulletin. Start each story with a headline line beginning `## `, for example
+`## PFR FLEET SIGHTED OVER FELGOR`. Headlines become the bulletin's contents list, and any
+headline naming a faction is listed on that faction's page automatically.
+
+Commit and push. The site updates in about a minute; progress shows under the repository's
+**Actions** tab.
+
+## Faction pages
+
+`gnn_keywords` in a faction page's header lists the words that link GNN headlines to it.
+`flag`, `portrait` and `caption` set its images.
+
+## Previewing on your Mac
+
+```
+hugo server
+```
+
+Then open http://localhost:1313/the-verse/ . Stop it with Ctrl+C.
+
+## Search engines
+
+The rules page carries `noindex: true`, which asks search engines not to list it, and is left
+out of the sitemap. Anyone with the link can still read it.
+
+## Custom domain later
+
+In the repository's **Settings → Pages → Custom domain**, enter the domain and follow GitHub's
+DNS instructions. The workflow picks up the new address automatically; nothing in the site
+needs editing. Regenerate the QR code afterwards, because it points at the github.io address.

@@ -1,0 +1,9 @@
+{{- /* List a bulletin's headlines (its level-2 headings) as links. */ -}}
+{{- $p := .page }}
+{{- $hs := partial "h2s.html" $p }}
+{{- with .limit }}{{ $hs = first . $hs }}{{ end }}
+<ul class="headlines">
+{{- range $hs }}
+  <li><a href="{{ $p.RelPermalink }}#{{ .ID }}">{{ .Title | safeHTML }}</a></li>
+{{- end }}
+</ul>

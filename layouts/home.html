@@ -1,0 +1,24 @@
+{{ define "main" }}
+<div class="wrap">
+  <img class="banner" src="{{ "images/guide/sector5-banner.png" | relURL }}" alt="Sector 5">
+  <div class="prose intro">{{ .Content }}</div>
+
+  {{- $latest := index (sort (where site.RegularPages "Section" "gnn") "Params.turn" "desc") 0 }}
+  {{ with $latest }}
+  <section class="card latest">
+    <p class="kicker">Latest GNN bulletin</p>
+    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    <p class="meta">Posted {{ .Date | time.Format "2 January 2006" }}</p>
+    {{ partial "headlines.html" (dict "page" . "limit" 4) }}
+    <p><a class="button" href="{{ .RelPermalink }}">Read the bulletin</a> <a href="{{ "gnn/" | relURL }}">All bulletins</a></p>
+  </section>
+  {{ end }}
+
+  <div class="grid">
+    <a class="card link" href="{{ "rules/" | relURL }}"><h2>Rules</h2><p>The full Verse Game Guide, with a contents list.</p></a>
+    <a class="card link" href="{{ "factions/" | relURL }}"><h2>Factions</h2><p>The player factions of Sector 005.</p></a>
+    <a class="card link" href="{{ "library/" | relURL }}"><h2>Library</h2><p>Background reading from across the Verse.</p></a>
+    <a class="card link" href="{{ site.Params.mapURL }}"><h2>Sector 005 map</h2><p>The live map on Miro.</p></a>
+  </div>
+</div>
+{{ end }}
