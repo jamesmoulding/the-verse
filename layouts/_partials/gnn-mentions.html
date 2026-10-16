@@ -1,0 +1,18 @@
+{{- /* Every GNN story (headline or text) that mentions any of the given terms. */ -}}
+{{- $re := printf `(?i)(?:%s)` (delimit .terms "|") }}
+{{- $found := 0 }}
+{{- range sort (where site.RegularPages "Section" "gnn") "Params.turn" "desc" }}
+  {{- $p := . }}
+  {{- $items := slice }}
+  {{- range after 1 (split $p.Content "<h2") }}
+    {{- $id := index (index (findRESubmatch ` id="([^"]+)"` . 1) 0) 1 }}
+    {{- $title := index (index (findRESubmatch `^[^>]*>(.*?)</h2>` . 1) 0) 1 }}
+    {{- if findRE $re (plainify .) 1 }}{{ $items = $items | append (dict "id" $id "title" $title) }}{{ end }}
+  {{- end }}
+  {{- with $items }}
+  {{- $found = add $found 1 }}
+  <h3 class="turn-head"><a href="{{ $p.RelPermalink }}">Turn {{ $p.Params.turn }}</a> <small>Star Year {{ $p.Params.staryear }}</small></h3>
+  <ul class="headlines">{{ range . }}<li><a href="{{ $p.RelPermalink }}#{{ .id }}">{{ .title | safeHTML }}</a></li>{{ end }}</ul>
+  {{- end }}
+{{- end }}
+{{- if eq $found 0 }}<p>No mentions yet.</p>{{ end }}

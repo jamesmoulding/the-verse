@@ -1,0 +1,22 @@
+{{- /* Article body, with a contents bar when the page sets toc: true. */ -}}
+{{- if .Params.toc }}
+<div class="wrap with-toc">
+  <aside class="toc-wrap">
+    <details class="toc" id="toc" open>
+      <summary>Contents</summary>
+      {{ .TableOfContents }}
+    </details>
+  </aside>
+  <article class="prose">
+    {{ partial "article-inner.html" . }}
+  </article>
+</div>
+<a class="to-top" href="#toc">Contents ↑</a>
+<script>
+  if (window.matchMedia("(max-width: 959px)").matches) document.getElementById("toc").removeAttribute("open");
+</script>
+{{- else }}
+<article class="wrap prose">
+  {{ partial "article-inner.html" . }}
+</article>
+{{- end }}

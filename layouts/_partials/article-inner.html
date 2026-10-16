@@ -1,0 +1,7 @@
+<h1>{{ .Title }}</h1>
+{{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+{{ .Content }}
+{{- with .Params.gnn_mentions }}
+<h2 id="in-the-gnn">In the GNN</h2>
+{{ partial "gnn-mentions.html" (dict "terms" .) }}
+{{- end }}

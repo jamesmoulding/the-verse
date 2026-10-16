@@ -1,0 +1,30 @@
+{{- $d := hugo.Data.relations }}
+<h2 id="diplomatic-relation-grid">Diplomatic relation grid</h2>
+<p>Read each row across: the row faction's relationship with the column faction.</p>
+<ul class="legend">
+  <li><span class="rel t">T</span> Non-strategic trade</li>
+  <li><span class="rel s">S</span> Strategic trade</li>
+  <li><span class="rel w">War</span> War</li>
+  <li><span class="rel">NA</span> Non-aggression pact</li>
+  <li><span class="rel">AA</span> Alliance</li>
+</ul>
+<div class="grid-scroll">
+<table class="relations">
+  <thead><tr><th></th>{{ range $d.order }}<th scope="col">{{ . }}</th>{{ end }}</tr></thead>
+  <tbody>
+  {{- range $row := $d.order }}
+    <tr><th scope="row">{{ $row }}</th>
+    {{- range $col := $d.order }}
+      {{- if eq $row $col }}<td class="self" aria-label="{{ $row }}"></td>
+      {{- else }}
+        {{- $v := index (index $d.rows $row | default dict) $col | default "" }}
+        {{- $codes := split $v " " }}
+        {{- $cls := cond (in $codes "W") "w" (cond (in $codes "S") "s" (cond (in $codes "T") "t" "")) }}
+        <td class="{{ $cls }}">{{ replace (replace $v "W" "War") " " " · " }}</td>
+      {{- end }}
+    {{- end }}
+    </tr>
+  {{- end }}
+  </tbody>
+</table>
+</div>

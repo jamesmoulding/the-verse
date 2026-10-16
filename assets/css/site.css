@@ -49,7 +49,7 @@ main { padding: 1.5rem 0 3rem; }
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--border);
 }
-.site-header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .25rem 1rem; padding-top: .6rem; padding-bottom: .6rem; }
+.site-header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: .25rem 2rem; padding-top: .6rem; padding-bottom: .6rem; }
 .brand { color: var(--accent); text-decoration: none; font-weight: 800; letter-spacing: .14em; }
 .brand span { color: var(--muted); font-weight: 500; letter-spacing: .05em; font-size: .8em; margin-left: .35em; }
 .site-header nav { display: flex; gap: .2rem; flex-wrap: wrap; }
@@ -134,3 +134,33 @@ figcaption { color: var(--muted); font-size: .9rem; font-style: italic; margin-t
 
 .site-footer { border-top: 1px solid var(--border); color: var(--muted); font-size: .9rem; padding: 1.2rem 0 2rem; }
 .site-footer p { margin: .3rem 0; }
+
+/* Figures with captions */
+.prose figure { margin: 1.5rem 0; }
+.prose figure img, .prose > p > img { border-radius: .5rem; display: block; }
+
+/* Faction pages: flag under the title, leader portrait floated into the text */
+.faction-page .flag { display: block; max-height: 11rem; width: auto; border-radius: .5rem; margin: .5rem 0 1.25rem; }
+.faction-page .portrait { float: right; width: 42%; max-width: 20rem; margin: .3rem 0 1rem 1.5rem; }
+.faction-page .portrait img { width: 100%; border-radius: .5rem; }
+.faction-page .portrait figcaption { max-width: none; }
+.clear { clear: both; }
+@media (max-width: 480px) {
+  .faction-page .portrait { width: 48%; margin-left: 1rem; }
+}
+
+/* Diplomatic relation grid: blue / orange / dark, always with a text code */
+.legend { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; font-size: .92rem; }
+.legend li { display: flex; align-items: center; gap: .4rem; }
+.rel { display: inline-block; min-width: 2.4rem; text-align: center; border: 1px solid var(--border); border-radius: .3rem; padding: .05rem .3rem; font-weight: 700; font-size: .85rem; }
+.grid-scroll { overflow-x: auto; margin: 1rem 0; }
+table.relations { display: table; border-collapse: collapse; font-size: .85rem; margin: 0; }
+table.relations th, table.relations td { min-width: 3.2rem; text-align: center; padding: .4rem .3rem; font-weight: 700; }
+table.relations tbody th { position: sticky; left: 0; background: var(--surface); }
+.t { background: #cfe3fb; color: #0c2a52; }
+.s { background: #f7c48f; color: #4a2300; }
+.w { background: #1f2229; color: #ffffff; }
+td.self { background: repeating-linear-gradient(45deg, var(--border) 0 4px, transparent 4px 9px); }
+@media (max-width: 420px) {
+  .site-header nav a { padding: .4rem .45rem; }
+}

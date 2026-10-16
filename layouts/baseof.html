@@ -13,7 +13,7 @@
   {{- $css := resources.Get "css/site.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 </head>
-<body class="{{ .Section | default "home" }}">
+<body class="section-{{ .Section | default "home" }}">
   <a class="skip" href="#main">Skip to content</a>
   {{ partial "header.html" . }}
   <main id="main">

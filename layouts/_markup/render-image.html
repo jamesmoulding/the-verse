@@ -1,4 +1,7 @@
 {{- $u := .Destination -}}
 {{- if strings.HasPrefix $u "/" }}{{ $u = strings.TrimPrefix "/" $u | relURL }}{{ end -}}
+{{- if .Title -}}
+<figure><img src="{{ $u | safeURL }}" alt="{{ .Text }}" loading="lazy" decoding="async"><figcaption>{{ .Title }}</figcaption></figure>
+{{- else -}}
 <img src="{{ $u | safeURL }}" alt="{{ .Text }}" loading="lazy" decoding="async">
-{{- /* keep */ -}}
+{{- end -}}

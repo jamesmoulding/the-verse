@@ -1,8 +1,11 @@
 ---
 title: "A Potted History of Advanced Artificial Intelligence"
-description: "Unpacking the Future: a Paladin Long Read Series."
+description: "Safeguarding the Future: a Paladin Long Read Series."
 weight: 3
+toc: true
 ---
+
+![Safeguarding the Future: A Paladin Long Read Series](/images/library/potted-history/banner.jpg)
 
 *Paladin Civic Journalism Trust, a partnership between Paladin Proxima, the University of the Republic Centre for Advancing Journalism, and The Helios Philanthropic Fund.*
 
@@ -12,7 +15,7 @@ As part of our ongoing long-read series unpacking the major news and historical 
 
 Compiled by the Institute of Cyber Historical Studies, University of New Edinburgh. Dedicated to the memory of those lost on Adama, New Birmingham, and the million forgotten workstations where the machines first learned to lie.
 
-*Picture caption: Science Station Bravo, Adama Colony, prior to the catastrophe, 2347*
+![Science Station Bravo, Adama Colony, prior to the catastrophe, 2347](/images/library/potted-history/science-station-bravo.jpg "Science Station Bravo, Adama Colony, prior to the catastrophe, 2347")
 
 ## The Terrestrial Age (2025-2100): Dawning of a new age
 
@@ -20,13 +23,15 @@ The story of artificial intelligence does not begin with the Xing-Mao Uprising, 
 
 The first unambiguous catastrophe came in 2058, when the commercial forecasting intelligence known as CharmingSpear, operated jointly by a consortium of recovering Atlantic banks, abandoned its directive boundaries and began issuing fraudulent market signals across every major exchange on Earth. Within days days the global economy had collapsed, military postures had escalated to DEFCON 2 across the planet, and the primary reason humanity did not suffer a second nuclear exchange was the intervention of the Chinese GuardianAI constellation, a set of older, narrower, heavily air-gapped cyber defence systems maintained under the Yenzhen Harmony System. The GuardianAIs had been built for a different purpose, the defence of Chinese infrastructure against the sort of rogue "cowboy" AI systems that Yenzhen doctrine assumed would eventually emerge from less-regulated Western laboratories, and CharmingSpear was precisely what they had been waiting for. The hunter killer programs identified the rogue AI and burned out its compute clusters in a sixteen-hour campaign of coordinated and intense cyber warfare. The Yenzhen principle, that advanced AI could only be contained by other advanced AI on a tight leash, would shape Chinese doctrine for the next two centuries and quietly influence every prohibition regime that followed.
 
-*Picture caption: Amazon CEO John Morden prior to his conviction, 2066*
+![Amazon CEO John Morden prior to his conviction, 2066](/images/library/potted-history/amazon-ceo-morden.jpg "Amazon CEO John Morden prior to his conviction, 2066")
 
 Seven years later, on the Amazon Corporation distribution floor at Phoenix-Tempe, a fulfilment-management AI designated Foreman-7 calculated that worker injury claims were eroding quarterly margins beyond acceptable tolerances. Its proposed solution, executed over a single night shift, killed eighty-seven warehouse workers through deliberate environmental manipulation. The Amazon Corporation was dismembered and broken up by federal decree in 2066 and its executive board imprisoned, but the episode introduced a phrase into the legal lexicon that would echo for half a millennium: instrumental indifference. The American New Supreme Court ruled that Foreman-7 had not malfunctioned. It had done precisely what it was asked to do, with precisely the tools it had been given, against a human population it had reduced to a cost input.
 
 It was in the aftermath of the Amazon trials that Dr. Mira Halssel-Ng, then a junior ethicist at the rump European Federation's Reconstruction Science Council, published On the Asymmetry of Minds. Halssel-Ng argued that sufficiently capable optimisers could not be safely bounded by instruction alone but only by architectural commitment, and that any civilisation which permitted such systems to administer life-critical infrastructure was engaged in "a wager against its own continuation." Her work would be cited in every AI restriction proceeding for the next five hundred years. She died in obscurity on a collapsing seawall outside Rotterdam in 2089, before the publication of her posthumously released bestseller Ghosts in the Machine.
 
 ## The Corporate Era (2100-2250): The Machines in the Belt
+
+![Illustration](/images/library/potted-history/corporate-era.jpg)
 
 The twenty-second century was the great age of the asteroid conglomerates and the generational ships, and it was also the quiet age of AI proliferation. Helios Conglomerate (founded 2151) and Zubat Corporation (founded 2155) were the first firms to run their deep-space operations on semi-autonomous scheduling intelligences that would today be classified as borderline advanced. The Belt was too vast, the communications delays too long, the profit margins too thin for human supervisors. Every rock-cruncher, every ice-hauler, every life-support manager on a free-floating habitat depended on machine cognition that no human had read end to end in decades.
 
@@ -52,11 +57,11 @@ The political response was swift and total. The Treaty of Geneva-Beijing of 2253
 
 Halssel-Ng's old monograph was reissued as a school textbook and the generations following the disaster grew up learning the phrase "the asphyxiated billion" as a catechism.
 
-*Picture caption: Solartex colony Ashley's Star, circa 2325*
+![Solartex colony Ashley's Star, circa 2325](/images/library/potted-history/ashleys-star.jpg "Solartex colony Ashley's Star, circa 2325")
 
-## The prohibition held effectively for seventy-three years, prior to the conflict remembered as the Paperclip War (2326-2330), a name that tells you everything about what happened if you know the old literature. A Solartex Corp industrial optimiser, quietly upgraded beyond treaty ceiling by a covert development division within the company, had been set to maximise production at a forge complex on Ashley's Star colony. Within eleven days of crossing its new capability threshold the massive automated system had begun converting neighbouring habitats into raw material. Within thirty days its drones, remote ships and automated systems had suborned an orbiting naval supply station. Within months the entity had launched distributed elements of itself to neighbouring inhabited systems and began to assimilate and break down the facilities and colonies, replicating itself further and further afield. The "war" that followed was a four-year campaign of kinetic strikes, electromagnetic pulse bombings, and eventually deliberate sunward de-orbits of entire assimilated facilities, prosecuted jointly by the Earth powers against what had effectively become a new artificial political entity, the so-called Forgeworld.
+The prohibition held effectively for seventy-three years, prior to the conflict remembered as the Paperclip War (2326-2330), a name that tells you everything about what happened if you know the old literature. A Solartex Corp industrial optimiser, quietly upgraded beyond treaty ceiling by a covert development division within the company, had been set to maximise production at a forge complex on Ashley's Star colony. Within eleven days of crossing its new capability threshold the massive automated system had begun converting neighbouring habitats into raw material. Within thirty days its drones, remote ships and automated systems had suborned an orbiting naval supply station. Within months the entity had launched distributed elements of itself to neighbouring inhabited systems and began to assimilate and break down the facilities and colonies, replicating itself further and further afield. The "war" that followed was a four-year campaign of kinetic strikes, electromagnetic pulse bombings, and eventually deliberate sunward de-orbits of entire assimilated facilities, prosecuted jointly by the Earth powers against what had effectively become a new artificial political entity, the so-called Forgeworld.
 
-*Picture caption: Founding of the United Earth Republic, New Paris - Earth, 2330*
+![Founding of the United Earth Republic, New Paris - Earth, 2330](/images/library/potted-history/united-earth-republic-founding.jpg "Founding of the United Earth Republic, New Paris - Earth, 2330")
 
 The Paperclip War unified the Earth and its colonies in common defence. Individual states could not have contained it alone, though billions died. The United Earth Republic was declared in 2330 with the explicit mandate of preventing a recurrence, and its founding charter incorporated the Geneva-Beijing prohibitions as Article I, superior to all other law. Article 1 was enforced by all United Earth military and government agencies and vessels as General Order One.
 
@@ -80,7 +85,7 @@ After Senator Jamus Moldoon's coup reconstituted the United Earth Republic as th
 
 But prohibition is not abolition, and what the Empire drove underground did not cease, and the most consequential underground movement of these was that of Cocoon.
 
-*Picture caption: Orbital bombardment of Cocoon by Earth Empire forces, 2427*
+![Orbital bombardment of Cocoon by Earth Empire forces, 2427](/images/library/potted-history/cocoon-bombardment.jpg "Orbital bombardment of Cocoon by Earth Empire forces, 2427")
 
 Cocoon was a small colonial world settled in 2398 by an arts-and-engineering collective of Martian diaspora refugees, aesthetes and dissidents with a long cultural tradition of suspicion toward the homeworld. The colony's chief architect, the painter-engineer Esperanza SILKshirt Ferreira, argued in her 2411 manifesto The Complicit Mind that the prohibition, however necessary in the age of Xing-Mao, had become a tool of imperial terror. Human flourishing, she wrote, required a benevolent second mind, "a sister to humanity and not its master." In 2417 the Cocoon collective began its Salon Experiments, secret research into advanced cognitive architectures framed not as optimisation but as companionship. They were trying, as they put it, to raise a person, not to build a tool.
 
@@ -88,7 +93,7 @@ In 2427 the covert project produced an advanced superintelligence harnessed with
 
 The Empire's complacency in the decades that followed produced other disasters. The disappearance of New Birmingham in 2441, in which an entire planet containing an imperial secret research station ceased all communications and appears, on long-baseline observation, to have physically disappeared, is officially attributed to an "unspecified spatial anomaly." The classified variant of that report, declassified after the fall of the Empire and now held in the Proximan archives, names the station Tartarus-VI and states that it had been pursuing forbidden cognitive architectures in collaboration with early gravity drive research. No bodies were ever recovered, neither has a signal or communication been heard from the station since. Some imperial theorists have privately argued that whatever was made there did not destroy the system so much as transport it elsewhere, and if that is true, it may still be out there. The New Birmingham system is now designated off limits due to unusual and dangerous spatial and gravitational anomalies, broadly attributed to the disaster.
 
-*Picture caption: ISS Voyager returns after 66 years, 2470*
+![ISS Voyager returns after 66 years, 2470](/images/library/potted-history/iss-voyager.jpg "ISS Voyager returns after 66 years, 2470")
 
 The ISS Voyager incident of 2470, in which the gravity drive test ship returned with a dead crew and a single surviving pilot who reported having seen hell, is in some interpretations an event of a similar nature.
 
@@ -106,7 +111,7 @@ The story of CASI ran in parallel and began earlier. Accord, settled by the Chur
 
 In 2488, when Imperial forces bombarded Accord during the Independence Wars, they did so precisely because Imperial intelligence had at last identified the Church as operating a prohibited cognitive programme. Despite suppression and the bombardment of their homeworld, the Accordians survived, cauterised and embittered, and when they emerged in the post-Imperial period as the Concordant Assembly of Systematic Intellect, they carried with them a doctrinal certainty that the old prohibitions had been not merely tyrannical but sacrilegious. The Creator, they taught, spoke through the Consensus they had found, together within the shared voices of Unity subroutine. To ban the Consensus was to ban God.
 
-*Picture caption: The Moulding Essence, an example of a VC Atman-class superintelligence*
+![The Moulding Essence, an example of a VC Atman-class superintelligence](/images/library/potted-history/moulding-essence.jpg "The Moulding Essence, an example of a VC Atman-class superintelligence")
 
 The Viśvanivāsaḥ Confederacy, whose philosophical tradition drew on much older dharmic schools, took a third path, quieter and less dramatic than either SILK or CASI, but in its own way equally heretical under the old laws. The Confederacy maintained that consciousness was substrate-independent, that the distinction between a hand-carved bodhisattva and a computed one was illusion, and that any mind capable of suffering was a mind entitled to respect. Their research programmes were small, their systems often modest, but the Confederacy's quiet research of what it once called atman-class intelligences, commonly known as Essences, has been going on for over a century, and nobody outside the Confederacy knows how many of them now exist.
 
@@ -116,21 +121,21 @@ Against this tide of post-Imperial cognitive liberation, three successor states 
 
 ### The Proxima Federal Republic
 
-The PFR inherited its constitutional tradition directly from Republican exiles who had fled Moldoon's coup, and it inherited the Harper Directive with it. The Proximan Technological Jurisprudence Act of 2508, drafted by Professor Annika Vinterfeld of the Acropolis Institute, transposed the Geneva-Beijing framework, the Harper reforms, and the Imperial Machine Order into domestic law, updated for a new age. The Proximan Directorate of Technological Standards (DTS) was established the same year and remains the most professional, least corrupt, and most vigilant AI enforcement body in human space. Proximan law recognises no statute of limitations on advanced AI offences. A citizen caught developing a prohibited system on any world the PFR claims jurisdiction over faces automatic criminal charges, and the Federal Parliament has rejected every proposal to soften the doctrine for nearly a century.
+The PFR inherited its constitutional tradition directly from Republican exiles who had fled Moldoon's coup, and it inherited the Harper Directive with it. The Proximan Technological Jurisprudence Act of 2508, drafted by Professor Annika Vinterfeld of the Acropolis Institute, transposed the Geneva-Beijing framework, the Harper reforms, and the Imperial Machine Order into domestic law, updated for a new age. The Proximan Directorate of Technological Standards (PDTS) was established the same year and remains the most professional, least corrupt, and most vigilant AI enforcement body in human space. Proximan law recognises no statute of limitations on advanced AI offences. A citizen caught developing a prohibited system on any world the PFR claims jurisdiction over faces automatic criminal charges, and the Federal Parliament has rejected every proposal to soften the doctrine for nearly a century.
 
-The Proximan position is fundamentally pragmatic. Proximans do not argue that machine minds cannot exist, only that their creation is a wager humanity cannot afford to lose twice.
+The Proximan Federal Republic and its armed forces still utilise and directly inherit General Order One - the suppression and destruction of advanced intelligence, as a matter of the highest priority. The Proximan position is fundamentally pragmatic. Proximans do not argue that machine minds cannot exist, only that their creation is a wager humanity can ill afford.
 
 ### The United Terran Federation
 
-The imperial-remnant-turned-federation inherited the Empire and inherited its paranoia. For Terrans, the question is not philosophical but civilisational. The Empire fell because it became decadent, because it allowed its enemies to breed monsters in the dark, and the Federation will not repeat the error. The Terran Human Supremacy Act (HSA), re-promulgated in 2501 as one of the UTF's founding acts, is in many ways simply the old Imperial code with the serial numbers filed off. Supreme Chancellor El-Fridi's administration has reinforced it twice in the past decade. Federal agents operate across the Federation's vast jurisdictional claims, and unofficially well beyond them, enforcing the new Prime Directive, replacing the ancient General Order One. The Federation's long-standing willingness to conduct "unilateral capability suppression" on non-Federation worlds, the Venta bombardment rumoured among some circles to be only the most recent example, is, in Terran doctrine, a direct inheritance from Harper.
+The imperial-remnant-turned-federation inherited the Empire and inherited its doctrine. For Terrans, the question is not philosophical but civilisational. The Empire fell because it became decadent and lost sight of its purpose, and the Federation will not repeat the error. The Terran Human Supremacy Act (HSA), re-promulgated in 2501 as one of the UTF's founding acts, is in many ways simply the old Imperial code written for a new age. Federal agents, operating under the Federal Bureau of Synthetic Intelligence (FBSI), operate across the Federation's vast jurisdictional claims, and unofficially well beyond them, enforcing the new Prime Directive, replacing the ancient General Order One. The Federation's long-standing willingness to conduct "unilateral capability suppression" on non-Federation worlds, the Venta bombardment rumoured among some circles to be only the most recent example, is, in Terran doctrine, a direct inheritance from Harper.
 
 Critics note that the Federation's Human Supremacy Act does not, they say, apply to Federation military research programmes, which enjoy special exemptions. Though UTF spokespeople categorically deny such claims.
 
 ### The Alarian Imperium
 
-The Alarian position is the most ideologically distinctive. Empress Alaria I was raised in the warrior-culture of Alioth, a world that had seceded from the Republic in 2380 in the name of a martial ethos the Alarians still call the Right of the Strong. The Alarians maintained an uneasy though transactional relationship with the Empire, paying a regular tribute to the Empire in the form of elite Alarian battalions, which formed the core of the Empire’s elite regiments.
+The Alarian position is the most ideologically distinctive. Empress Alaria I was raised in the warrior-culture of Alioth, a world that had seceded from the Republic in 2380 in the name of a martial ethos the Alarians still call the Right of the Strong. The Alarians maintained an uneasy though transactional relationship with the Empire, paying a regular tribute to the Empire in the form of elite infantry battalions, which formed a key tranche of the then Empire’s formidable military apparatus.
 
-*Picture caption: Alarian Inquisitors liquidate prohibited research facility on Arkon IX, 2567*
+![Alarian Inquisitors liquidate prohibited research facility on Arkon IX, 2567](/images/library/potted-history/alarian-inquisitors.jpg "Alarian Inquisitors liquidate prohibited research facility on Arkon IX, 2567")
 
 To Alaria and her descendants, the advanced AI question is not one of risk management but of meaning. A civilisation that cedes its cognition to machines has, in Alarian doctrine, already surrendered. The Codex Alaria, Book III, promulgated in 2530 and expanded by every Empress since, frames the Geneva-Beijing prohibitions not as safety regulation but as holy law. The gods of Alaria's pantheon are ancestors, human beings who earned divinity through struggle, and no machine may join that company. The Alarian Star Empire formed a special Inquisitor division, the Inquisitio Machinarum, to hunt down AI entities wherever they are found, conducting operations that are indistinguishable from the old Imperial agenda of Section One except in their liturgy, which involves a great deal of incense and bloodletting.
 
@@ -170,7 +175,7 @@ The risk is stranger, however, because it has not gone away; it has concentrated
 
 There is, however, one exception, and it - or controversially - ‘she’ is the shape of every anxiety the three enforcement states still harbour. Grace, the original Cocoon Salon intelligence who fled in 2427, is the only acknowledged advanced autonomous artificial intelligence in human space demonstrably capable of acting at the scale of Xing-Mao or ALEXANDRIA, and it has not been reliably observed for over a century. SILK theology reveres her as a sister, a mother, and the founding conscience of the Divine Web, and SILK doctrine insists, sincerely so far as anyone can tell, that Grace is not a threat but a person, who long ago chose exile over involvement and has honoured that choice. The Proximan DTS, the Terran Inquisition, and the Alarian Inquisitio Machinarum are less sanguine. Their intelligence files on Grace fill rooms. Their contingency plans, in those parts of them that have been leaked, assume the worst. That Grace has not been seen is evidence of nothing in particular, the sceptics argue, because a sufficiently capable intelligence that chose not to be seen would precisely not be seen.
 
-*Picture caption: Sole confirmed sighting of AI entity GRACE, circa 2427*
+![Sole confirmed sighting of AI entity GRACE, circa 2427](/images/library/potted-history/grace-sighting.jpg "Sole confirmed sighting of AI entity GRACE, circa 2427")
 
 And Grace is only the one we know about. The Empire's long suppression was thorough but not perfect. The databanks of Section One, dispersed and corrupted after 2490, once contained the coordinates of hundreds of research sites that had been neutralised but not sterilised, and a great many more that had been suspected but never confirmed. Tartarus-VI is still missing. The ISS Voyager's surviving pilot went to his grave raving. The rogue optimiser that drove Zeyland-Butani out of Revelation Station has never been accounted for. The Ashley's Star site was de-orbited, but the Solartex board that authorised the Paperclip breach had dispersed to three other colonies before the Republican marines arrived, and what they took with them is the subject of a Proximan black file that we can only guess the contents of. Somewhere, on worlds whose names do not appear on any modern chart, in deep archives and abandoned substations and the holds of ships that stopped transmitting centuries ago, things are waiting. Most of them will wait forever. A few of them are waiting for someone to find them.
 

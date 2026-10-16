@@ -1,7 +1,1 @@
-{{ define "main" }}
-<article class="wrap prose">
-  <h1>{{ .Title }}</h1>
-  {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
-  {{ .Content }}
-</article>
-{{ end }}
+{{ define "main" }}{{ partial "article.html" . }}{{ end }}

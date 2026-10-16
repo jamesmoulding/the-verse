@@ -1,12 +1,13 @@
 {{ define "main" }}
-<article class="wrap prose">
+<article class="wrap prose faction-page">
   <p class="kicker">{{ .Params.kind }}</p>
   <h1>{{ .Title }}</h1>
-  <div class="faction-images">
-    {{ with .Params.flag }}<img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="Flag of the {{ $.Params.short }}">{{ end }}
-    {{ with .Params.portrait }}<figure><img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="{{ $.Params.caption }}">{{ with $.Params.caption }}<figcaption>{{ . }}</figcaption>{{ end }}</figure>{{ end }}
-  </div>
+  {{ with .Params.flag }}<img class="flag" src="{{ strings.TrimPrefix "/" . | relURL }}" alt="Flag of the {{ $.Params.short }}">{{ end }}
+  {{ with .Params.portrait }}
+  <figure class="portrait"><img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="{{ $.Params.caption }}">{{ with $.Params.caption }}<figcaption>{{ . }}</figcaption>{{ end }}</figure>
+  {{ end }}
   {{ .Content }}
+  <div class="clear"></div>
 
   {{- $slug := .File.ContentBaseName }}
   {{- with where (where site.RegularPages "Section" "library") "Params.faction" $slug }}

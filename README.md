@@ -12,6 +12,8 @@ every time something is pushed to `main`.
 | Rules (the Game Guide) | `content/rules/_index.md` |
 | Faction pages | `content/factions/<code>.md`, e.g. `utf.md` |
 | GNN bulletins | `content/gnn/turn-NN.md`, e.g. `turn-11.md` |
+| Diplomacy (treaties) | `content/diplomacy/_index.md` |
+| Diplomatic relation grid | `data/relations.yaml` |
 | Library (background reading) | `content/library/*.md` |
 | Images | `static/images/` |
 | QR code for player packs | `static/images/qr/the-verse-qr.png` (and `.svg` for print) |
@@ -41,6 +43,19 @@ Commit and push. The site updates in about a minute; progress shows under the re
 
 `gnn_keywords` in a faction page's header lists the words that link GNN headlines to it.
 `flag`, `portrait` and `caption` set its images.
+
+## Diplomacy grid
+
+The grid on the Diplomacy page is drawn from `data/relations.yaml`. Each row lists that
+faction's relationships: `T` trade, `S` strategic trade, `W` war, `NA` non-aggression pact,
+`AA` alliance, combined with a space (`T NA`). Leave a faction out for no relationship.
+
+## Library pages
+
+Add `toc: true` to a page's header for a contents bar. Add
+`gnn_mentions: ["Unity 5"]` to list every GNN story whose headline or text mentions those
+words (the Unity 5 and Skaro Pact pages work this way). Images with a caption are written
+`![short description](/images/library/name.jpg "Caption text")`.
 
 ## Previewing on your Mac
 
