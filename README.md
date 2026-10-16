@@ -37,6 +37,11 @@ bulletin. Start each story with a headline line beginning `## `, for example
 `## PFR FLEET SIGHTED OVER FELGOR`. Headlines become the bulletin's contents list, and any
 headline naming a faction is listed on that faction's page automatically.
 
+To add a story image, put it in `static/images/gnn/turn-12/` and add a line above the
+story's headline, e.g. `![Proxima fleet over Felgor](/images/gnn/turn-12/01.jpg)`. Keep images
+around 1200 pixels wide (JPEG) so pages stay quick on phones. The GNN masthead is added to every
+bulletin automatically.
+
 Commit and push. The site updates in about a minute; progress shows under the repository's
 **Actions** tab.
 
