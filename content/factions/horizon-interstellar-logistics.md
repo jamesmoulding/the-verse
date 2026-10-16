@@ -1,6 +1,7 @@
 ---
 title: "Horizon Interstellar Logistics"
-kind: "Shipping, freight, jump logistics"
+kind: "HQ within UTF"
+detail: "Shipping, freight, jump logistics"
 group: "corporate"
 weight: 211
 ---

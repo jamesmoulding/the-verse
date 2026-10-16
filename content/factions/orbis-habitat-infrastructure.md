@@ -1,6 +1,7 @@
 ---
 title: "Orbis Habitat & Infrastructure"
-kind: "Construction and planetary infrastructure"
+kind: "HQ within UTF"
+detail: "Construction and planetary infrastructure"
 group: "corporate"
 weight: 219
 ---

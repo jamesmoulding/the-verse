@@ -1,6 +1,7 @@
 ---
 title: "Aegis Strategic Systems"
-kind: "Military–Industrial Complex"
+kind: "HQ within UTF"
+detail: "Military–Industrial Complex"
 group: "corporate"
 weight: 210
 ---

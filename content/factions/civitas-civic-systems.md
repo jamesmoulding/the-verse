@@ -1,6 +1,7 @@
 ---
 title: "Civitas Civic Systems"
-kind: "Government services"
+kind: "HQ within UTF"
+detail: "Government services"
 group: "corporate"
 weight: 215
 ---

@@ -1,6 +1,7 @@
 ---
 title: "NovaLearn Education Group"
-kind: "Education & knowledge"
+kind: "HQ within UTF"
+detail: "Education & knowledge"
 group: "corporate"
 weight: 216
 ---

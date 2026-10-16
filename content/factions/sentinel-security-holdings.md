@@ -1,6 +1,7 @@
 ---
 title: "Sentinel Security Holdings"
-kind: "Internal security"
+kind: "HQ within UTF"
+detail: "Internal security"
 group: "corporate"
 weight: 218
 ---

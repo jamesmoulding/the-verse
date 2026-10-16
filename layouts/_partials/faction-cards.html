@@ -3,7 +3,7 @@
   <li>
     <a class="card link faction{{ if not .Params.flag }} no-flag{{ end }}" href="{{ .RelPermalink }}">
       {{ with .Params.flag }}<img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="" loading="lazy">{{ end }}
-      <span><strong>{{ .Title }}</strong><small>{{ .Params.kind }}</small></span>
+      <span><strong>{{ .Title }}</strong><small>{{ .Params.kind }}</small>{{ with .Params.detail }}<small>{{ . }}</small>{{ end }}</span>
     </a>
   </li>
 {{- end }}

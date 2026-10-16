@@ -1,6 +1,7 @@
 ---
 title: "SolDyne Energy Combine"
-kind: "Energy production"
+kind: "HQ within UTF"
+detail: "Energy production"
 group: "corporate"
 weight: 212
 ---
