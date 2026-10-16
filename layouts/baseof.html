@@ -9,6 +9,10 @@
   <meta name="robots" content="noindex, nofollow">
   {{- end }}
   <meta name="theme-color" content="#0b0d14">
+  <script>
+    // Apply the reader's saved light/dark choice before the page draws.
+    try { var t = localStorage.getItem("verse-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
   <link rel="icon" href="{{ "images/favicon.ico" | relURL }}" sizes="any">
   <link rel="icon" type="image/png" href="{{ "images/favicon.png" | relURL }}">
   <link rel="apple-touch-icon" href="{{ "images/apple-touch-icon.png" | relURL }}">

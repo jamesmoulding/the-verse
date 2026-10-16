@@ -1,5 +1,6 @@
 {{ define "main" }}
 <div class="wrap">
+  <img class="gnn-banner" src="{{ "images/gnn/gnn-breaking-news.jpg" | relURL }}" alt="GNN Breaking News">
   <h1>{{ .Title }}</h1>
   {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
   {{- $all := sort .Pages "Params.turn" "desc" }}

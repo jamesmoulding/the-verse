@@ -11,8 +11,8 @@
   --measure: 46rem;
   color-scheme: dark;
 }
-@media (prefers-color-scheme: light) {
-  :root {
+/* Light theme: when the reader picks it, or when their device prefers it and they have not picked dark. */
+:root[data-theme="light"] {
     --bg: #f6f5f1;
     --surface: #ffffff;
     --border: #d9d6cc;
@@ -22,6 +22,18 @@
     --link: #1d5fb8;
     --link-hover: #0d3d80;
     color-scheme: light;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+      --bg: #f6f5f1;
+      --surface: #ffffff;
+      --border: #d9d6cc;
+      --text: #1b1d24;
+      --muted: #5a5f6e;
+      --accent: #8a5a00;
+      --link: #1d5fb8;
+      --link-hover: #0d3d80;
+      color-scheme: light;
   }
 }
 
@@ -189,3 +201,18 @@ td.self { background: repeating-linear-gradient(45deg, var(--border) 0 4px, tran
 /* GNN bulletin images */
 .bulletin .masthead { display: block; width: 100%; border-radius: .6rem; margin-bottom: 1rem; }
 .bulletin > p > img { width: 100%; border-radius: .5rem; margin: 1.5rem 0 .25rem; }
+
+/* Light / dark switch in the footer */
+.theme-switch { display: inline-flex; gap: .3rem; align-items: center; flex-wrap: wrap; }
+.theme-switch button { font: inherit; font-size: .88rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 2rem; padding: .3rem .85rem; cursor: pointer; }
+.theme-switch button:hover { border-color: var(--accent); }
+.theme-switch button[aria-pressed="true"] { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 700; }
+
+.gnn-banner { display: block; width: 100%; max-width: 56rem; border-radius: .7rem; margin-bottom: 1rem; }
+
+/* Rules: use the full width beside the contents bar on desktop */
+@media (min-width: 960px) {
+  .section-rules .with-toc { max-width: none; }
+  .section-rules .with-toc .prose { max-width: none; }
+}
+.faction.no-flag { min-height: 5.1rem; }

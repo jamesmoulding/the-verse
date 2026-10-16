@@ -2,5 +2,32 @@
   <div class="wrap">
     <p>The Verse is a fork of Jim Wallman's <em>Humanity Will Prevail</em>, used with Jim's permission. Game Control: James Moulding.</p>
     <p><a href="{{ "" | relURL }}">Home</a> · <a href="{{ site.Params.mapURL }}">Sector 005 map</a></p>
+    <p class="theme-switch" role="group" aria-label="Colour theme">
+      <span>Theme:</span>
+      <button type="button" data-set-theme="light">Light</button>
+      <button type="button" data-set-theme="dark">Dark</button>
+    </p>
   </div>
 </footer>
+<script>
+  (function () {
+    var root = document.documentElement;
+    var buttons = document.querySelectorAll("[data-set-theme]");
+    function current() {
+      return root.getAttribute("data-theme") || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+    }
+    function show() {
+      var t = current();
+      buttons.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-set-theme") === t ? "true" : "false"); });
+    }
+    buttons.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var t = b.getAttribute("data-set-theme");
+        root.setAttribute("data-theme", t);
+        try { localStorage.setItem("verse-theme", t); } catch (e) {}
+        show();
+      });
+    });
+    show();
+  })();
+</script>

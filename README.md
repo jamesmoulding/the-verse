@@ -47,6 +47,11 @@ Commit and push. The site updates in about a minute; progress shows under the re
 
 ## Faction pages
 
+Player factions, other sovereign states and corporations all live in `content/factions/`.
+`group: "state"` puts a page among the factions after the player factions, and
+`group: "corporate"` puts it under **Major Corporate Entities**. `kind` is the line shown under
+the name on its card, and `weight` sets the order.
+
 `gnn_keywords` in a faction page's header lists the words that link GNN headlines to it.
 `flag`, `portrait` and `caption` set its images.
 

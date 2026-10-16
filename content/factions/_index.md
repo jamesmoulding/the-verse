@@ -1,4 +1,4 @@
 ---
 title: "Factions"
-description: "The player factions of Sector 005."
+description: "The major factions of the Verse."
 ---
