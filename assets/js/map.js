@@ -959,10 +959,12 @@ unitRows.forEach((u) => {
   unitHistory.get(key).push({ ...u, turnN: parseInt(u.turn, 10) || 0, sys: resolveSystem(u.system) });
 });
 unitHistory.forEach((rows) => rows.sort((a, b) => a.turnN - b.turnN));
-const unitsAt = new Map(); // hex -> latest visible units there
+// Only units with a position recorded for the current turn appear; older positions are history.
+const currentTurn = Math.max(0, ...unitRows.map((u) => parseInt(u.turn, 10) || 0));
+const unitsAt = new Map(); // hex -> visible units there this turn
 unitHistory.forEach((rows) => {
   const last = rows[rows.length - 1];
-  if (last.status === "based" && last.sys) {
+  if (last.turnN === currentTurn && last.status === "based" && last.sys) {
     if (!unitsAt.has(last.sys.hex)) unitsAt.set(last.sys.hex, []);
     unitsAt.get(last.sys.hex).push(last);
   }
