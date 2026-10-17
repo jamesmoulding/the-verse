@@ -214,6 +214,8 @@ const gridTex = { fill: gridTexture(true), plain: gridTexture(false) };
 const gridPlane = new THREE.Mesh(new THREE.PlaneGeometry(W, H), new THREE.MeshBasicMaterial({ map: gridTex.fill, transparent: true, depthWrite: false }));
 gridPlane.rotation.x = -Math.PI / 2;
 gridPlane.position.set(minX + W / 2, 0, minZ + H / 2);
+// The plane layers draw first, so stars, units and trails always sit on top of the hexes.
+gridPlane.renderOrder = -3;
 mapScene.add(gridPlane);
 
 // ---------------------------------------------------------------- star systems
@@ -250,7 +252,7 @@ systems.forEach((s) => {
     new THREE.LineBasicMaterial({ color: stalkColour, transparent: true, opacity: 0.45 }));
   mapScene.add(stalk); s.stalk = stalk;
   const ring = new THREE.Mesh(new THREE.RingGeometry(0.16, 0.22, 24), new THREE.MeshBasicMaterial({ color: stalkColour, transparent: true, opacity: 0.7, side: THREE.DoubleSide, depthWrite: false }));
-  ring.rotation.x = -Math.PI / 2; ring.position.set(x, 0.01, z); mapScene.add(ring); s.ring = ring;
+  ring.rotation.x = -Math.PI / 2; ring.position.set(x, 0.01, z); ring.renderOrder = -1; mapScene.add(ring); s.ring = ring;
 
   const el = document.createElement("div");
   el.className = "map-label" + (unrecorded ? " unrecorded" : "");
@@ -324,6 +326,7 @@ const hexHighlight = new THREE.Group(); hexHighlight.visible = false; mapScene.a
 hexHighlight.add(new THREE.Mesh(new THREE.ShapeGeometry(hexShape), new THREE.MeshBasicMaterial({ color: 0xf0b429, transparent: true, opacity: 0.18, depthWrite: false })));
 hexHighlight.add(new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(hexShape.getPoints().map((p) => new THREE.Vector3(p.x, p.y, 0))), new THREE.LineBasicMaterial({ color: 0xf0b429 })));
 hexHighlight.rotation.x = Math.PI / 2;
+hexHighlight.children.forEach((c) => { c.renderOrder = -1; });
 function pick(ev) {
   const r = canvas.getBoundingClientRect();
   pointer.set(((ev.clientX - r.left) / r.width) * 2 - 1, -((ev.clientY - r.top) / r.height) * 2 + 1);
@@ -1154,7 +1157,7 @@ function drawRoute() {
   routeGroup.clear();
   route.forEach((s, i) => {
     const ring = new THREE.Mesh(new THREE.RingGeometry(0.42, 0.52, 32), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.9, side: THREE.DoubleSide, depthWrite: false }));
-    ring.rotation.x = -Math.PI / 2; const { x, z } = hexXZ(s.hex); ring.position.set(x, 0.03, z); routeGroup.add(ring);
+    ring.rotation.x = -Math.PI / 2; const { x, z } = hexXZ(s.hex); ring.position.set(x, 0.03, z); ring.renderOrder = -1; routeGroup.add(ring);
     if (i === 0) return;
     const a = route[i - 1], leg = legCost(a, s);
     const p = hexXZ(a.hex), q = hexXZ(s.hex);
@@ -1227,7 +1230,7 @@ function showRange(origin) {
   }
   const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace;
   rangePlane = new THREE.Mesh(new THREE.PlaneGeometry(W, H), new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false }));
-  rangePlane.rotation.x = -Math.PI / 2; rangePlane.position.set(minX + W / 2, 0.02, minZ + H / 2);
+  rangePlane.rotation.x = -Math.PI / 2; rangePlane.position.set(minX + W / 2, 0.02, minZ + H / 2); rangePlane.renderOrder = -2;
   mapScene.add(rangePlane);
 }
 
