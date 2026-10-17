@@ -1001,50 +1001,72 @@ unitHistory.forEach((rows) => {
   }
 });
 
-function unitIcon(category, colour) {
+// Unit icons: arrowhead for a squadron, square counter for a division, disc for a hive fleet.
+const iconCache = new Map();
+function unitIconURL(category, colour) {
+  const key = category + "|" + colour;
+  if (iconCache.has(key)) return iconCache.get(key);
   const c = document.createElement("canvas"); c.width = c.height = 64;
   const g = c.getContext("2d");
   g.fillStyle = colour || "#cfd6e6"; g.strokeStyle = "rgba(0,0,0,0.85)"; g.lineWidth = 5;
   g.beginPath();
-  if (category === "ground") g.rect(14, 14, 36, 36);                       // division: square counter
-  else if (category === "bionid") { g.arc(32, 32, 20, 0, Math.PI * 2); }   // hive fleet: disc
-  else { g.moveTo(32, 8); g.lineTo(56, 52); g.lineTo(32, 42); g.lineTo(8, 52); g.closePath(); } // squadron: arrowhead
+  if (category === "ground") g.rect(14, 14, 36, 36);
+  else if (category === "bionid") { g.arc(32, 32, 20, 0, Math.PI * 2); }
+  else { g.moveTo(32, 8); g.lineTo(56, 52); g.lineTo(32, 42); g.lineTo(8, 52); g.closePath(); }
   g.stroke(); g.fill();
   if (category === "bionid") { g.fillStyle = "#1a0718"; g.font = "bold 28px system-ui"; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText("☣", 32, 34); }
-  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+  const url = c.toDataURL(); iconCache.set(key, url); return url;
 }
-const unitTokens = new THREE.Group(); mapScene.add(unitTokens);
+const factionOrder = Object.keys(factions);
+const CATEGORY_ORDER = { squadron: 0, space: 0, humanitarian: 1, ground: 2, bionid: 3 };
+function unitSort(a, b) {
+  const fa = factionOrder.indexOf(a.faction), fb = factionOrder.indexOf(b.faction);
+  return (fa < 0 ? 99 : fa) - (fb < 0 ? 99 : fb) || (CATEGORY_ORDER[a.category] ?? 1) - (CATEGORY_ORDER[b.category] ?? 1) || a.name.localeCompare(b.name);
+}
+function unitClass(u) { return u.unit_class || (u.category === "ground" ? "Ground force" : u.category === "bionid" ? "Hive fleet" : "Space force"); }
+function unitIconHTML(u, cls = "unit-ico") {
+  const f = factions[u.faction];
+  return `<img class="${cls}" src="${unitIconURL(u.category, f && f.colour)}" alt="" width="16" height="16">`;
+}
+unitsAt.forEach((units) => units.sort(unitSort));
+
+// A line of unit icons just below each system's name, in faction order. It hangs off the same
+// point as the name, so it sits under it in both the sector view and Board view.
+const unitRows3D = [];
 unitsAt.forEach((units, hex) => {
-  const s = byHex.get(hex); if (!s) return;
-  units.forEach((u, i) => {
-    const f = factions[u.faction];
-    const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: unitIcon(u.category, f && f.colour), depthWrite: false, transparent: true }));
-    const a = -0.6 + i * 0.55;
-    sp.userData.offset = new THREE.Vector3(0.62 * Math.cos(a), 0.35 + 0.18 * Math.sin(a) + (i > 3 ? 0.3 : 0), 0.62 * Math.sin(a) * 0.4);
-    sp.position.copy(s.pos).add(sp.userData.offset);
-    sp.scale.setScalar(0.34);
-    sp.userData.system = s;
-    unitTokens.add(sp); pickables.push(sp);
-  });
+  const s = byHex.get(hex); if (!s || !s.group) return;
+  const el = document.createElement("div"); el.className = "map-unit-row";
+  const inner = document.createElement("span");
+  inner.innerHTML = units.map((u) => unitIconHTML(u).replace("<img ", `<img title="${esc(u.name)} · ${esc(unitClass(u))} · ${esc(u.faction)}" `)).join("");
+  inner.addEventListener("click", () => onSystemClick(s));
+  el.appendChild(inner);
+  const st = STAR[s.star_type] || STAR.G;
+  const obj = new CSS2DObject(el); obj.position.set(0, st.size * 0.42 + 0.15, 0); s.group.add(obj);
+  unitRows3D.push(obj);
 });
 
 function forcesHTML(s) {
   const units = unitsAt.get(s.hex);
   if (!units || !units.length) return "";
   const turn = Math.max(...units.map((u) => u.turnN));
-  return `<h3>Forces present</h3><ul class="map-forces">${units.map((u) => {
-    const f = factions[u.faction];
-    const cls = u.unit_class || (u.category === "ground" ? "Ground force" : u.category === "bionid" ? "Hive fleet" : "Space force");
-    return `<li><span class="swatch" style="background:${(f && f.colour) || "transparent"}"></span><strong>${esc(u.name)}</strong> <span class="muted">${esc(cls)} · ${esc(u.faction)}</span></li>`;
-  }).join("")}</ul><p class="muted small">As at Turn ${turn}.</p>`;
+  return `<h3>Forces present</h3><ul class="map-forces">${units.map((u) =>
+    `<li>${unitIconHTML(u)}<span><strong>${esc(u.name)}</strong> <span class="muted">${esc(unitClass(u))} · ${esc(u.faction)}</span></span></li>`
+  ).join("")}</ul><p class="muted small">As at Turn ${turn}.</p>`;
 }
 
-// Movement trails: a curved line for each move between recorded turns.
+// Movement trails: a curved line for each move between recorded turns. With units picked in the
+// Unit movement card, only their trails show, with the turns they spent at each system.
 const trailGroup = new THREE.Group(); trailGroup.visible = false; mapScene.add(trailGroup);
+let trailPick = null; // null = every unit; otherwise a Set of "faction|name" keys
+let turnMarks = [];
+function unitStops(rows) { return rows.filter((r) => r.status === "based" && r.sys); }
+function turnSpan(a, b) { return a === b ? `T${a}` : `T${a}–${b}`; }
 function buildTrails() {
-  trailGroup.clear();
-  unitHistory.forEach((rows) => {
-    const stops = rows.filter((r) => r.status === "based" && r.sys);
+  trailGroup.clear(); turnMarks = [];
+  const marks = new Map(); // hex -> lines of "unit: turns"
+  unitHistory.forEach((rows, key) => {
+    if (trailPick && !trailPick.has(key)) return;
+    const stops = unitStops(rows);
     for (let i = 1; i < stops.length; i++) {
       const a = stops[i - 1].sys, b = stops[i].sys; if (a === b) continue;
       const f = factions[stops[i].faction], col = (f && f.colour) || "#cfd6e6";
@@ -1057,18 +1079,85 @@ function buildTrails() {
       const head = new THREE.Mesh(new THREE.ConeGeometry(0.09, 0.26, 10), new THREE.MeshBasicMaterial({ color: col }));
       head.position.copy(curve.getPoint(0.94)); head.lookAt(curve.getPoint(1)); head.rotateX(Math.PI / 2); trailGroup.add(head);
     }
+    if (!trailPick || !stops.length) return;
+    // Runs of turns at the same system: "T3–5".
+    const runs = [];
+    stops.forEach((r) => {
+      const last = runs[runs.length - 1];
+      if (last && last.sys === r.sys && r.turnN <= last.to + 1) last.to = r.turnN;
+      else runs.push({ sys: r.sys, from: r.turnN, to: r.turnN });
+    });
+    const bySys = new Map();
+    runs.forEach((r) => { if (!bySys.has(r.sys)) bySys.set(r.sys, []); bySys.get(r.sys).push(turnSpan(r.from, r.to)); });
+    const u = stops[stops.length - 1];
+    bySys.forEach((spans, sys) => {
+      if (!marks.has(sys)) marks.set(sys, []);
+      marks.get(sys).push({ u, text: spans.join(", ") });
+    });
+  });
+  marks.forEach((lines, sys) => {
+    const el = document.createElement("div"); el.className = "map-turns";
+    el.innerHTML = `<span>${lines.map(({ u, text }) => `<span class="map-turn-line">${unitIconHTML(u, "unit-ico sm")}${esc(u.name)} <b>${text}</b></span>`).join("")}</span>`;
+    const obj = new CSS2DObject(el); obj.position.copy(starPoint(sys)); obj.visible = trailGroup.visible;
+    trailGroup.add(obj); turnMarks.push(obj);
   });
 }
 buildTrails();
+
+// Unit movement card: pick units to follow, one or several at a time.
+const movesCard = document.getElementById("map-moves");
+const unitSearch = document.getElementById("map-unit-search");
+const unitList = document.getElementById("map-unit-list");
+const pickedList = document.getElementById("map-unit-picked");
+const movesStatus = document.getElementById("map-moves-status");
+const followable = [...unitHistory.entries()]
+  .map(([key, rows]) => ({ key, rows, u: rows[rows.length - 1] }))
+  .filter((x) => unitStops(x.rows).length)
+  .sort((a, b) => unitSort(a.u, b.u));
+const unitLabel = (x) => `${x.u.name} (${x.u.faction})`;
+unitList.innerHTML = followable.map((x) => `<option value="${esc(unitLabel(x))}"></option>`).join("");
+function renderMoves() {
+  const picked = trailPick ? followable.filter((x) => trailPick.has(x.key)) : [];
+  pickedList.innerHTML = picked.map((x) =>
+    `<li>${unitIconHTML(x.u)}<span>${esc(x.u.name)} <span class="muted">${esc(x.u.faction)}</span></span><button type="button" data-key="${esc(x.key)}" aria-label="Remove ${esc(x.u.name)}">×</button></li>`).join("");
+  movesStatus.textContent = !trailPick ? "Showing the movement of every unit. Search to follow particular units."
+    : picked.length ? `Following ${picked.length} unit${picked.length > 1 ? "s" : ""}. Labels show the turns spent at each system.`
+    : "No units selected. Search to add one, or view all units.";
+  buildTrails();
+}
+function addUnit(text) {
+  const q = text.trim().toLowerCase(); if (!q) return;
+  const x = followable.find((f) => unitLabel(f).toLowerCase() === q) || followable.find((f) => unitLabel(f).toLowerCase().includes(q));
+  if (!x) { movesStatus.textContent = `No unit matches "${text.trim()}".`; return; }
+  if (!trailPick) trailPick = new Set();
+  trailPick.add(x.key); unitSearch.value = ""; renderMoves();
+}
+unitSearch.addEventListener("input", () => { if (followable.some((f) => unitLabel(f) === unitSearch.value)) addUnit(unitSearch.value); });
+unitSearch.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); addUnit(unitSearch.value); } });
+pickedList.addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-key]"); if (!b || !trailPick) return;
+  trailPick.delete(b.dataset.key); renderMoves();
+});
+document.getElementById("map-moves-clear").addEventListener("click", () => { trailPick = new Set(); renderMoves(); });
+document.getElementById("map-moves-all").addEventListener("click", () => { trailPick = null; renderMoves(); });
+renderMoves();
+
 const trailsBtn = document.getElementById("map-trails");
-trailsBtn.addEventListener("click", () => { trailGroup.visible = !trailGroup.visible; trailsBtn.setAttribute("aria-pressed", String(trailGroup.visible)); });
+function setTrails(on) {
+  trailGroup.visible = on; turnMarks.forEach((m) => { m.visible = on; });
+  movesCard.hidden = !on;
+  trailsBtn.setAttribute("aria-pressed", String(on));
+}
+trailsBtn.addEventListener("click", () => setTrails(!trailGroup.visible));
 
 // Show or hide units.
 const unitsBtn = document.getElementById("map-units");
+let unitsShown = true;
 unitsBtn.addEventListener("click", () => {
-  unitTokens.visible = !unitTokens.visible;
-  unitsBtn.textContent = unitTokens.visible ? "Hide Units" : "Show Units";
-  unitsBtn.setAttribute("aria-pressed", String(!unitTokens.visible));
+  unitsShown = !unitsShown;
+  unitRows3D.forEach((o) => { o.visible = unitsShown; });
+  unitsBtn.textContent = unitsShown ? "Hide Units" : "Show Units";
+  unitsBtn.setAttribute("aria-pressed", String(!unitsShown));
 });
 
 // Stars: show, dimmed (60% darker), or hidden with names and units dropped to the galactic plane.
@@ -1084,11 +1173,6 @@ function applyStarMode() {
     if (s.stalk) s.stalk.visible = !hide;
     if (s.ring) s.ring.visible = !hide;
     s.group.position.set(s.pos.x, hide ? 0.12 : s.pos.y, s.pos.z);
-  });
-  unitTokens.children.forEach((sp) => {
-    const s = sp.userData.system, off = sp.userData.offset.clone();
-    if (hide) off.y = 0.28;
-    sp.position.copy(starPoint(s)).add(off);
   });
   const andor = byHex.get("U19");
   if (hazard && andor) hazard.position.copy(starPoint(andor)).add(new THREE.Vector3(0, hide ? 0.9 : 1.25, 0));
@@ -1301,7 +1385,6 @@ function frame() {
     });
     if (hazard) hazard.material.opacity = 0.75 + 0.25 * Math.sin(t * 2.4);
     // Fleet tokens keep a readable size on screen however far out the camera is.
-    unitTokens.children.forEach((sp) => sp.scale.setScalar(Math.max(0.34, camera.position.distanceTo(sp.position) * 0.024)));
     updateLabels(camera);
     renderer.render(mapScene, camera);
     labelRenderer.domElement.style.visibility = "visible";

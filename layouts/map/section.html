@@ -19,11 +19,26 @@
     <button type="button" id="map-reset">Whole sector</button>
   </div>
 
+  <div class="map-stack">
+  <section class="map-moves" id="map-moves" hidden aria-live="polite">
+    <h2>Unit movement</h2>
+    <label class="sr-only" for="map-unit-search">Add a unit</label>
+    <input id="map-unit-search" type="search" list="map-unit-list" placeholder="Add a unit…" autocomplete="off">
+    <datalist id="map-unit-list"></datalist>
+    <ul id="map-unit-picked" class="map-unit-picked"></ul>
+    <p id="map-moves-status" class="map-help"></p>
+    <div class="map-moves-actions">
+      <button type="button" id="map-moves-clear">Clear selection</button>
+      <button type="button" id="map-moves-all">View all units</button>
+    </div>
+  </section>
+
   <details class="map-legend" open>
     <summary>Key</summary>
     <ul id="map-legend-list"></ul>
     <p class="map-help">Drag to pan. Cmd-drag (Mac) or Alt-drag (Windows) to rotate, or right-drag. Scroll or pinch to zoom where you point. Click a star to visit its colony.</p>
   </details>
+  </div>
 
   <div class="map-zoom" role="group" aria-label="Zoom">
     <button type="button" id="map-zoom-in" aria-label="Zoom in">+</button>
