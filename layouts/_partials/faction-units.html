@@ -29,7 +29,7 @@
     {{- else }}
       {{- $seen := "" }}
       {{- range $hist }}{{ if and (eq .status "based") (eq .public "yes") (ne .silent "yes") (or (lt .turn $last.turn) (lt $last.turn $current)) }}{{ $seen = .system }}{{ end }}{{ end }}
-      {{- if $seen }}{{ $hex = index $hexOf $seen }}{{ $where = printf "Last sighted over %s (hex %s)" $seen $hex }}{{ else }}{{ $where = "Location unknown" }}{{ end }}
+      {{- if $seen }}{{ $hex = index $hexOf $seen }}{{ $where = printf "Last sighted over %s Hex %s" $seen $hex }}{{ else }}{{ $where = "Location unknown" }}{{ end }}
     {{- end }}
     {{- $cards = $cards | append (dict "name" $name "class" $last.class "where" $where "hex" $hex) }}
   {{- end }}
