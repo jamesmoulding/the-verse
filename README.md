@@ -138,8 +138,11 @@ Then open http://localhost:1313/the-verse/ . Stop it with Ctrl+C.
 The rules page carries `noindex: true`, which asks search engines not to list it, and is left
 out of the sitemap. Anyone with the link can still read it.
 
-## Custom domain later
+## Domain
 
-In the repository's **Settings → Pages → Custom domain**, enter the domain and follow GitHub's
-DNS instructions. The workflow picks up the new address automatically; nothing in the site
-needs editing. Regenerate the QR code afterwards, because it points at the github.io address.
+The site lives at **https://theverse.org.uk/** (bought through GoDaddy). The domain is set in the
+repository's **Settings → Pages → Custom domain**, and GoDaddy's DNS holds four A records for `@`
+(185.199.108.153, .109.153, .110.153 and .111.153) plus a `www` CNAME to `jamesmoulding.github.io`.
+The workflow takes the address from the Pages settings, so changing domain needs no code change,
+but the QR code in `static/images/qr/` encodes the address and must be regenerated. Old
+`jamesmoulding.github.io/the-verse/` links redirect to the domain automatically.

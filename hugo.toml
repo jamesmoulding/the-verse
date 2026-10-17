@@ -1,6 +1,6 @@
 # Site settings. The live address is supplied automatically by the GitHub
 # Actions workflow, so a custom domain needs no change here.
-baseURL = "https://jamesmoulding.github.io/the-verse/"
+baseURL = "https://theverse.org.uk/"
 locale = "en-GB"
 title = "The Verse"
 disableKinds = ["taxonomy", "term", "RSS"]
