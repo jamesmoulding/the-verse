@@ -1020,7 +1020,16 @@ function unitIconURL(category, colour) {
   else { g.moveTo(32, 8); g.lineTo(56, 52); g.lineTo(32, 42); g.lineTo(8, 52); g.closePath(); }
   g.stroke(); g.fill();
   if (category === "bionid") { g.fillStyle = "#1a0718"; g.font = "bold 28px system-ui"; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText("☣", 32, 34); }
-  const url = c.toDataURL(); iconCache.set(key, url); return url;
+  const url = c.toDataURL(); iconCache.set(key, url); iconCache.set(key + "|canvas", c); return url;
+}
+function unitIconTexture(category, colour) {
+  const key = category + "|" + colour + "|tex";
+  if (!iconCache.has(key)) {
+    unitIconURL(category, colour);
+    const t = new THREE.CanvasTexture(iconCache.get(category + "|" + colour + "|canvas")); t.colorSpace = THREE.SRGBColorSpace;
+    iconCache.set(key, t);
+  }
+  return iconCache.get(key);
 }
 const factionOrder = Object.keys(factions);
 const CATEGORY_ORDER = { squadron: 0, space: 0, humanitarian: 1, ground: 2, bionid: 3 };
@@ -1035,19 +1044,20 @@ function unitIconHTML(u, cls = "unit-ico") {
 }
 unitsAt.forEach((units) => units.sort(unitSort));
 
-// A line of unit icons just below each system's name, in faction order. It hangs off the same
-// point as the name, so it sits under it in both the sector view and Board view.
-const unitRows3D = [];
+// 3D unit tokens in a line just below each system's name, in faction order. Each frame they are
+// placed in screen space under the name, so they sit there in both the sector view and Board view.
+const unitTokens = new THREE.Group(); mapScene.add(unitTokens);
+const unitStacks = []; // { s, sprites, labelY }
 unitsAt.forEach((units, hex) => {
   const s = byHex.get(hex); if (!s || !s.group) return;
-  const el = document.createElement("div"); el.className = "map-unit-row"; s.unitRow = el;
-  const inner = document.createElement("span");
-  inner.innerHTML = units.map((u) => unitIconHTML(u).replace("<img ", `<img title="${esc(u.name)} · ${esc(unitClass(u))} · ${esc(u.faction)}" `)).join("");
-  inner.addEventListener("click", () => onSystemClick(s));
-  el.appendChild(inner);
-  const st = STAR[s.star_type] || STAR.G;
-  const obj = new CSS2DObject(el); obj.position.set(0, st.size * 0.42 + 0.15, 0); s.group.add(obj);
-  unitRows3D.push(obj);
+  const sprites = units.map((u) => {
+    const f = factions[u.faction];
+    const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: unitIconTexture(u.category, f && f.colour), depthWrite: false, transparent: true }));
+    sp.scale.setScalar(0.34); sp.userData.system = s;
+    unitTokens.add(sp); pickables.push(sp);
+    return sp;
+  });
+  unitStacks.push({ s, sprites, labelY: (STAR[s.star_type] || STAR.G).size * 0.42 + 0.15 });
 });
 
 // ---------------------------------------------------------------- hover summary
@@ -1078,7 +1088,6 @@ function forcesSummaryHTML(s) {
 function showSummary(s) {
   clearTimeout(summaryTimer);
   if (!summaryWanted(s)) return;
-  if (summaryFor && summaryFor.unitRow) summaryFor.unitRow.classList.remove("has-enter");
   summaryFor = s;
   const g = grades[s.grade];
   summaryCard.innerHTML = `
@@ -1097,11 +1106,9 @@ function showSummary(s) {
   summaryCard.hidden = false;
   s.group.add(enterObj); enterObj.position.set(0, (STAR[s.star_type] || STAR.G).size * 0.42 + 0.15, 0);
   enterObj.visible = true;
-  if (s.unitRow) s.unitRow.classList.add("has-enter");
 }
 function hideSummary() {
   clearTimeout(summaryTimer);
-  if (summaryFor && summaryFor.unitRow) summaryFor.unitRow.classList.remove("has-enter");
   summaryFor = null; summaryCard.hidden = true; enterObj.visible = false;
 }
 // Moving towards the button can cross other hexes, so switching or hiding waits a moment.
@@ -1125,16 +1132,25 @@ infoBtn.addEventListener("click", () => {
   if (!infoOn) hideSummary(); else if (hovered) showSummary(hovered);
 });
 
-// Unit icons keep the size the old 3D tokens had: 0.024 of the camera distance, never below
-// 0.34 map units, converted to screen pixels.
-const unitWorld = new THREE.Vector3();
-function sizeUnitRows() {
-  if (!unitsShown) return;
-  const k = renderer.domElement.clientHeight / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2));
-  unitRows3D.forEach((o) => {
-    o.getWorldPosition(unitWorld);
-    const d = camera.position.distanceTo(unitWorld);
-    o.element.style.setProperty("--ico", (Math.max(0.34, d * 0.024) / d * k).toFixed(1) + "px");
+// Token size as before: 0.024 of the camera distance, never below 0.34 map units. The row starts
+// 12px under the centre of the name (38px when the Enter Star System button is showing).
+const tokAnchor = new THREE.Vector3(), tokNdc = new THREE.Vector3();
+function placeUnitTokens() {
+  if (!unitTokens.visible) return;
+  const W = renderer.domElement.clientWidth, H = renderer.domElement.clientHeight;
+  const k = H / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2));
+  unitStacks.forEach(({ s, sprites, labelY }) => {
+    tokAnchor.copy(s.group.position); tokAnchor.y += labelY;
+    const d = camera.position.distanceTo(tokAnchor);
+    const scale = Math.max(0.34, d * 0.024), px = (scale / d) * k;
+    tokNdc.copy(tokAnchor).project(camera);
+    const top = summaryFor === s ? 38 : 12;
+    const step = px * 0.8, y = top + px * 0.42;
+    sprites.forEach((sp, i) => {
+      const x = (i - (sprites.length - 1) / 2) * step;
+      sp.position.set(tokNdc.x + (2 * x) / W, tokNdc.y - (2 * y) / H, tokNdc.z).unproject(camera);
+      sp.scale.setScalar(scale);
+    });
   });
 }
 
@@ -1245,12 +1261,10 @@ trailsBtn.addEventListener("click", () => setTrails(!trailGroup.visible));
 
 // Show or hide units.
 const unitsBtn = document.getElementById("map-units");
-let unitsShown = true;
 unitsBtn.addEventListener("click", () => {
-  unitsShown = !unitsShown;
-  unitRows3D.forEach((o) => { o.visible = unitsShown; });
-  unitsBtn.textContent = unitsShown ? "Hide Units" : "Show Units";
-  unitsBtn.setAttribute("aria-pressed", String(!unitsShown));
+  unitTokens.visible = !unitTokens.visible;
+  unitsBtn.textContent = unitTokens.visible ? "Hide Units" : "Show Units";
+  unitsBtn.setAttribute("aria-pressed", String(!unitTokens.visible));
 });
 
 // Stars: show, dimmed (60% darker), or hidden with names and units dropped to the galactic plane.
@@ -1481,7 +1495,7 @@ function frame() {
     if (hazard) hazard.material.opacity = 0.75 + 0.25 * Math.sin(t * 2.4);
     // Fleet tokens keep a readable size on screen however far out the camera is.
     updateLabels(camera);
-    sizeUnitRows();
+    placeUnitTokens();
     renderer.render(mapScene, camera);
     labelRenderer.domElement.style.visibility = "visible";
     labelRenderer.render(mapScene, camera);
