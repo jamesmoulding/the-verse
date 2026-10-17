@@ -1125,6 +1125,19 @@ infoBtn.addEventListener("click", () => {
   if (!infoOn) hideSummary(); else if (hovered) showSummary(hovered);
 });
 
+// Unit icons keep the size the old 3D tokens had: 0.024 of the camera distance, never below
+// 0.34 map units, converted to screen pixels.
+const unitWorld = new THREE.Vector3();
+function sizeUnitRows() {
+  if (!unitsShown) return;
+  const k = renderer.domElement.clientHeight / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2));
+  unitRows3D.forEach((o) => {
+    o.getWorldPosition(unitWorld);
+    const d = camera.position.distanceTo(unitWorld);
+    o.element.style.setProperty("--ico", (Math.max(0.34, d * 0.024) / d * k).toFixed(1) + "px");
+  });
+}
+
 function forcesHTML(s) {
   const units = unitsAt.get(s.hex);
   if (!units || !units.length) return "";
@@ -1468,6 +1481,7 @@ function frame() {
     if (hazard) hazard.material.opacity = 0.75 + 0.25 * Math.sin(t * 2.4);
     // Fleet tokens keep a readable size on screen however far out the camera is.
     updateLabels(camera);
+    sizeUnitRows();
     renderer.render(mapScene, camera);
     labelRenderer.domElement.style.visibility = "visible";
     labelRenderer.render(mapScene, camera);

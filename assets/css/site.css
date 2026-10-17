@@ -333,7 +333,7 @@ td.self { background: repeating-linear-gradient(45deg, var(--border) 0 4px, tran
 /* Units under system names, the Unit movement card and turn labels. */
 .map-unit-row { width: 0; height: 0; }
 .map-unit-row > span { position: absolute; top: 10px; left: 0; transform: translateX(-50%); display: flex; gap: 2px; pointer-events: auto; cursor: pointer; }
-.map-unit-row img { width: 18px; height: 18px; display: block; filter: drop-shadow(0 0 2px #000); }
+.map-unit-row img { width: var(--ico, 24px); height: var(--ico, 24px); flex: none; display: block; filter: drop-shadow(0 0 2px #000); }
 .unit-ico { width: 16px; height: 16px; flex: none; vertical-align: -3px; }
 .unit-ico.sm { width: 12px; height: 12px; vertical-align: -2px; margin-right: 3px; }
 .map-forces li { display: flex; align-items: flex-start; gap: .45rem; }
