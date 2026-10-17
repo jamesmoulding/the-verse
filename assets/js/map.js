@@ -227,7 +227,7 @@ const hitMat = new THREE.MeshBasicMaterial({ visible: false });
 systems.forEach((s) => {
   const { x, z } = hexXZ(s.hex);
   const rnd = seeded("h" + s.hex);
-  let y = (rnd() * 2 - 1) * 2.2; if (Math.abs(y) < 0.45) y = y < 0 ? -0.45 : 0.45;
+  const y = 0.45 + rnd() * 1.75; // every star sits above the galactic plane
   s.pos = new THREE.Vector3(x, y, z);
   const st = STAR[s.star_type] || STAR.G;
   const unrecorded = !s.system;
