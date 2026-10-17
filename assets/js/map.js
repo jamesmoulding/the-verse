@@ -347,6 +347,7 @@ canvas.addEventListener("pointermove", (ev) => {
     canvas.style.cursor = s ? "pointer" : "";
     if (s) { const { x, z } = hexXZ(s.hex); hexHighlight.position.set(x, 0.025, z); hexHighlight.visible = true; }
     else hexHighlight.visible = false;
+    hoverSummary(s);
   }
 });
 let downAt = null;
@@ -356,7 +357,10 @@ canvas.addEventListener("pointerup", (ev) => {
   const moved = Math.hypot(ev.clientX - downAt[0], ev.clientY - downAt[1]);
   downAt = null;
   if (moved > 6) return;
-  const s = pick(ev); if (s) onSystemClick(s);
+  const s = pick(ev); if (!s) return;
+  // On a touchscreen there is no hover, so the first tap shows the summary and the button.
+  if (ev.pointerType === "touch" && summaryWanted(s) && summaryFor !== s) { showSummary(s); return; }
+  onSystemClick(s);
 });
 
 // ---------------------------------------------------------------- camera flights
@@ -894,6 +898,7 @@ let mapCameraBefore = null;
 
 async function select(s) {
   if (!s || busy) return;
+  hideSummary();
   busy = true;
   if (selected && selected.label) selected.label.classList.remove("selected");
   selected = s; s.label && s.label.classList.add("selected");
@@ -1035,7 +1040,7 @@ unitsAt.forEach((units) => units.sort(unitSort));
 const unitRows3D = [];
 unitsAt.forEach((units, hex) => {
   const s = byHex.get(hex); if (!s || !s.group) return;
-  const el = document.createElement("div"); el.className = "map-unit-row";
+  const el = document.createElement("div"); el.className = "map-unit-row"; s.unitRow = el;
   const inner = document.createElement("span");
   inner.innerHTML = units.map((u) => unitIconHTML(u).replace("<img ", `<img title="${esc(u.name)} · ${esc(unitClass(u))} · ${esc(u.faction)}" `)).join("");
   inner.addEventListener("click", () => onSystemClick(s));
@@ -1043,6 +1048,81 @@ unitsAt.forEach((units, hex) => {
   const st = STAR[s.star_type] || STAR.G;
   const obj = new CSS2DObject(el); obj.position.set(0, st.size * 0.42 + 0.15, 0); s.group.add(obj);
   unitRows3D.push(obj);
+});
+
+// ---------------------------------------------------------------- hover summary
+// Hovering a system shows a short version of its info panel and an Enter Star System button
+// under its name. The button (or a click on the star) opens the full close-up view.
+let infoOn = true, summaryFor = null, summaryTimer = null, overSummary = false;
+const summaryCard = document.getElementById("map-summary");
+const enterEl = document.createElement("div"); enterEl.className = "map-enter";
+enterEl.innerHTML = `<button type="button">Enter Star System</button>`;
+const enterObj = new CSS2DObject(enterEl); enterObj.visible = false;
+function summaryWanted(s) { return infoOn && s && s.system && mode === "map" && !toolMode && !busy; }
+function forcesSummaryHTML(s) {
+  const units = unitsAt.get(s.hex);
+  if (!units || !units.length) return "";
+  const groups = new Map(); // faction -> class -> units
+  units.forEach((u) => {
+    if (!groups.has(u.faction)) groups.set(u.faction, new Map());
+    const g = groups.get(u.faction), c = unitClass(u);
+    if (!g.has(c)) g.set(c, []); g.get(c).push(u);
+  });
+  const lines = [];
+  groups.forEach((g, fac) => g.forEach((us, c) => {
+    const n = us.length, label = n > 1 ? c.replace(/(Squadron|Division|Fleet|Force)$/, "$1s") : c;
+    lines.push(`<li>${us.map((u) => unitIconHTML(u)).join("")}<span>${esc(fac)} · ${n} ${esc(label)}</span></li>`);
+  }));
+  return `<h3>Forces present</h3><ul class="map-forces-sum">${lines.join("")}</ul>`;
+}
+function showSummary(s) {
+  clearTimeout(summaryTimer);
+  if (!summaryWanted(s)) return;
+  if (summaryFor && summaryFor.unitRow) summaryFor.unitRow.classList.remove("has-enter");
+  summaryFor = s;
+  const g = grades[s.grade];
+  summaryCard.innerHTML = `
+    <p class="kicker">Hex ${esc(s.hex)}</p>
+    <h2>${esc(s.system)}</h2>
+    <dl class="map-facts">
+      ${row("Colony world", esc(s.system))}
+      ${row("Controlled by", factionHTML(s.control))}
+      ${row("Population", formatPop(s.population_m))}
+      ${row("Colony status", s.grade ? (g ? `${esc(g)} (${esc(s.grade)})` : esc(s.grade)) : "Not recorded")}
+      ${row("Support Value", s.sv !== "" ? esc(s.sv) : "Not recorded")}
+      ${row("M25 limit", s.m25_au !== "" ? esc(parseFloat(s.m25_au)) + " AU" : "Not recorded")}
+      ${row("Enter or leave", `${systemMP(s)} MP (${systemMP(s) * DAYS_PER_MP} days)`)}
+    </dl>
+    ${forcesSummaryHTML(s)}`;
+  summaryCard.hidden = false;
+  s.group.add(enterObj); enterObj.position.set(0, (STAR[s.star_type] || STAR.G).size * 0.42 + 0.15, 0);
+  enterObj.visible = true;
+  if (s.unitRow) s.unitRow.classList.add("has-enter");
+}
+function hideSummary() {
+  clearTimeout(summaryTimer);
+  if (summaryFor && summaryFor.unitRow) summaryFor.unitRow.classList.remove("has-enter");
+  summaryFor = null; summaryCard.hidden = true; enterObj.visible = false;
+}
+// Moving towards the button can cross other hexes, so switching or hiding waits a moment.
+function hoverSummary(s) {
+  if (!infoOn) return;
+  clearTimeout(summaryTimer);
+  if (overSummary) return;
+  if (s && s.system) {
+    if (!summaryFor) showSummary(s);
+    else if (s !== summaryFor) summaryTimer = setTimeout(() => showSummary(s), 350);
+  } else if (summaryFor) summaryTimer = setTimeout(hideSummary, 900);
+}
+[enterEl, summaryCard].forEach((el) => {
+  el.addEventListener("pointerenter", () => { overSummary = true; clearTimeout(summaryTimer); });
+  el.addEventListener("pointerleave", () => { overSummary = false; if (hovered !== summaryFor) summaryTimer = setTimeout(hideSummary, 900); });
+});
+enterEl.querySelector("button").addEventListener("click", () => { const s = summaryFor; overSummary = false; hideSummary(); if (s) onSystemClick(s); });
+const infoBtn = document.getElementById("map-info");
+infoBtn.addEventListener("click", () => {
+  infoOn = !infoOn; infoBtn.setAttribute("aria-pressed", String(infoOn));
+  if (!infoOn) hideSummary(); else if (hovered) showSummary(hovered);
 });
 
 function forcesHTML(s) {
@@ -1225,6 +1305,7 @@ function setTool(m) {
   measureBtn.setAttribute("aria-pressed", String(toolMode === "measure"));
   rangeBtn.setAttribute("aria-pressed", String(toolMode === "range"));
   app.classList.toggle("tooling", !!toolMode);
+  if (toolMode) hideSummary();
   if (toolMode !== "range") clearRange();
   if (toolMode !== "measure") { route = []; drawRoute(); }
   tool.hidden = !toolMode;
@@ -1337,6 +1418,7 @@ const BOARD = { pos: new THREE.Vector3(0, 37, 0.001), target: new THREE.Vector3(
 async function setBoard(on) {
   if (mode !== "map" || selected) { if (busy) return; await backToMap(); }
   boardOn = on; boardBtn.setAttribute("aria-pressed", String(on));
+  boardBtn.textContent = on ? "3D View" : "Board View";
   controls.enableRotate = !on;
   controls.minPolarAngle = 0;
   await flyMap(on ? BOARD.pos : HOME.pos, on ? BOARD.target : HOME.target, 1100);

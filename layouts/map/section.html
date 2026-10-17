@@ -9,7 +9,8 @@
     <input id="map-search" type="search" list="map-system-list" placeholder="Find a system…" autocomplete="off">
     <datalist id="map-system-list"></datalist>
     <button type="button" id="map-labels-toggle" aria-pressed="true">Names</button>
-    <button type="button" id="map-board" aria-pressed="false">Board</button>
+    <button type="button" id="map-info" aria-pressed="true" title="Show a summary when you hover over a system">Info</button>
+    <button type="button" id="map-board" aria-pressed="false">Board View</button>
     <button type="button" id="map-trails" aria-pressed="false">Movement</button>
     <button type="button" id="map-units" aria-pressed="false">Hide Units</button>
     <button type="button" id="map-stars" aria-pressed="false">Dim Stars</button>
@@ -36,7 +37,7 @@
   <details class="map-legend" open>
     <summary>Key</summary>
     <ul id="map-legend-list"></ul>
-    <p class="map-help">Drag to pan. Cmd-drag (Mac) or Alt-drag (Windows) to rotate, or right-drag. Scroll or pinch to zoom where you point. Click a star to visit its colony.</p>
+    <p class="map-help">Drag to pan. Cmd-drag (Mac) or Alt-drag (Windows) to rotate, or right-drag. Scroll or pinch to zoom where you point. Hover over a system for a summary, then click it or Enter Star System to visit its colony.</p>
   </details>
   </div>
 
@@ -51,6 +52,8 @@
     <div id="map-tool-body"></div>
     <p class="map-help">20 movement points a turn (100 days). 1 MP per hex (5 days); entering or leaving a system costs its MP. Messages: 2.5 days per hex.</p>
   </section>
+
+  <aside class="map-summary" id="map-summary" hidden aria-live="polite"></aside>
 
   <aside class="map-panel" id="map-panel" hidden aria-live="polite">
     <button type="button" class="map-back" id="map-back">← Back to map</button>
