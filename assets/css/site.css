@@ -367,9 +367,11 @@ td.self { background: repeating-linear-gradient(45deg, var(--border) 0 4px, tran
 .map-forces-sum li { display: flex; align-items: center; gap: .3rem; margin: .2rem 0; }
 .map-forces-sum li span { margin-left: .2rem; }
 .map-enter { width: 0; height: 0; }
-.map-enter button { position: absolute; top: 10px; left: 0; transform: translateX(-50%); white-space: nowrap; pointer-events: auto; cursor: pointer; font: 700 11px/1 system-ui, sans-serif; letter-spacing: .02em; color: #1a1300; background: #f0b429; border: 1px solid #ffd77a; border-radius: 1rem; padding: 5px 10px; box-shadow: 0 0 6px rgba(240,180,41,.6); animation: map-enter-glow 2.2s ease-in-out infinite; }
+.map-enter button { position: absolute; top: var(--enter-top, 14px); left: 0; transform: translateX(-50%); white-space: nowrap; pointer-events: auto; cursor: pointer; font: 700 15px/1 system-ui, sans-serif; letter-spacing: .02em; color: #1a1300; background: #f0b429; border: 1px solid #ffd77a; border-radius: 2rem; padding: 10px 20px; box-shadow: 0 0 8px rgba(240,180,41,.6); animation: map-enter-glow 2.2s ease-in-out infinite; }
 .map-enter button:hover, .map-enter button:focus-visible { background: #ffd060; outline: none; box-shadow: 0 0 14px rgba(255,208,96,.95); }
 @keyframes map-enter-glow { 0%, 100% { box-shadow: 0 0 5px rgba(240,180,41,.45); } 50% { box-shadow: 0 0 16px rgba(240,180,41,.95); } }
 @media (prefers-reduced-motion: reduce) { .map-enter button { animation: none; } }
 .map-app.closeup .map-summary, .map-app.tooling .map-summary { display: none; }
 @media (max-width: 700px) { .map-summary { top: auto; left: .5rem; right: .5rem; bottom: .5rem; width: auto; max-height: 45%; z-index: 6; } }
+.map-see-more { margin-top: .4rem; font: 600 .85rem system-ui, sans-serif; color: #8cc4ff; background: none; border: 1px solid #2a3042; border-radius: 2rem; padding: .3rem .8rem; cursor: pointer; }
+.map-see-more:hover { border-color: #8cc4ff; }

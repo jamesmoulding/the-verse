@@ -308,6 +308,12 @@ function updateLabels(cam) {
   });
 }
 
+let downAt = null;
+// A pinch uses two pointers and is a zoom, so it never closes the panel.
+const activePointers = new Set();
+canvas.addEventListener("pointerdown", (e) => activePointers.add(e.pointerId));
+window.addEventListener("pointerup", (e) => activePointers.delete(e.pointerId));
+window.addEventListener("pointercancel", (e) => activePointers.delete(e.pointerId));
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 let hovered = null, selected = null, mode = "map", busy = false;
@@ -339,6 +345,8 @@ function pick(ev) {
   return code ? byHex.get(code) || null : null;
 }
 canvas.addEventListener("pointermove", (ev) => {
+  // Panning or dragging away closes the panel; zooming does not.
+  if (downAt && focused && activePointers.size === 1 && Math.hypot(ev.clientX - downAt[0], ev.clientY - downAt[1]) > 6) unfocus();
   if (mode !== "map" || busy) return;
   const s = pick(ev);
   if (s !== hovered) {
@@ -350,7 +358,6 @@ canvas.addEventListener("pointermove", (ev) => {
     hoverSummary(s);
   }
 });
-let downAt = null;
 canvas.addEventListener("pointerdown", (ev) => { downAt = [ev.clientX, ev.clientY]; });
 canvas.addEventListener("pointerup", (ev) => {
   if (!downAt || mode !== "map" || busy) return;
@@ -358,8 +365,6 @@ canvas.addEventListener("pointerup", (ev) => {
   downAt = null;
   if (moved > 6) return;
   const s = pick(ev); if (!s) return;
-  // On a touchscreen there is no hover, so the first tap shows the summary and the button.
-  if (ev.pointerType === "touch" && summaryWanted(s) && summaryFor !== s) { showSummary(s); return; }
   onSystemClick(s);
 });
 
@@ -823,6 +828,7 @@ const UNITY_POS = new THREE.Vector3(0.35, 0.62, 1.25);
 // ---------------------------------------------------------------- info panel
 const panel = document.getElementById("map-panel");
 const panelBody = document.getElementById("map-panel-body");
+const backBtn = document.getElementById("map-back");
 let stories = null;
 async function loadStories() {
   if (stories) return stories;
@@ -852,8 +858,11 @@ function mentionPattern(s) {
     return new RegExp("(?<![\\w-])" + s.system.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?![\\w-])");
   } catch (e) { return null; }
 }
+let panelFor = null;
 async function renderPanel(s) {
+  panelFor = s;
   panel.hidden = false; app.classList.add("panel-open");
+  backBtn.textContent = mode === "map" && focused === s ? "× Close" : "← Back to map";
   if (!s.system) {
     panelBody.innerHTML = `<p class="kicker">Hex ${esc(s.hex)}</p><h2>Unnamed star</h2><p>A star marker on the Turn 9 map with no record.</p>`;
     return;
@@ -881,16 +890,21 @@ async function renderPanel(s) {
     <h3>In the GNN</h3><div id="map-gnn"><p class="muted">Loading…</p></div>
     <h3>Adjacent systems</h3>
     ${adj.length ? `<ul class="map-adjacent">${adj.map((a) => `<li><button type="button" data-hex="${a.hex}"><span class="swatch" style="background:${(factions[a.control] && factions[a.control].colour) || "transparent"}"></span>${esc(a.system)}</button></li>`).join("")}</ul>` : "<p class=\"muted\">No neighbouring systems.</p>"}`;
-  panelBody.querySelectorAll(".map-adjacent button").forEach((b) => b.addEventListener("click", () => select(byHex.get(b.dataset.hex))));
+  panelBody.querySelectorAll(".map-adjacent button").forEach((b) => b.addEventListener("click", () => {
+    const t = byHex.get(b.dataset.hex);
+    if (mode === "map" && focused) focusSystem(t); else select(t);
+  }));
   const list = await loadStories();
-  if (selected !== s) return;
+  if (panelFor !== s) return;
   const re = mentionPattern(s);
   const hits = re ? list.filter((x) => re.test(x.text)) : [];
   const box = document.getElementById("map-gnn");
   if (!hits.length) { box.innerHTML = "<p class=\"muted\">No mentions yet.</p>"; return; }
-  const shown = hits.slice(0, 8);
-  box.innerHTML = `<ul class="map-gnn">${shown.map((h) => `<li><a href="${esc(h.url)}"><span class="turn">Turn ${h.turn}</span> ${esc(h.title)}</a></li>`).join("")}</ul>` +
-    (hits.length > shown.length ? `<p class="muted">and ${hits.length - shown.length} more.</p>` : "");
+  const item = (h) => `<li><a href="${esc(h.url)}"><span class="turn">Turn ${h.turn}</span> ${esc(h.title)}</a></li>`;
+  box.innerHTML = `<ul class="map-gnn">${hits.slice(0, 8).map(item).join("")}</ul>` +
+    (hits.length > 8 ? `<button type="button" class="map-see-more">See more</button>` : "");
+  const more = box.querySelector(".map-see-more");
+  if (more) more.addEventListener("click", () => { box.querySelector(".map-gnn").insertAdjacentHTML("beforeend", hits.slice(8).map(item).join("")); more.remove(); });
 }
 
 // ---------------------------------------------------------------- selecting a system
@@ -898,7 +912,7 @@ let mapCameraBefore = null;
 
 async function select(s) {
   if (!s || busy) return;
-  hideSummary();
+  hideSummary(); clearFocus(false);
   busy = true;
   if (selected && selected.label) selected.label.classList.remove("selected");
   selected = s; s.label && s.label.classList.add("selected");
@@ -956,7 +970,7 @@ async function backToMap() {
   if (mapCameraBefore) await flyMap(mapCameraBefore.pos, mapCameraBefore.target, 1100);
   busy = false;
 }
-document.getElementById("map-back").addEventListener("click", backToMap);
+backBtn.addEventListener("click", () => { if (mode === "map" && focused) unfocus(); else backToMap(); });
 window.addEventListener("keydown", (e) => { if (e.key === "Escape") backToMap(); });
 
 // ---------------------------------------------------------------- movement rules (Game Guide)
@@ -1065,10 +1079,38 @@ unitsAt.forEach((units, hex) => {
 // under its name. The button (or a click on the star) opens the full close-up view.
 let infoOn = true, summaryFor = null, summaryTimer = null, overSummary = false;
 const summaryCard = document.getElementById("map-summary");
+// Clicking a system on the map zooms to its hex, opens the full panel and shows a large
+// Enter Star System button; the button, or a second click, opens the close-up.
+const FOCUS_ZOOM = 70; // zoom slider position
+let focused = null;
 const enterEl = document.createElement("div"); enterEl.className = "map-enter";
 enterEl.innerHTML = `<button type="button">Enter Star System</button>`;
 const enterObj = new CSS2DObject(enterEl); enterObj.visible = false;
-function summaryWanted(s) { return infoOn && s && s.system && mode === "map" && !toolMode && !busy; }
+enterEl.querySelector("button").addEventListener("click", () => { if (focused) select(focused); });
+function clearFocus(hidePanel = true) {
+  if (!focused) return;
+  if (focused.label) focused.label.classList.remove("selected");
+  focused = null; enterObj.visible = false;
+  if (enterObj.parent) enterObj.parent.remove(enterObj);
+  if (hidePanel) { panel.hidden = true; app.classList.remove("panel-open"); panelFor = null; }
+}
+function unfocus() { clearFocus(true); }
+async function focusSystem(s) {
+  if (!s || busy || mode !== "map") return;
+  hideSummary(); clearFocus(false);
+  focused = s; if (s.label) s.label.classList.add("selected");
+  renderPanel(s);
+  if (s.system) {
+    s.group.add(enterObj); enterObj.position.set(0, (STAR[s.star_type] || STAR.G).size * 0.42 + 0.15, 0);
+    enterObj.visible = true;
+  }
+  const { x, z } = hexXZ(s.hex);
+  const at = new THREE.Vector3(x, boardOn ? 0 : starPoint(s).y * 0.5, z);
+  const dir = camera.position.clone().sub(controls.target).normalize();
+  const to = at.clone().add(dir.multiplyScalar(sliderToDistance(FOCUS_ZOOM)));
+  busy = true; await flyMap(to, at, 900); busy = false;
+}
+function summaryWanted(s) { return infoOn && s && s.system && mode === "map" && !toolMode && !busy && !focused; }
 function forcesSummaryHTML(s) {
   const units = unitsAt.get(s.hex);
   if (!units || !units.length) return "";
@@ -1104,16 +1146,14 @@ function showSummary(s) {
     </dl>
     ${forcesSummaryHTML(s)}`;
   summaryCard.hidden = false;
-  s.group.add(enterObj); enterObj.position.set(0, (STAR[s.star_type] || STAR.G).size * 0.42 + 0.15, 0);
-  enterObj.visible = true;
 }
 function hideSummary() {
   clearTimeout(summaryTimer);
-  summaryFor = null; summaryCard.hidden = true; enterObj.visible = false;
+  summaryFor = null; summaryCard.hidden = true;
 }
 // Moving towards the button can cross other hexes, so switching or hiding waits a moment.
 function hoverSummary(s) {
-  if (!infoOn) return;
+  if (!infoOn || focused) return;
   clearTimeout(summaryTimer);
   if (overSummary) return;
   if (s && s.system) {
@@ -1121,11 +1161,10 @@ function hoverSummary(s) {
     else if (s !== summaryFor) summaryTimer = setTimeout(() => showSummary(s), 350);
   } else if (summaryFor) summaryTimer = setTimeout(hideSummary, 900);
 }
-[enterEl, summaryCard].forEach((el) => {
+[summaryCard].forEach((el) => {
   el.addEventListener("pointerenter", () => { overSummary = true; clearTimeout(summaryTimer); });
   el.addEventListener("pointerleave", () => { overSummary = false; if (hovered !== summaryFor) summaryTimer = setTimeout(hideSummary, 900); });
 });
-enterEl.querySelector("button").addEventListener("click", () => { const s = summaryFor; overSummary = false; hideSummary(); if (s) onSystemClick(s); });
 const infoBtn = document.getElementById("map-info");
 infoBtn.addEventListener("click", () => {
   infoOn = !infoOn; infoBtn.setAttribute("aria-pressed", String(infoOn));
@@ -1144,7 +1183,8 @@ function placeUnitTokens() {
     const d = camera.position.distanceTo(tokAnchor);
     const scale = Math.max(0.34, d * 0.024), px = (scale / d) * k;
     tokNdc.copy(tokAnchor).project(camera);
-    const top = summaryFor === s ? 38 : 12;
+    const top = 12;
+    if (focused === s) enterEl.style.setProperty("--enter-top", (top + px * 0.85 + 6).toFixed(0) + "px");
     const step = px * 0.8, y = top + px * 0.42;
     sprites.forEach((sp, i) => {
       const x = (i - (sprites.length - 1) / 2) * step;
@@ -1325,14 +1365,15 @@ let rangePlane = null;
 
 function onSystemClick(s) {
   if (toolMode && s.system) { toolClick(s); return; }
-  select(s);
+  if (mode === "map" && focused !== s) { focusSystem(s); return; }
+  if (s.system) select(s);
 }
 function setTool(m) {
   toolMode = toolMode === m ? null : m;
   measureBtn.setAttribute("aria-pressed", String(toolMode === "measure"));
   rangeBtn.setAttribute("aria-pressed", String(toolMode === "range"));
   app.classList.toggle("tooling", !!toolMode);
-  if (toolMode) hideSummary();
+  if (toolMode) { hideSummary(); unfocus(); }
   if (toolMode !== "range") clearRange();
   if (toolMode !== "measure") { route = []; drawRoute(); }
   tool.hidden = !toolMode;
@@ -1443,6 +1484,7 @@ search.addEventListener("change", () => searchGo(false));
 const boardBtn = document.getElementById("map-board");
 const BOARD = { pos: new THREE.Vector3(0, 37, 0.001), target: new THREE.Vector3(0, 0, 0) };
 async function setBoard(on) {
+  unfocus();
   if (mode !== "map" || selected) { if (busy) return; await backToMap(); }
   boardOn = on; boardBtn.setAttribute("aria-pressed", String(on));
   boardBtn.textContent = on ? "3D View" : "Board View";
@@ -1454,6 +1496,7 @@ boardBtn.addEventListener("click", () => setBoard(!boardOn));
 const labelsBtn = document.getElementById("map-labels-toggle");
 labelsBtn.addEventListener("click", () => { labelsOn = !labelsOn; labelsBtn.setAttribute("aria-pressed", String(labelsOn)); });
 document.getElementById("map-reset").addEventListener("click", async () => {
+  unfocus();
   if (mode !== "map" || selected) { await backToMap(); }
   const view = boardOn ? BOARD : HOME;
   if (!busy) { busy = true; await flyMap(view.pos, view.target, 1200); busy = false; }
