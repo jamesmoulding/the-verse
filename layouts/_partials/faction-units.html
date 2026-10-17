@@ -1,0 +1,49 @@
+{{- /* Unit cards for a faction: where each unit is now, or where it was last publicly sighted. */ -}}
+{{- $code := .Params.short }}
+{{- with $code }}
+{{- $sys := (resources.Get "map/systems.csv") | transform.Unmarshal }}
+{{- $hexOf := dict }}
+{{- range after 1 $sys }}{{ if index . 1 }}{{ $hexOf = merge $hexOf (dict (index . 1) (index . 0)) }}{{ end }}{{ end }}
+{{- $rows := (resources.Get "map/units.csv") | transform.Unmarshal }}
+{{- $byUnit := dict }}
+{{- range after 1 $rows }}
+  {{- if eq (index . 1) $code }}
+    {{- $name := index . 2 }}
+    {{- $entry := dict "turn" (int (index . 0)) "class" (index . 4) "system" (index . 5) "status" (index . 6) "silent" (index . 7) "public" (index . 8) }}
+    {{- $prev := index $byUnit $name | default slice }}
+    {{- $byUnit = merge $byUnit (dict $name ($prev | append $entry)) }}
+  {{- end }}
+{{- end }}
+{{- $current := 0 }}
+{{- range after 1 $rows }}{{ $t := int (index . 0) }}{{ if gt $t $current }}{{ $current = $t }}{{ end }}{{ end }}
+{{- $cards := slice }}
+{{- range $name, $hist := $byUnit }}
+  {{- $hist = sort $hist "turn" }}
+  {{- $last := index $hist (sub (len $hist) 1) }}
+  {{- $visible := and (eq $last.turn $current) (eq $last.status "based") (eq $last.public "yes") (ne $last.silent "yes") }}
+  {{- $hidden := or (eq $last.status "repair") (eq $last.status "construction") (eq $last.status "destroyed") }}
+  {{- if not $hidden }}
+    {{- $where := "" }}{{ $hex := "" }}
+    {{- if $visible }}
+      {{- $hex = index $hexOf $last.system }}{{ $where = printf "Hex %s · %s" $hex $last.system }}
+    {{- else }}
+      {{- $seen := "" }}
+      {{- range $hist }}{{ if and (eq .status "based") (eq .public "yes") (ne .silent "yes") (or (lt .turn $last.turn) (lt $last.turn $current)) }}{{ $seen = .system }}{{ end }}{{ end }}
+      {{- if $seen }}{{ $hex = index $hexOf $seen }}{{ $where = printf "Last sighted over %s (hex %s)" $seen $hex }}{{ else }}{{ $where = "Location unknown" }}{{ end }}
+    {{- end }}
+    {{- $cards = $cards | append (dict "name" $name "class" $last.class "where" $where "hex" $hex) }}
+  {{- end }}
+{{- end }}
+{{- with $cards }}
+<h2 id="units">Units</h2>
+<ul class="mini-cards">
+  {{- range sort . "name" }}
+  <li>{{ if .hex }}<a class="mini-card" href="{{ printf "map/#%s" .hex | relURL }}">{{ else }}<span class="mini-card">{{ end }}
+    <strong>{{ .name }}</strong>
+    <small>{{ .class }}</small>
+    <small>{{ .where }}</small>
+  {{ if .hex }}</a>{{ else }}</span>{{ end }}</li>
+  {{- end }}
+</ul>
+{{- end }}
+{{- end }}

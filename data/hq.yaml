@@ -1,0 +1,13 @@
+# Each player faction's HQ in Sector 005: the colonial capital its orders are issued from.
+# Used by the map's Measure tool to time how long an order takes to reach a unit.
+AFCO: Dalek        # AFCO Sector Capital (no Colonial Capital grade world)
+ASE: Gloriana
+CPA: New Cornwall
+LGR: Reason
+PFR: Turing
+SILK: Prime
+SKC: Epiphany      # provisional: no capital recorded; Game Control to confirm
+SNG: Luna Piena
+UTF: Felgor
+VC: Earthsea
+VCW: Kedros

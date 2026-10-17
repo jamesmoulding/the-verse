@@ -308,3 +308,24 @@ td.self { background: repeating-linear-gradient(45deg, var(--border) 0 4px, tran
 .band.hyper { border: 2px dashed rgba(255,154,60,.6); }
 .map-app.tooling .map-legend { display: none; }
 @media (max-width: 700px) { .map-tool { max-height: 45%; } }
+.mini-card small { display: block; }
+
+/* Map: zoom card, bottom right; moves clear of the info panel when it is open */
+.map-zoom { position: absolute; right: .75rem; bottom: .75rem; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: .35rem; background: rgba(12,16,30,.82); border: 1px solid #2a3042; border-radius: .7rem; padding: .45rem .35rem; backdrop-filter: blur(4px); }
+.map-zoom button { width: 2rem; height: 2rem; font: 700 1.15rem/1 system-ui, sans-serif; color: #e6e8ef; background: #151925; border: 1px solid #2a3042; border-radius: .45rem; cursor: pointer; }
+.map-zoom button:hover { border-color: #f0b429; }
+.map-zoom input[type=range] { writing-mode: vertical-lr; direction: rtl; width: 1.4rem; height: 8.5rem; accent-color: #f0b429; cursor: pointer; margin: .1rem 0; }
+.map-app.panel-open .map-zoom { right: calc(min(25rem, calc(100% - 1.5rem)) + 1.5rem); }
+@media (max-width: 700px) { .map-app.panel-open .map-zoom { display: none; } .map-zoom input[type=range] { height: 6rem; } }
+
+/* Measure: HQ picker and order line */
+.map-tool { width: min(26rem, calc(100% - 1.5rem)); }
+.hq-pick { display: block; margin: .2rem 0 .5rem; font-weight: 600; }
+.hq-pick select { display: block; width: 100%; margin-top: .3rem; font: inherit; font-weight: 400; color: #e6e8ef; background: #151925; border: 1px solid #2a3042; border-radius: .4rem; padding: .35rem .4rem; }
+.order-line { background: rgba(240,180,41,.08); border-left: 3px solid #f0b429; padding: .35rem .55rem; border-radius: .3rem; }
+/* Range bands: one blue, stepping in lightness */
+.band.b1 { background: #a9cdf6; } .band.b2 { background: #5f9ee8; } .band.b3 { background: #2f6cc4; } .band.b4 { background: #1b4a8a; }
+.band.hyper { background: transparent; border: 2px dashed rgba(255,255,255,.75); }
+.map-labels { z-index: 1; }
+.map-toolbar, .map-legend, .map-zoom { z-index: 3; }
+.map-tool, .map-panel { z-index: 5; }

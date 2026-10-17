@@ -99,14 +99,16 @@ that players are allowed to know.
 A unit appears only if `public` is `yes`, `silent` is `no` and `status` is `based`. Units in
 hyperspace (`transit`), under `repair`, under `construction` or with an `unknown` location stay
 hidden. The map shows each unit's name, class and faction, never its strength, doctrine, ROE or
-TEL. Keep one row per turn for each unit: the **Trails** button draws its moves between turns.
+TEL. Keep one row per turn for each unit: the **Movement** button draws its moves between turns.
 Pirates are not entered.
 
 ## Distance tools on the map
 
 **Measure** plots a route between systems and shows, for each leg, the cost of leaving, the hexes
 crossed and the cost of entering, in movement points and days, with any leg over 100 days flagged.
-**Range** shades every system a unit could reach and enter within one turn. Each system's entry
+**Range** shades every hex a unit could reach within one turn (systems include the cost of entering).
+Measure times the order too: choose the faction HQ issuing it (set in `data/hq.yaml`) and the map adds the
+time the order takes to reach the unit, at 2.5 days per hex. Each system's entry
 cost is the `mp` column in `systems.csv` (1, 2 or 5; Skaro and Pheervaska are the Deep Gravity
 Wells). Routes can be shared as links, e.g. `/map/#route=E18,H6,J8`.
 

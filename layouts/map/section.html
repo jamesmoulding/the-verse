@@ -10,7 +10,10 @@
     <datalist id="map-system-list"></datalist>
     <button type="button" id="map-labels-toggle" aria-pressed="true">Names</button>
     <button type="button" id="map-board" aria-pressed="false">Board</button>
-    <button type="button" id="map-trails" aria-pressed="false">Trails</button>
+    <button type="button" id="map-trails" aria-pressed="false">Movement</button>
+    <button type="button" id="map-units" aria-pressed="false">Hide Units</button>
+    <button type="button" id="map-stars" aria-pressed="false">Dim Stars</button>
+    <button type="button" id="map-starfield" aria-pressed="false">Starfield</button>
     <button type="button" id="map-measure" aria-pressed="false">Measure</button>
     <button type="button" id="map-range" aria-pressed="false">Range</button>
     <button type="button" id="map-reset">Whole sector</button>
@@ -21,6 +24,12 @@
     <ul id="map-legend-list"></ul>
     <p class="map-help">Drag to pan. Cmd-drag (Mac) or Alt-drag (Windows) to rotate, or right-drag. Scroll or pinch to zoom where you point. Click a star to visit its colony.</p>
   </details>
+
+  <div class="map-zoom" role="group" aria-label="Zoom">
+    <button type="button" id="map-zoom-in" aria-label="Zoom in">+</button>
+    <input type="range" id="map-zoom-slider" min="0" max="100" value="20" aria-label="Zoom level, top is zoomed in" orient="vertical">
+    <button type="button" id="map-zoom-out" aria-label="Zoom out">−</button>
+  </div>
 
   <section class="map-tool" id="map-tool" hidden aria-live="polite">
     <h2>Distances</h2>
@@ -35,7 +44,7 @@
 
   <noscript><p class="map-noscript">The map needs JavaScript to run.</p></noscript>
 </div>
-<script type="application/json" id="map-data">{{ dict "systems" ((resources.Get "map/systems.csv") | transform.Unmarshal) "factions" hugo.Data.map_factions "founders" hugo.Data.founders "grades" hugo.Data.grades "descriptions" hugo.Data.descriptions "units" ((resources.Get "map/units.csv") | transform.Unmarshal) | jsonify | safeJS }}</script>
+<script type="application/json" id="map-data">{{ dict "systems" ((resources.Get "map/systems.csv") | transform.Unmarshal) "factions" hugo.Data.map_factions "founders" hugo.Data.founders "grades" hugo.Data.grades "descriptions" hugo.Data.descriptions "hq" hugo.Data.hq "units" ((resources.Get "map/units.csv") | transform.Unmarshal) | jsonify | safeJS }}</script>
 <script type="importmap">{"imports": {"three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 {{- $js := resources.Get "js/map.js" | fingerprint }}
 <script type="module" src="{{ $js.RelPermalink }}"></script>

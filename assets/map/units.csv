@@ -79,6 +79,7 @@ turn,faction,name,category,unit_class,system,status,silent,public
 6,LGR,First Ground Forces Division  - The Sans Culotte Brigade,ground,Regular Ground Force Division,Riker II,based,no,yes
 7,LGR,First Ground Forces Division  - The Sans Culotte Brigade,ground,Regular Ground Force Division,Riker II,based,no,yes
 8,LGR,First Ground Forces Division  - The Sans Culotte Brigade,ground,Regular Ground Force Division,Riker II,based,no,yes
+9,LGR,First Ground Forces Division  - The Sans Culotte Brigade,ground,Regular Ground Force Division,,destroyed,no,yes
 8,LGR,Second Ground Force Division - The Phrygian Guard,ground,Regular Ground Force Division,,construction,no,yes
 9,LGR,Second Ground Force Division - The Phrygian Guard,ground,Regular Ground Force Division,,construction,no,yes
 10,LGR,Second Ground Force Division - The Phrygian Guard,ground,Regular Ground Force Division,,construction,no,yes

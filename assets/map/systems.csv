@@ -130,7 +130,7 @@ Q1,Teal'c,IND,SC,0,1.836,5,1,22.0,2,,temperate,K,,
 Q9,Gont,VC,AC,4,47.3,8,0,17.0,2,AUR,ocean,G,,
 Q14,Vándor,VCW,VR,15,29.7,4,0,26.0,2,VCW,ice,K,,Space iceland
 R6,Osskil,VC,VP,0,0.256608,11,1,16.0,2,AUR,temperate,M,,
-R7,Earthsea,VC,VR,15,60.48,7,0,26.0,2,AUR,archipelago,G,,Inferred from the name only
+R7,Earthsea,VC,CC,15,60.48,7,0,26.0,2,AUR,archipelago,G,,Inferred from the name only
 R8,Bajor,PFR,PC,1,8.8,7,0,2.0,2,ICB,forest,K,,
 R10,Frigid Spring,VCW,SC,0,3.24,5,1,22.0,2,VCW,tundra,K,,Barren & misty
 R11,Aeithalis,VCW,AA,6,19.44,12,1,18.0,2,UNCI,jungle,K,,Rainforest

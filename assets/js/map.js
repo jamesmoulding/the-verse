@@ -159,7 +159,8 @@ function starfield(count, rMin, rMax, seed) {
   geo.setAttribute("color", new THREE.Float32BufferAttribute(col, 3));
   return new THREE.Points(geo, new THREE.PointsMaterial({ size: 1.6, sizeAttenuation: false, vertexColors: true, transparent: true, opacity: 0.9, depthWrite: false }));
 }
-mapScene.add(starfield(9000, 600, 1400, "sky"));
+const skyGroup = new THREE.Group(); mapScene.add(skyGroup);
+skyGroup.add(starfield(9000, 600, 1400, "sky"));
 planetScene.add(starfield(9000, 4000, 9000, "sky2"));
 
 // Faint distant nebulosity for depth.
@@ -174,14 +175,14 @@ function distantClouds(scene, seed, radius, n) {
     scene.add(s);
   }
 }
-distantClouds(mapScene, "far", 900, 7);
+distantClouds(skyGroup, "far", 900, 7);
 
 // ---------------------------------------------------------------- hex grid
 const PX = 112; // canvas pixels per map unit
 const minX = -1 - OFFSET.x, maxX = (COLS - 1) * 1.5 + 1 - OFFSET.x;
 const minZ = -SQ3 / 2 - OFFSET.z, maxZ = (ROWS - 1) * SQ3 + SQ3 - OFFSET.z;
 const W = maxX - minX, H = maxZ - minZ;
-function buildGrid() {
+function gridTexture(withFills) {
   const c = document.createElement("canvas");
   c.width = Math.ceil(W * PX); c.height = Math.ceil(H * PX);
   const g = c.getContext("2d");
@@ -193,7 +194,7 @@ function buildGrid() {
   for (let col = 0; col < COLS; col++) for (let row = 1; row <= ROWS; row++) {
     const code = hexCode(col, row), { x, z } = hexXZ(code), s = byHex.get(code);
     const f = s && factions[s.control];
-    if (f && f.colour) {
+    if (withFills && f && f.colour) {
       path(corners(x, z, 0.96)); g.fillStyle = f.colour + "8c"; g.fill();
       g.lineWidth = 7; g.strokeStyle = f.colour; g.stroke();
       path(corners(x, z, 0.84)); g.lineWidth = 3; g.strokeStyle = f.colour + "66"; g.stroke();
@@ -207,12 +208,13 @@ function buildGrid() {
   const tex = new THREE.CanvasTexture(c);
   tex.colorSpace = THREE.SRGBColorSpace;
   tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
-  const plane = new THREE.Mesh(new THREE.PlaneGeometry(W, H), new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false }));
-  plane.rotation.x = -Math.PI / 2;
-  plane.position.set(minX + W / 2, 0, minZ + H / 2);
-  mapScene.add(plane);
+  return tex;
 }
-buildGrid();
+const gridTex = { fill: gridTexture(true), plain: gridTexture(false) };
+const gridPlane = new THREE.Mesh(new THREE.PlaneGeometry(W, H), new THREE.MeshBasicMaterial({ map: gridTex.fill, transparent: true, depthWrite: false }));
+gridPlane.rotation.x = -Math.PI / 2;
+gridPlane.position.set(minX + W / 2, 0, minZ + H / 2);
+mapScene.add(gridPlane);
 
 // ---------------------------------------------------------------- star systems
 const pickables = [];
@@ -235,6 +237,7 @@ systems.forEach((s) => {
   const core = new THREE.Sprite(new THREE.SpriteMaterial({ map: CORE, color: fc ? new THREE.Color(fc).lerp(new THREE.Color(0xffffff), 0.45) : 0xffffff, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false }));
   core.scale.setScalar(st.size * 0.32);
   group.add(glow, core);
+  s.group = group; s.core = core; s.baseOpacity = glow.material.opacity;
   s.glow = glow; s.baseScale = glow.scale.x; s.twinkle = rnd() * 10;
 
   const hit = new THREE.Mesh(hitGeo, hitMat); hit.userData.system = s; group.add(hit); pickables.push(hit);
@@ -245,9 +248,9 @@ systems.forEach((s) => {
   const stalkColour = f && f.colour ? new THREE.Color(f.colour) : new THREE.Color(0x8aa6d8);
   const stalk = new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(x, 0, z), s.pos.clone()]),
     new THREE.LineBasicMaterial({ color: stalkColour, transparent: true, opacity: 0.45 }));
-  mapScene.add(stalk);
+  mapScene.add(stalk); s.stalk = stalk;
   const ring = new THREE.Mesh(new THREE.RingGeometry(0.16, 0.22, 24), new THREE.MeshBasicMaterial({ color: stalkColour, transparent: true, opacity: 0.7, side: THREE.DoubleSide, depthWrite: false }));
-  ring.rotation.x = -Math.PI / 2; ring.position.set(x, 0.01, z); mapScene.add(ring);
+  ring.rotation.x = -Math.PI / 2; ring.position.set(x, 0.01, z); mapScene.add(ring); s.ring = ring;
 
   const el = document.createElement("div");
   el.className = "map-label" + (unrecorded ? " unrecorded" : "");
@@ -307,12 +310,30 @@ const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 let hovered = null, selected = null, mode = "map", busy = false;
 
+const groundPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
+const hexCentres = [];
+for (let col = 0; col < COLS; col++) for (let row = 1; row <= ROWS; row++) { const code = hexCode(col, row); hexCentres.push({ code, ...hexXZ(code) }); }
+function hexAt(x, z) {
+  let best = null, bd = 0.92 * 0.92;
+  hexCentres.forEach((h) => { const d = (h.x - x) ** 2 + (h.z - z) ** 2; if (d < bd) { bd = d; best = h.code; } });
+  return best;
+}
+// Highlight for the hex under the pointer.
+const hexShape = new THREE.Shape(Array.from({ length: 6 }, (_, k) => new THREE.Vector2(Math.cos((Math.PI / 3) * k), Math.sin((Math.PI / 3) * k))));
+const hexHighlight = new THREE.Group(); hexHighlight.visible = false; mapScene.add(hexHighlight);
+hexHighlight.add(new THREE.Mesh(new THREE.ShapeGeometry(hexShape), new THREE.MeshBasicMaterial({ color: 0xf0b429, transparent: true, opacity: 0.18, depthWrite: false })));
+hexHighlight.add(new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(hexShape.getPoints().map((p) => new THREE.Vector3(p.x, p.y, 0))), new THREE.LineBasicMaterial({ color: 0xf0b429 })));
+hexHighlight.rotation.x = Math.PI / 2;
 function pick(ev) {
   const r = canvas.getBoundingClientRect();
   pointer.set(((ev.clientX - r.left) / r.width) * 2 - 1, -((ev.clientY - r.top) / r.height) * 2 + 1);
   raycaster.setFromCamera(pointer, camera);
-  const hit = raycaster.intersectObjects(pickables, false)[0];
-  return hit ? hit.object.userData.system : null;
+  const hit = raycaster.intersectObjects(pickables.filter((o) => o.visible !== false && (!o.parent || o.parent.visible !== false)), false)[0];
+  if (hit) return hit.object.userData.system;
+  const v = new THREE.Vector3();
+  if (!raycaster.ray.intersectPlane(groundPlane, v)) return null;
+  const code = hexAt(v.x, v.z);
+  return code ? byHex.get(code) || null : null;
 }
 canvas.addEventListener("pointermove", (ev) => {
   if (mode !== "map" || busy) return;
@@ -321,6 +342,8 @@ canvas.addEventListener("pointermove", (ev) => {
     if (hovered) hovered.label.classList.remove("hover");
     hovered = s; if (s) s.label.classList.add("hover");
     canvas.style.cursor = s ? "pointer" : "";
+    if (s) { const { x, z } = hexXZ(s.hex); hexHighlight.position.set(x, 0.025, z); hexHighlight.visible = true; }
+    else hexHighlight.visible = false;
   }
 });
 let downAt = null;
@@ -343,9 +366,12 @@ function tween(ms, fn) {
     requestAnimationFrame(step);
   });
 }
+// A newer flight takes over from one still in progress.
+let flightToken = 0;
 function flyMap(toPos, toTarget, ms = 1300) {
+  const my = ++flightToken;
   const p0 = camera.position.clone(), t0 = controls.target.clone();
-  return tween(ms, (k) => { camera.position.lerpVectors(p0, toPos, k); controls.target.lerpVectors(t0, toTarget, k); });
+  return tween(ms, (k) => { if (my !== flightToken) return; camera.position.lerpVectors(p0, toPos, k); controls.target.lerpVectors(t0, toTarget, k); });
 }
 const fade = document.getElementById("map-fade");
 function fadeTo(opacity, ms = 450) {
@@ -820,7 +846,7 @@ function mentionPattern(s) {
   } catch (e) { return null; }
 }
 async function renderPanel(s) {
-  panel.hidden = false;
+  panel.hidden = false; app.classList.add("panel-open");
   if (!s.system) {
     panelBody.innerHTML = `<p class="kicker">Hex ${esc(s.hex)}</p><h2>Unnamed star</h2><p>A star marker on the Turn 9 map with no record.</p>`;
     return;
@@ -879,7 +905,8 @@ async function select(s) {
   // Fly in to the star, keeping roughly the current viewing angle.
   const dir = camera.position.clone().sub(controls.target).normalize();
   if (dir.y < 0.35) { dir.y = 0.35; dir.normalize(); }
-  await flyMap(s.pos.clone().add(dir.multiplyScalar(3.2)), s.pos.clone(), fromCloseup ? 10 : 1300);
+  const at = starPoint(s).clone();
+  await flyMap(at.clone().add(dir.multiplyScalar(3.2)), at, fromCloseup ? 10 : 1300);
   renderPanel(s);
 
   if (!s.system) { await fadeTo(0, 300); busy = false; return; }
@@ -905,6 +932,7 @@ async function select(s) {
   busy = false;
 }
 
+function starPoint(s) { return s.group ? s.group.position : s.pos; }
 function leavePlanetScene() {
   pcontrols.enabled = false; controls.enabled = true;
   mode = "map";
@@ -914,7 +942,7 @@ async function backToMap() {
   if (busy) return;
   busy = true;
   if (mode !== "map") { await fadeTo(1, 380); leavePlanetScene(); await fadeTo(0, 380); }
-  panel.hidden = true;
+  panel.hidden = true; app.classList.remove("panel-open");
   if (selected && selected.label) selected.label.classList.remove("selected");
   selected = null; history.replaceState(null, "", location.pathname);
   if (mapCameraBefore) await flyMap(mapCameraBefore.pos, mapCameraBefore.target, 1100);
@@ -989,7 +1017,8 @@ unitsAt.forEach((units, hex) => {
     const f = factions[u.faction];
     const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: unitIcon(u.category, f && f.colour), depthWrite: false, transparent: true }));
     const a = -0.6 + i * 0.55;
-    sp.position.copy(s.pos).add(new THREE.Vector3(0.62 * Math.cos(a), 0.35 + 0.18 * Math.sin(a) + (i > 3 ? 0.3 : 0), 0.62 * Math.sin(a) * 0.4));
+    sp.userData.offset = new THREE.Vector3(0.62 * Math.cos(a), 0.35 + 0.18 * Math.sin(a) + (i > 3 ? 0.3 : 0), 0.62 * Math.sin(a) * 0.4);
+    sp.position.copy(s.pos).add(sp.userData.offset);
     sp.scale.setScalar(0.34);
     sp.userData.system = s;
     unitTokens.add(sp); pickables.push(sp);
@@ -1009,27 +1038,92 @@ function forcesHTML(s) {
 
 // Movement trails: a curved line for each move between recorded turns.
 const trailGroup = new THREE.Group(); trailGroup.visible = false; mapScene.add(trailGroup);
-unitHistory.forEach((rows) => {
-  const stops = rows.filter((r) => r.status === "based" && r.sys);
-  for (let i = 1; i < stops.length; i++) {
-    const a = stops[i - 1].sys, b = stops[i].sys; if (a === b) continue;
-    const f = factions[stops[i].faction];
-    const mid = a.pos.clone().add(b.pos).multiplyScalar(0.5); mid.y += 0.6 + a.pos.distanceTo(b.pos) * 0.12;
-    const curve = new THREE.QuadraticBezierCurve3(a.pos.clone(), mid, b.pos.clone());
-    const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(curve.getPoints(40)),
-      new THREE.LineDashedMaterial({ color: (f && f.colour) || "#cfd6e6", dashSize: 0.25, gapSize: 0.14, transparent: true, opacity: 0.9 }));
-    line.computeLineDistances(); trailGroup.add(line);
-    const head = new THREE.Mesh(new THREE.ConeGeometry(0.09, 0.26, 10), new THREE.MeshBasicMaterial({ color: (f && f.colour) || "#cfd6e6" }));
-    const p = curve.getPoint(0.94), q = curve.getPoint(1);
-    head.position.copy(p); head.lookAt(q); head.rotateX(Math.PI / 2); trailGroup.add(head);
-  }
-});
+function buildTrails() {
+  trailGroup.clear();
+  unitHistory.forEach((rows) => {
+    const stops = rows.filter((r) => r.status === "based" && r.sys);
+    for (let i = 1; i < stops.length; i++) {
+      const a = stops[i - 1].sys, b = stops[i].sys; if (a === b) continue;
+      const f = factions[stops[i].faction], col = (f && f.colour) || "#cfd6e6";
+      const pa = starPoint(a).clone(), pb = starPoint(b).clone();
+      const mid = pa.clone().add(pb).multiplyScalar(0.5); mid.y += 0.6 + pa.distanceTo(pb) * 0.12;
+      const curve = new THREE.QuadraticBezierCurve3(pa, mid, pb);
+      const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(curve.getPoints(40)),
+        new THREE.LineDashedMaterial({ color: col, dashSize: 0.25, gapSize: 0.14, transparent: true, opacity: 0.9 }));
+      line.computeLineDistances(); trailGroup.add(line);
+      const head = new THREE.Mesh(new THREE.ConeGeometry(0.09, 0.26, 10), new THREE.MeshBasicMaterial({ color: col }));
+      head.position.copy(curve.getPoint(0.94)); head.lookAt(curve.getPoint(1)); head.rotateX(Math.PI / 2); trailGroup.add(head);
+    }
+  });
+}
+buildTrails();
 const trailsBtn = document.getElementById("map-trails");
 trailsBtn.addEventListener("click", () => { trailGroup.visible = !trailGroup.visible; trailsBtn.setAttribute("aria-pressed", String(trailGroup.visible)); });
+
+// Show or hide units.
+const unitsBtn = document.getElementById("map-units");
+unitsBtn.addEventListener("click", () => {
+  unitTokens.visible = !unitTokens.visible;
+  unitsBtn.textContent = unitTokens.visible ? "Hide Units" : "Show Units";
+  unitsBtn.setAttribute("aria-pressed", String(!unitTokens.visible));
+});
+
+// Stars: show, dimmed (60% darker), or hidden with names and units dropped to the galactic plane.
+let starMode = "show";
+const starsBtn = document.getElementById("map-stars");
+function applyStarMode() {
+  const hide = starMode === "hide", dim = starMode === "dim";
+  systems.forEach((s) => {
+    if (!s.group) return;
+    s.glow.visible = s.core.visible = !hide;
+    s.glow.material.opacity = s.baseOpacity * (dim ? 0.4 : 1);
+    s.core.material.opacity = dim ? 0.4 : 1;
+    if (s.stalk) s.stalk.visible = !hide;
+    if (s.ring) s.ring.visible = !hide;
+    s.group.position.set(s.pos.x, hide ? 0.12 : s.pos.y, s.pos.z);
+  });
+  unitTokens.children.forEach((sp) => {
+    const s = sp.userData.system, off = sp.userData.offset.clone();
+    if (hide) off.y = 0.28;
+    sp.position.copy(starPoint(s)).add(off);
+  });
+  const andor = byHex.get("U19");
+  if (hazard && andor) hazard.position.copy(starPoint(andor)).add(new THREE.Vector3(0, hide ? 0.9 : 1.25, 0));
+  buildTrails();
+  starsBtn.textContent = starMode === "show" ? "Dim Stars" : starMode === "dim" ? "Hide Stars" : "Show Stars";
+  starsBtn.setAttribute("aria-pressed", String(starMode !== "show"));
+}
+starsBtn.addEventListener("click", () => { starMode = starMode === "show" ? "dim" : starMode === "dim" ? "hide" : "show"; applyStarMode(); });
+
+// Starfield on or off.
+const skyBtn = document.getElementById("map-starfield");
+skyBtn.addEventListener("click", () => { skyGroup.visible = !skyGroup.visible; skyBtn.setAttribute("aria-pressed", String(!skyGroup.visible)); });
+
+// Zoom card: +/- change the distance by 20%; the slider runs from zoomed in (top) to zoomed out.
+const zoomSlider = document.getElementById("map-zoom-slider");
+function activeView() { return mode === "planet" ? { cam: pcamera, ctl: pcontrols } : { cam: camera, ctl: controls }; }
+function setDistance(d) {
+  const { cam, ctl } = activeView();
+  d = Math.min(ctl.maxDistance, Math.max(ctl.minDistance, d));
+  const dir = cam.position.clone().sub(ctl.target).normalize();
+  cam.position.copy(ctl.target).add(dir.multiplyScalar(d));
+}
+function currentDistance() { const { cam, ctl } = activeView(); return cam.position.distanceTo(ctl.target); }
+function sliderToDistance(v) { const { ctl } = activeView(); return ctl.maxDistance * Math.pow(ctl.minDistance / ctl.maxDistance, v / 100); }
+function distanceToSlider(d) { const { ctl } = activeView(); return 100 * Math.log(d / ctl.maxDistance) / Math.log(ctl.minDistance / ctl.maxDistance); }
+document.getElementById("map-zoom-in").addEventListener("click", () => setDistance(currentDistance() * 0.8));
+document.getElementById("map-zoom-out").addEventListener("click", () => setDistance(currentDistance() / 0.8));
+let sliding = false;
+zoomSlider.addEventListener("input", () => { sliding = true; setDistance(sliderToDistance(+zoomSlider.value)); });
+zoomSlider.addEventListener("change", () => { sliding = false; });
 
 // ---------------------------------------------------------------- distance tools
 let toolMode = null; // "measure" | "range" | null
 let route = [];
+const HQS = RAW.hq || {};
+let hqCode = "";
+try { hqCode = localStorage.getItem("verse-hq") || ""; } catch (e) {}
+function hqSystem() { const n = HQS[hqCode]; return n ? systems.find((s) => s.system === n) : null; }
 const tool = document.getElementById("map-tool"), toolBody = document.getElementById("map-tool-body");
 const measureBtn = document.getElementById("map-measure"), rangeBtn = document.getElementById("map-range");
 const routeGroup = new THREE.Group(); mapScene.add(routeGroup);
@@ -1069,54 +1163,67 @@ function drawRoute() {
     line.computeLineDistances(); routeGroup.add(line);
   });
   const codes = route.map((s) => s.hex).join(",");
-  history.replaceState(null, "", route.length ? "#route=" + codes : location.pathname);
+  history.replaceState(null, "", route.length ? "#route=" + codes + (hqCode ? "&hq=" + encodeURIComponent(hqCode) : "") : location.pathname);
 }
 
 function renderTool(origin) {
   if (!toolMode) return;
   if (toolMode === "measure") {
-    if (!route.length) { toolBody.innerHTML = "<p>Click a star to start a route, then click each stop in turn.</p>"; return; }
-    let total = 0, msg = 0;
+    const hqOptions = Object.keys(HQS).map((c) => `<option value="${esc(c)}"${c === hqCode ? " selected" : ""}>${esc(c)}, ${esc(HQS[c])}</option>`).join("");
+    const hqPicker = `<label class="hq-pick">Orders issued from <select id="route-hq"><option value="">Choose a faction HQ…</option>${hqOptions}</select></label>`;
+    const wire = () => { const sel = document.getElementById("route-hq"); if (sel) sel.onchange = () => { hqCode = sel.value; try { localStorage.setItem("verse-hq", hqCode); } catch (e) {} drawRoute(); renderTool(); }; };
+    if (!route.length) { toolBody.innerHTML = hqPicker + "<p>Click the unit's current system, then each stop in turn.</p>"; wire(); return; }
     const legs = route.slice(1).map((s, i) => legCost(route[i], s));
-    toolBody.innerHTML = `<p class="route-stops">${route.map((s) => esc(s.system)).join(" → ")}</p>` +
-      (legs.length ? `<ol class="route-legs">${legs.map((l) => { total += l.days; msg += l.msg; return `<li class="${l.ok ? "" : "over"}">
+    const hq = hqSystem();
+    const orderHexes = hq ? hexDistance(hq.hex, route[0].hex) : 0, order = orderHexes * MSG_DAYS_PER_HEX;
+    let total = hq ? order : 0;
+    const orderLine = hq
+      ? `<p class="order-line">Order from <b>${esc(hq.system)}</b> (${esc(hqCode)} HQ) reaches the unit at ${esc(route[0].system)}: ${orderHexes} hex${orderHexes === 1 ? "" : "es"} × 2.5 = <b>${order} days</b></p>`
+      : `<p class="muted">Choose the HQ issuing the order to include the time the order takes to reach the unit.</p>`;
+    toolBody.innerHTML = hqPicker + `<p class="route-stops">${route.map((s) => esc(s.system)).join(" → ")}</p>` + orderLine +
+      (legs.length ? `<ol class="route-legs">${legs.map((l) => { total += l.days; return `<li class="${l.ok ? "" : "over"}">
         <strong>${esc(l.a.system)} → ${esc(l.b.system)}</strong><br>
         leave ${l.leave} MP + ${l.hexes} hex${l.hexes === 1 ? "" : "es"} + enter ${l.enter} MP = <b>${l.mp} MP, ${l.days} days</b>
-        ${l.ok ? "" : `<br><span class="warn">Over the 100-day limit for one turn</span>`}
-        <br><span class="muted">Message: ${l.msg} days</span></li>`; }).join("")}</ol>
-        <p><b>Total: ${total} days</b> <span class="muted">(${(total / 100).toFixed(2)} turns) · messages ${msg} days</span></p>` : "<p>Now click the next stop.</p>") +
+        ${l.ok ? "" : `<br><span class="warn">Over the 100-day limit for one turn</span>`}</li>`; }).join("")}</ol>
+        <p><b>${hq ? "From order to arrival" : "Travel time"}: ${total} days</b> <span class="muted">(${(total / 100).toFixed(2)} turns)</span></p>` : "<p>Now click the next stop.</p>") +
       `<p class="tool-actions"><button type="button" id="route-undo">Undo stop</button> <button type="button" id="route-clear">Clear</button> <button type="button" id="route-copy">Copy link</button></p>`;
+    wire();
     document.getElementById("route-undo").onclick = () => { route.pop(); drawRoute(); renderTool(); };
     document.getElementById("route-clear").onclick = () => { route = []; drawRoute(); renderTool(); };
     document.getElementById("route-copy").onclick = (e) => { navigator.clipboard && navigator.clipboard.writeText(location.href); e.target.textContent = "Link copied"; };
   } else {
     toolBody.innerHTML = origin
       ? `<p><b>Reach from ${esc(origin.system)}</b> in one turn (leaving costs ${systemMP(origin)} MP).</p>
-         <ul class="range-key"><li><span class="band b1"></span>Arrive within 25 days</li><li><span class="band b2"></span>50 days</li><li><span class="band b3"></span>75 days</li><li><span class="band b4"></span>100 days</li><li><span class="band hyper"></span>Reachable in hyperspace, no arrival this turn</li></ul>
-         <p class="muted">Arrival means reaching the colony world, so each system's entry cost is included.</p>`
+         <ul class="range-key"><li><span class="band b1"></span>Within 25 days</li><li><span class="band b2"></span>26 to 50 days</li><li><span class="band b3"></span>51 to 75 days</li><li><span class="band b4"></span>76 to 100 days</li><li><span class="band hyper"></span>Hex reachable, but entering the system takes it past 100 days</li></ul>
+         <p class="muted">Empty hexes show time in hyperspace. Systems include the cost of entering and reaching the colony world.</p>`
       : "<p>Click a star to see where a unit based there can reach in one turn.</p>";
   }
 }
 
-function clearRange() { if (rangePlane) { mapScene.remove(rangePlane); rangePlane.material.map.dispose(); rangePlane = null; } }
+function clearRange() {
+  if (rangePlane) { mapScene.remove(rangePlane); rangePlane.material.map.dispose(); rangePlane = null; }
+  gridPlane.material.map = gridTex.fill; gridPlane.material.needsUpdate = true;
+}
+// One blue hue that steps in lightness, so the bands read the same with red/green colour blindness.
+const RANGE_BANDS = [[25, "#a9cdf6"], [50, "#5f9ee8"], [75, "#2f6cc4"], [100, "#1b4a8a"]];
 function showRange(origin) {
   clearRange();
+  gridPlane.material.map = gridTex.plain; gridPlane.material.needsUpdate = true; // faction colours give way to range colours
   const c = document.createElement("canvas"); c.width = Math.ceil(W * 48); c.height = Math.ceil(H * 48);
   const g = c.getContext("2d"), P = 48;
   const toPx = (x, z) => [(x - minX) * P, (z - minZ) * P];
   const leave = systemMP(origin);
-  // Orange lightness ramp: brighter means sooner.
-  const band = (days) => days <= 25 ? "rgba(255,154,60,0.62)" : days <= 50 ? "rgba(255,154,60,0.44)" : days <= 75 ? "rgba(255,154,60,0.28)" : "rgba(255,154,60,0.16)";
+  const band = (days) => { const b = RANGE_BANDS.find(([d]) => days <= d); return b ? b[1] : null; };
   for (let col = 0; col < COLS; col++) for (let row = 1; row <= ROWS; row++) {
     const code = hexCode(col, row), d = hexDistance(origin.hex, code), s = byHex.get(code);
     const { x, z } = hexXZ(code);
     const pts = Array.from({ length: 6 }, (_, k) => toPx(x + 0.94 * Math.cos((Math.PI / 3) * k), z + 0.94 * Math.sin((Math.PI / 3) * k)));
     g.beginPath(); pts.forEach(([px, pz], i) => (i ? g.lineTo(px, pz) : g.moveTo(px, pz))); g.closePath();
-    if (s && s.system && s !== origin) {
-      const mp = leave + d + systemMP(s);
-      if (mp <= MP_PER_TURN) { g.fillStyle = band(mp * DAYS_PER_MP); g.fill(); continue; }
-    }
-    if (leave + d <= MP_PER_TURN && s !== origin) { g.strokeStyle = "rgba(255,154,60,0.35)"; g.lineWidth = 2; g.setLineDash([5, 5]); g.stroke(); g.setLineDash([]); }
+    if (s === origin) { g.strokeStyle = "#f0b429"; g.lineWidth = 5; g.stroke(); continue; }
+    const hyper = leave + d;                                  // MP to reach this hex in hyperspace
+    const arrive = s && s.system ? hyper + systemMP(s) : hyper; // systems include the cost of entering
+    if (arrive <= MP_PER_TURN) { g.globalAlpha = 0.78; g.fillStyle = band(arrive * DAYS_PER_MP); g.fill(); g.globalAlpha = 1; }
+    else if (hyper <= MP_PER_TURN) { g.strokeStyle = "rgba(255,255,255,0.75)"; g.lineWidth = 3; g.setLineDash([6, 5]); g.stroke(); g.setLineDash([]); }
   }
   const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace;
   rangePlane = new THREE.Mesh(new THREE.PlaneGeometry(W, H), new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false }));
@@ -1141,14 +1248,11 @@ search.addEventListener("change", () => searchGo(false));
 const boardBtn = document.getElementById("map-board");
 const BOARD = { pos: new THREE.Vector3(0, 37, 0.001), target: new THREE.Vector3(0, 0, 0) };
 async function setBoard(on) {
-  if (busy) return;
-  if (mode !== "map" || selected) await backToMap();
+  if (mode !== "map" || selected) { if (busy) return; await backToMap(); }
   boardOn = on; boardBtn.setAttribute("aria-pressed", String(on));
-  busy = true;
   controls.enableRotate = !on;
   controls.minPolarAngle = 0;
   await flyMap(on ? BOARD.pos : HOME.pos, on ? BOARD.target : HOME.target, 1100);
-  busy = false;
 }
 boardBtn.addEventListener("click", () => setBoard(!boardOn));
 const labelsBtn = document.getElementById("map-labels-toggle");
@@ -1201,6 +1305,7 @@ function frame() {
     labelRenderer.render(mapScene, camera);
   }
   app.classList.toggle("closeup", mode !== "map");
+  if (!sliding) zoomSlider.value = Math.round(distanceToSlider(currentDistance()));
   requestAnimationFrame(frame);
 }
 resize();
@@ -1209,6 +1314,8 @@ frame();
 // Open a system named in the address (/map/#H6) or a shared route (/map/#route=E18,H6,J8).
 const startHex = decodeURIComponent(location.hash.slice(1));
 if (startHex.startsWith("route=")) {
-  const stops = startHex.slice(6).split(",").map((h) => byHex.get(h.trim().toUpperCase())).filter((s) => s && s.system);
+  const [routePart, hqPart] = startHex.slice(6).split("&hq=");
+  if (hqPart && HQS[hqPart]) hqCode = hqPart;
+  const stops = routePart.split(",").map((h) => byHex.get(h.trim().toUpperCase())).filter((s) => s && s.system);
   if (stops.length) { setTool("measure"); route = stops; drawRoute(); renderTool(); }
 } else if (startHex && byHex.get(startHex)) setTimeout(() => select(byHex.get(startHex)), 400);
