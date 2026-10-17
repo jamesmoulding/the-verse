@@ -7,7 +7,6 @@ disableKinds = ["taxonomy", "term", "RSS"]
 
 [params]
   description = "Sector 005, Star Year 2600 onwards. An online megagame."
-  mapURL = "https://miro.com/app/board/uXjVJSqYhXY=/?moveToWidget=3458764635680444002&cot=14"
 
 [markup.goldmark.renderer]
   unsafe = false
