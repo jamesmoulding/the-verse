@@ -942,6 +942,8 @@ let mapCameraBefore = null;
 async function select(s) {
   if (!s || busy) return;
   hideSummary(); clearFocus(false);
+  // Start the anthem silently inside the click, so browsers allow the sound later.
+  if (s.system === "Parliament") startAnthem();
   busy = true;
   if (selected && selected.label) selected.label.classList.remove("selected");
   selected = s; s.label && s.label.classList.add("selected");
@@ -971,6 +973,7 @@ async function select(s) {
     const goal = UNITY_POS.clone(), from = goal.clone().add(new THREE.Vector3(-2.6, 1.0, 3.6)), to = goal.clone().add(new THREE.Vector3(-0.95, 0.22, 1.35));
     pcontrols.target.copy(goal); pcontrols.minDistance = 0.25;
     pcamera.position.copy(from); pcamera.lookAt(goal);
+    startAnthem(); anthem.currentTime = 0;
     await fadeTo(0, 500);
     await tween(3600, (k) => { pcamera.position.lerpVectors(from, to, k); pcamera.lookAt(goal); });
   } else {
@@ -985,6 +988,7 @@ async function select(s) {
 
 function starPoint(s) { return s.group ? s.group.position : s.pos; }
 function leavePlanetScene() {
+  stopAnthem();
   pcontrols.enabled = false; controls.enabled = true;
   mode = "map";
 }
@@ -1573,10 +1577,41 @@ function keyPan(dt) {
   camera.position.add(move); controls.target.add(move);
 }
 
+// ---------------------------------------------------------------- Unity 5 anthem
+// Plays on a loop in the Parliament close-up. It fades in from quiet on arrival, grows louder the
+// closer the camera is to the station and quieter further out, and fades away on leaving.
+const anthem = new Audio(url("/audio/unity-5.mp3"));
+anthem.loop = true; anthem.preload = "none"; anthem.volume = 0;
+let anthemOn = false, anthemFadeIn = 0;
+function playAnthem() {
+  anthem.play().catch(() => {
+    // The browser blocked sound until the next click or key press, so try again then.
+    const retry = () => { if (anthemOn) anthem.play().catch(() => {}); };
+    window.addEventListener("pointerdown", retry, { once: true });
+    window.addEventListener("keydown", retry, { once: true });
+  });
+}
+function startAnthem() { anthemOn = true; anthemFadeIn = 0; anthem.volume = 0; if (anthem.paused) playAnthem(); }
+function stopAnthem() { anthemOn = false; }
+function updateAnthem(dt) {
+  if (anthem.paused) return;
+  let want = 0;
+  if (anthemOn && mode === "planet") {
+    anthemFadeIn = Math.min(1, anthemFadeIn + dt / 4);
+    const d = pcamera.position.distanceTo(pcontrols.target);
+    const far = Math.log(d / pcontrols.minDistance) / Math.log(pcontrols.maxDistance / pcontrols.minDistance);
+    want = (0.06 + 0.94 * Math.pow(1 - Math.min(1, Math.max(0, far)), 1.6)) * anthemFadeIn;
+  }
+  anthem.volume = Math.min(1, Math.max(0, anthem.volume + (want - anthem.volume) * Math.min(1, dt * 3)));
+  if (!anthemOn && anthem.volume < 0.01) { anthem.pause(); anthem.volume = 0; }
+}
+let anthemLast = performance.now();
+
 // ---------------------------------------------------------------- loop
 const clock = new THREE.Clock();
 function frame() {
   const t = clock.getElapsedTime();
+  { const now = performance.now(); updateAnthem(Math.min(0.1, (now - anthemLast) / 1000)); anthemLast = now; }
   if (mode === "planet") {
     pcontrols.update();
     if (planetSpin) { planetSpin.planet.rotation.y = t * 0.02; planetSpin.clouds.rotation.y = t * 0.027; }
