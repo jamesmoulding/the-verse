@@ -28,8 +28,9 @@
   <text class="axis" x="{{ sub $l 8 }}" y="{{ add $gy 4 }}" text-anchor="end">{{ math.Round (mul $top $g) }}</text>
   {{- end }}
   {{- $bw := mul (div $pw (float $n)) 0.55 }}
+  {{- $fc := "" }}{{ with index hugo.Data.map_factions ($.Params.short | default "") }}{{ $fc = .colour }}{{ end }}
   {{- range $pts }}
-  <rect class="bar" x="{{ sub .x (div $bw 2) }}" y="{{ .y }}" width="{{ $bw }}" height="{{ sub (add $t $ph) .y }}" rx="3"/>
+  <rect class="bar"{{ with $fc }} style="fill: {{ . | safeCSS }}"{{ end }} x="{{ sub .x (div $bw 2) }}" y="{{ .y }}" width="{{ $bw }}" height="{{ sub (add $t $ph) .y }}" rx="3"/>
   <text class="val" x="{{ .x }}" y="{{ sub .y 10 }}" text-anchor="middle">{{ .v }}</text>
   <text class="axis" x="{{ .x }}" y="{{ sub $H 10 }}" text-anchor="middle">{{ .yr }}</text>
   {{- end }}
