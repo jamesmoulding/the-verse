@@ -5,7 +5,7 @@ year: 2582
 group: major
 weight: 4
 summary: "The Bionid Exemption, permitting otherwise prohibited weapons against confirmed Bionid targets. Applies to the PFR, the Pact, SKC, SNG, VCW, SILK and VC, with the CPA and AFCO signing in association."
-signatories: [pfr, "The Pact (on behalf of all member nations)", skc, sng, vcw, silk, vc]
+signatories: [pfr, pact, skc, sng, vcw, silk, vc]
 associates: [cpa, afco]
 source: "https://docs.google.com/document/d/1xl_NAgcSJLrIhh3f_5Pn-oBBD3uIgk8LI02T02CHT6g/edit?usp=sharing"
 ---

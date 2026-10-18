@@ -405,7 +405,6 @@ a.trade-card strong { color: var(--link); }
 .econ-chart svg { width: 100%; height: auto; display: block; background: var(--surface); border: 1px solid var(--border); border-radius: .6rem; }
 .econ-chart .grid { stroke: var(--border); stroke-width: 1; }
 .econ-chart .axis { fill: var(--muted); font: 12px system-ui, sans-serif; }
-.econ-chart .line { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linejoin: round; }
-.econ-chart .dot { fill: var(--accent); stroke: var(--surface); stroke-width: 2; }
+.econ-chart .bar { fill: var(--accent); }
 .econ-chart .val { fill: var(--text); font: 700 12px system-ui, sans-serif; }
 .small { font-size: .88rem; }

@@ -5,6 +5,7 @@ year: 2533
 group: major
 weight: 3
 summary: "The founding treaty of the Pact, a collective defence alliance of democratic polities led by the Proxima Federal Republic."
+applies_to: [pact]
 signatories: [pfr, dyrektoriat-kosmiczny, outer-rim-alliance, alianza-de-la-aurora-roja, fel-tek-trade-federation, union-of-prax, queeg-heptarchy, new-star-coalition]
 source: "https://docs.google.com/document/d/1OA4_GwfgET5ndWH2k4FO92CTL-dfGjuDYQnuRGk20us/edit?usp=sharing"
 ---

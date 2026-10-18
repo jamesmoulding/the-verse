@@ -5,7 +5,7 @@ year: 2532
 group: major
 weight: 2
 summary: "Adopted by the Interstellar Council of the Nations at Proxima. Applies to the PFR, SKC, SNG, VCW, SILK, VC and the Pact."
-signatories: [pfr, skc, sng, vcw, silk, vc, "The Pact (on behalf of all member nations, 2533)"]
+signatories: [pfr, skc, sng, vcw, silk, vc, pact]
 source: "https://docs.google.com/document/d/1ghM_mWGI1a27N0WwXMUvjNoN0i165-Gv6fCvxJ_FXkY/edit?usp=sharing"
 ---
 
