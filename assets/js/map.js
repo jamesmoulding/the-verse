@@ -1597,10 +1597,11 @@ function updateAnthem(dt) {
   if (anthem.paused) return;
   let want = 0;
   if (anthemOn && mode === "planet") {
-    anthemFadeIn = Math.min(1, anthemFadeIn + dt / 4);
+    anthemFadeIn = Math.min(1, anthemFadeIn + dt / 6);
     const d = pcamera.position.distanceTo(pcontrols.target);
     const far = Math.log(d / pcontrols.minDistance) / Math.log(pcontrols.maxDistance / pcontrols.minDistance);
-    want = (0.06 + 0.94 * Math.pow(1 - Math.min(1, Math.max(0, far)), 1.6)) * anthemFadeIn;
+    // A steep curve: about 12% at the arrival view, rising sharply to full volume close in.
+    want = (0.02 + 0.98 * Math.pow(1 - Math.min(1, Math.max(0, far)), 3.5)) * anthemFadeIn;
   }
   anthem.volume = Math.min(1, Math.max(0, anthem.volume + (want - anthem.volume) * Math.min(1, dt * 3)));
   if (!anthemOn && anthem.volume < 0.01) { anthem.pause(); anthem.volume = 0; }
