@@ -4,7 +4,7 @@
 {{- $rows := (resources.Get "map/systems.csv") | transform.Unmarshal }}
 {{- $grades := hugo.Data.grades }}
 {{- $mine := slice }}
-{{- range after 1 $rows }}{{ if and (eq (index . 2) $code) (index . 1) }}{{ $mine = $mine | append (dict "hex" (index . 0) "name" (index . 1) "grade" (index . 3)) }}{{ end }}{{ end }}
+{{- range after 1 $rows }}{{ if and (eq (index . 2) $code) (index . 1) }}{{ $mine = $mine | append (dict "hex" (index . 0) "name" (index . 1) "grade" (index . 3) "sv" (index . 4) "resource" (index . 15 | default "")) }}{{ end }}{{ end }}
 {{- with $mine }}
 <h2 id="systems">Controlled systems</h2>
 <ul class="mini-cards">
@@ -12,6 +12,8 @@
   <li><a class="mini-card" href="{{ printf "map/#%s" .hex | relURL }}">
     <strong>{{ .name }}</strong>
     <small>Hex {{ .hex }}{{ with index $grades .grade }} · {{ . }}{{ end }}</small>
+    <small>SV {{ .sv | default "0" }}</small>
+    {{- with .resource }}<small>Strategic Resource: {{ . }}</small>{{ end }}
   </a></li>
   {{- end }}
 </ul>

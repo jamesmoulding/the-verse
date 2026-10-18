@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{- $treaties := where site.RegularPages "Type" "treaty" }}
+<div class="wrap treaties">
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+
+  <h2 id="major-treaties">Major Treaties</h2>
+  <p>Treaties established and governing human settled space.</p>
+  {{ partial "treaty-cards.html" (where $treaties "Params.group" "major").ByWeight }}
+
+  <h2 id="treaties-of-sector-005">Treaties of Sector 005</h2>
+  <p>Treaties specific to the bounds of Sector 005.</p>
+  {{ partial "treaty-cards.html" (where $treaties "Params.group" "sector").ByWeight }}
+
+  <h2 id="trade">Treaties establishing trade relations</h2>
+  <p>Treaties and trade agreements establishing trade between worlds.</p>
+  <h3 id="trade-agreements">Trade Agreements</h3>
+  {{ partial "trade-cards.html" (where hugo.Data.trade "kind" "trade") }}
+  <h3 id="strategic-trade">Strategic Trade</h3>
+  {{ partial "trade-cards.html" (where hugo.Data.trade "kind" "strategic") }}
+
+  <p>The current state of relations between the factions is on the <a href="{{ "diplomacy/relations/" | relURL }}">Diplomatic Relations</a> page.</p>
+</div>
+{{ end }}

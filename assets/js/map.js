@@ -907,6 +907,35 @@ async function renderPanel(s) {
   if (more) more.addEventListener("click", () => { box.querySelector(".map-gnn").insertAdjacentHTML("beforeend", hits.slice(8).map(item).join("")); more.remove(); });
 }
 
+// ---------------------------------------------------------------- GNN badges
+// A flashing GNN lozenge over each system named in the latest bulletin. It follows the story
+// index, so it moves on by itself when a new bulletin is added.
+const gnnBadges = [];
+let gnnOn = true;
+loadStories().then((list) => {
+  if (!list.length) return;
+  const latest = Math.max(...list.map((x) => parseInt(x.turn, 10) || 0));
+  const recent = list.filter((x) => parseInt(x.turn, 10) === latest);
+  systems.forEach((s) => {
+    if (!s.system || !s.group) return;
+    const re = mentionPattern(s); if (!re) return;
+    const hits = recent.filter((x) => re.test(x.text)); if (!hits.length) return;
+    const el = document.createElement("div"); el.className = "map-gnn-badge";
+    const b = document.createElement("span");
+    b.innerHTML = `<i aria-hidden="true"></i><b>GNN</b>`;
+    b.title = `GNN, Turn ${latest}: ` + hits.map((h) => h.title).join(" · ");
+    b.addEventListener("click", () => onSystemClick(s));
+    el.appendChild(b);
+    const obj = new CSS2DObject(el); obj.position.set(0, (STAR[s.star_type] || STAR.G).size * 0.42 + 0.15, 0); obj.visible = gnnOn;
+    s.group.add(obj); gnnBadges.push(obj);
+  });
+});
+const gnnBtn = document.getElementById("map-gnn-toggle");
+gnnBtn.addEventListener("click", () => {
+  gnnOn = !gnnOn; gnnBtn.setAttribute("aria-pressed", String(gnnOn));
+  gnnBadges.forEach((o) => { o.visible = gnnOn; });
+});
+
 // ---------------------------------------------------------------- selecting a system
 let mapCameraBefore = null;
 
@@ -1483,14 +1512,20 @@ search.addEventListener("input", (e) => { if (!e.inputType || e.inputType === "i
 search.addEventListener("change", () => searchGo(false));
 const boardBtn = document.getElementById("map-board");
 const BOARD = { pos: new THREE.Vector3(0, 37, 0.001), target: new THREE.Vector3(0, 0, 0) };
+// The 3D view's tilt and heading are remembered on the way into Board View and restored on the
+// way out, around wherever the board was panned to.
+let savedTilt = null;
 async function setBoard(on) {
   unfocus();
   if (mode !== "map" || selected) { if (busy) return; await backToMap(); }
+  if (on && !boardOn) savedTilt = camera.position.clone().sub(controls.target);
   boardOn = on; boardBtn.setAttribute("aria-pressed", String(on));
   boardBtn.textContent = on ? "3D View" : "Board View";
   controls.enableRotate = !on;
   controls.minPolarAngle = 0;
-  await flyMap(on ? BOARD.pos : HOME.pos, on ? BOARD.target : HOME.target, 1100);
+  if (on) await flyMap(BOARD.pos, BOARD.target, 1100);
+  else if (savedTilt) { const at = controls.target.clone().setY(0); await flyMap(at.clone().add(savedTilt), at, 1100); }
+  else await flyMap(HOME.pos, HOME.target, 1100);
 }
 boardBtn.addEventListener("click", () => setBoard(!boardOn));
 const labelsBtn = document.getElementById("map-labels-toggle");
@@ -1511,6 +1546,33 @@ Object.entries(factions).filter(([code]) => counts[code]).forEach(([code, f]) =>
 });
 const hz = document.createElement("li"); hz.innerHTML = `<span class="swatch hazard">☣</span>Bionid hazard`; legend.appendChild(hz);
 
+// ---------------------------------------------------------------- keyboard panning
+// WASD or the arrow keys pan across the sector, at a speed that scales with the zoom.
+const PAN_KEYS = { KeyW: [0, 1], ArrowUp: [0, 1], KeyS: [0, -1], ArrowDown: [0, -1], KeyA: [-1, 0], ArrowLeft: [-1, 0], KeyD: [1, 0], ArrowRight: [1, 0] };
+const keysDown = new Set();
+function typing(t) { return t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)); }
+window.addEventListener("keydown", (e) => {
+  if (!PAN_KEYS[e.code] || mode !== "map" || e.metaKey || e.ctrlKey || e.altKey || typing(e.target)) return;
+  keysDown.add(e.code); e.preventDefault();
+  if (focused) unfocus();
+});
+window.addEventListener("keyup", (e) => keysDown.delete(e.code));
+window.addEventListener("blur", () => keysDown.clear());
+const panFwd = new THREE.Vector3(), panRight = new THREE.Vector3(), UP = new THREE.Vector3(0, 1, 0);
+let lastFrame = performance.now();
+function keyPan(dt) {
+  if (!keysDown.size || mode !== "map" || busy) return;
+  let x = 0, y = 0;
+  keysDown.forEach((k) => { x += PAN_KEYS[k][0]; y += PAN_KEYS[k][1]; });
+  if (!x && !y) return;
+  panFwd.copy(controls.target).sub(camera.position).setY(0);
+  if (panFwd.lengthSq() < 1e-9) panFwd.set(0, 0, -1);
+  panFwd.normalize(); panRight.crossVectors(panFwd, UP);
+  const speed = camera.position.distanceTo(controls.target) * 0.9 * dt;
+  const move = panFwd.multiplyScalar(y * speed).add(panRight.multiplyScalar(x * speed));
+  camera.position.add(move); controls.target.add(move);
+}
+
 // ---------------------------------------------------------------- loop
 const clock = new THREE.Clock();
 function frame() {
@@ -1525,6 +1587,7 @@ function frame() {
     renderer.render(planetScene, pcamera);
     labelRenderer.domElement.style.visibility = "hidden";
   } else {
+    const now = performance.now(); keyPan(Math.min(0.1, (now - lastFrame) / 1000)); lastFrame = now;
     controls.update();
     // Keep the view over the sector.
     controls.target.x = Math.max(minX, Math.min(maxX, controls.target.x));

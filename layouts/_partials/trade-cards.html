@@ -1,0 +1,14 @@
+{{- /* Cards for trade agreements from data/trade.yaml. */ -}}
+<ul class="trade-cards">
+{{- range . }}
+  {{- $t := . }}
+  {{- $page := "" }}{{ with .treaty }}{{ $page = site.GetPage (printf "/diplomacy/treaties/%s" .) }}{{ end }}
+  <li>
+  {{- if $page }}<a class="card link trade-card" href="{{ $page.RelPermalink }}">{{ else }}<div class="card trade-card">{{ end }}
+    <span class="treaty-year">{{ .year }}</span>
+    <strong>{{ .name }}</strong>
+    <small>{{ range $i, $c := .parties }}{{ if $i }} · {{ end }}{{ with site.GetPage (printf "/factions/%s" (lower $c)) }}{{ .Params.short }}{{ else }}{{ $c }}{{ end }}{{ end }}{{ if not $page }} · awaiting documentation{{ end }}</small>
+  {{- if $page }}</a>{{ else }}</div>{{ end }}
+  </li>
+{{- end }}
+</ul>

@@ -1,0 +1,17 @@
+{{- /* Large cards for treaty pages. Pass a list of treaty pages, or a dict with "pages" and "slug"
+       (a faction page slug), which labels that faction's role where it is not a full signatory. */ -}}
+{{- $pages := . }}{{ $slug := "" }}
+{{- if reflect.IsMap . }}{{ $pages = .pages }}{{ $slug = .slug }}{{ end }}
+<ul class="treaty-cards">
+{{- range $pages }}
+  <li><a class="card link treaty-card" href="{{ .RelPermalink }}">
+    <span class="treaty-year">{{ .Params.year }}</span>
+    <h3>{{ .Title }}</h3>
+    {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
+    <p class="treaty-parties">
+      {{- if and $slug (in (.Params.associates | default slice) $slug) }}<b>Signed in association</b> · {{ else if and $slug (in (.Params.applies_to | default slice) $slug) }}<b>Applies to this faction</b> · {{ end -}}
+      {{ partial "party-codes.html" (.Params.signatories | default slice) }}{{ with .Params.associates }} · in association: {{ partial "party-codes.html" . }}{{ end }}
+    </p>
+  </a></li>
+{{- end }}
+</ul>

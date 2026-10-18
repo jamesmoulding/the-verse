@@ -1,0 +1,28 @@
+{{ define "main" }}
+<article class="wrap prose treaty-page">
+  <p class="kicker">Treaty · {{ .Params.year }}</p>
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.formal_title }}{{ if ne . $.Title }}<p class="lede">{{ . }}</p>{{ end }}{{ end }}
+  {{- with .Params.source }}
+  {{- $href := . }}{{ if not (hasPrefix . "http") }}{{ $href = relURL . }}{{ end }}
+  <p><a class="button" href="{{ $href }}"{{ if hasPrefix . "http" }} rel="noopener"{{ end }}>See more information</a>{{ with $.Params.source_label }} <span class="muted">from {{ . }}</span>{{ end }}</p>
+  {{- end }}
+
+  {{- with .Params.signatories }}
+  <h2 id="signatories">Signatories</h2>
+  {{ partial "party-cards.html" . }}
+  {{- end }}
+  {{- with .Params.associates }}
+  <h2 id="in-association">Signed in association</h2>
+  {{ partial "party-cards.html" . }}
+  {{- end }}
+  {{- with .Params.applies_to }}
+  <h2 id="applies-to">Applies to</h2>
+  {{ partial "party-cards.html" . }}
+  {{- end }}
+
+  <h2 id="text">The treaty</h2>
+  {{ .Content }}
+  <p class="back"><a href="{{ "diplomacy/treaties/" | relURL }}">← All treaties and trade</a></p>
+</article>
+{{ end }}

@@ -1,0 +1,39 @@
+{{- /* Economy: Support Value produced by the faction's worlds each StarYear, with a line graph. */ -}}
+{{- with index hugo.Data.economy (.Params.short | default "") }}
+{{- $econ := . }}
+{{- $years := slice }}{{ range $y, $v := $econ }}{{ $years = $years | append (int $y) }}{{ end }}
+{{- $years = sort $years }}
+{{- $vals := slice }}{{ range $years }}{{ $vals = $vals | append (int (index $econ (string .))) }}{{ end }}
+{{- $n := len $years }}
+{{- $last := index $vals (sub $n 1) }}
+<h2 id="economy">Economy</h2>
+<p class="econ-headline"><strong>{{ $last }} SV</strong> produced in {{ index $years (sub $n 1) }}
+{{- if gt $n 1 }}{{ $prev := index $vals (sub $n 2) }}{{ $d := sub $last $prev }}, {{ if gt $d 0 }}up {{ $d }}{{ else if lt $d 0 }}down {{ mul $d -1 }}{{ else }}unchanged{{ end }} on {{ index $years (sub $n 2) }}{{ end }}.</p>
+<p class="muted small">Support Value (SV) is the economic capacity the faction's worlds generate each StarYear. It is not money and does not carry over.</p>
+{{- $max := 0 }}{{ range $vals }}{{ if gt . $max }}{{ $max = . }}{{ end }}{{ end }}
+{{- $top := mul (math.Ceil (div (mul (float $max) 1.2) 10)) 10 }}
+{{- $W := 560.0 }}{{ $H := 220.0 }}{{ $l := 44.0 }}{{ $r := 20.0 }}{{ $t := 18.0 }}{{ $b := 34.0 }}
+{{- $pw := sub (sub $W $l) $r }}{{ $ph := sub (sub $H $t) $b }}
+{{- $pts := slice }}
+{{- range $i, $v := $vals }}
+  {{- $x := add $l (cond (gt $n 1) (mul $pw (div (float $i) (float (sub $n 1)))) (div $pw 2)) }}
+  {{- $y := sub (add $t $ph) (mul $ph (div (float $v) $top)) }}
+  {{- $pts = $pts | append (dict "x" $x "y" $y "v" $v "yr" (index $years $i)) }}
+{{- end }}
+<figure class="econ-chart">
+<svg viewBox="0 0 560 220" role="img" aria-label="Support Value produced each StarYear: {{ range $i, $p := $pts }}{{ if $i }}, {{ end }}{{ $p.yr }} {{ $p.v }}{{ end }}">
+  {{- range $g := slice 0.0 0.5 1.0 }}
+  {{- $gy := sub (add $t $ph) (mul $ph $g) }}
+  <line class="grid" x1="{{ $l }}" x2="{{ sub $W $r }}" y1="{{ $gy }}" y2="{{ $gy }}"/>
+  <text class="axis" x="{{ sub $l 8 }}" y="{{ add $gy 4 }}" text-anchor="end">{{ math.Round (mul $top $g) }}</text>
+  {{- end }}
+  <polyline class="line" points="{{ range $pts }}{{ .x }},{{ .y }} {{ end }}"/>
+  {{- range $pts }}
+  <circle class="dot" cx="{{ .x }}" cy="{{ .y }}" r="4.5"/>
+  <text class="val" x="{{ .x }}" y="{{ sub .y 10 }}" text-anchor="middle">{{ .v }}</text>
+  <text class="axis" x="{{ .x }}" y="{{ sub $H 10 }}" text-anchor="middle">{{ .yr }}</text>
+  {{- end }}
+</svg>
+<figcaption>SV produced, by StarYear</figcaption>
+</figure>
+{{- end }}

@@ -1,0 +1,61 @@
+# Trade agreements between factions, shown on the Treaties & Trade page and on each faction's page.
+# kind: trade (Trade Agreement) or strategic (Strategic Trade). parties use faction codes.
+# treaty: the slug of a treaty page under content/diplomacy/treaties/, if the agreement has one.
+- name: "ASE-SNG Trade & Non Aggression Treaty"
+  parties: [ASE, SNG]
+  year: 2601
+  kind: trade
+  treaty: ase-sng-free-trade-treaty
+- name: "SILK-SKC trade agreement"
+  parties: [SILK, SKC]
+  year: 2602
+  kind: trade
+- name: "SILK-LGR trade agreement"
+  parties: [SILK, LGR]
+  year: 2602
+  kind: trade
+- name: "AFCO-PFR trade agreement"
+  parties: [AFCO, PFR]
+  year: 2601
+  kind: trade
+- name: "AFCO-VC trade agreement"
+  parties: [AFCO, VC]
+  year: 2601
+  kind: trade
+- name: "AFCO-VCW trade agreement"
+  parties: [AFCO, VCW]
+  year: 2601
+  kind: trade
+- name: "AFCO-SILK trade agreement"
+  parties: [AFCO, SILK]
+  year: 2600
+  kind: trade
+- name: "AFCO-SKC trade agreement"
+  parties: [AFCO, SKC]
+  year: 2600
+  kind: trade
+- name: "AFCO-LGR trade agreement"
+  parties: [AFCO, LGR]
+  year: 2600
+  kind: trade
+- name: "AFCO-ASE trade agreement"
+  parties: [AFCO, ASE]
+  year: 2600
+  kind: trade
+- name: "AFCO-UTF trade agreement"
+  parties: [AFCO, UTF]
+  year: 2600
+  kind: trade
+- name: "VCW-SNG Free Trade & Non-Aggression Treaty"
+  parties: [VCW, SNG]
+  year: 2602
+  kind: trade
+  treaty: vcw-sng-free-trade-treaty
+- name: "SKC-CPA Strategic Trade Agreement"
+  parties: [SKC, CPA]
+  year: 2600
+  kind: strategic
+- name: "ASE-CPA Strategic Trade Agreement"
+  parties: [ASE, CPA]
+  year: 2600
+  kind: strategic

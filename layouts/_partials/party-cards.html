@@ -1,0 +1,16 @@
+{{- /* Cards for treaty parties: a faction page slug becomes a linked faction card, anything else a plain card. */ -}}
+<ul class="factions party-cards">
+{{- range . }}
+  {{- $p := site.GetPage (printf "/factions/%s" .) }}
+  <li>
+  {{- with $p }}
+    <a class="card link faction{{ if not .Params.flag }} no-flag{{ end }}" href="{{ .RelPermalink }}">
+      {{ with .Params.flag }}<img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="" loading="lazy">{{ end }}
+      <span><strong>{{ .Title }}</strong><small>{{ .Params.kind }}</small></span>
+    </a>
+  {{- else }}
+    <div class="card faction no-flag"><span><strong class="plain">{{ . }}</strong></span></div>
+  {{- end }}
+  </li>
+{{- end }}
+</ul>

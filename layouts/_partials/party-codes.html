@@ -1,0 +1,4 @@
+{{- /* Short codes for a list of treaty parties, e.g. "PFR · SKC · The Pact". */ -}}
+{{- $out := slice }}
+{{- range . }}{{ with site.GetPage (printf "/factions/%s" .) }}{{ $out = $out | append (.Params.short | default .Title) }}{{ else }}{{ $out = $out | append . }}{{ end }}{{ end }}
+{{- delimit $out " · " -}}

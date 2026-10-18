@@ -79,6 +79,7 @@ Open it in a spreadsheet, edit, save as CSV and push. Columns:
 | `star_type` | Star colour and size: B, F, G, K or M. Illustrative, not canon |
 | `gnn_terms` | Optional. A JavaScript regular expression for finding GNN stories about the system, used where the bare name would also match other things (e.g. Prime Minister) |
 | `planet_note` | Where the planet look came from. Not shown on the site |
+| `resource` | The world's Strategic Resource (Industrial, Knowledge and so on), from the faction sheets' yearly tab. Shown on faction pages; leave blank for none |
 
 A system's details panel can be linked directly: `/map/#H6` opens Skaro.
 
@@ -117,6 +118,29 @@ Wells). Routes can be shared as links, e.g. `/map/#route=E18,H6,J8`.
 The grid on the Diplomatic Relations page is drawn from `data/relations.yaml`. Each row lists that
 faction's relationships: `T` trade agreement, `S` strategic trade, `W` war, `CF` ceasefire, `NA` non-aggression pact,
 `AA` alliance, combined with a space (`T NA`). Leave a faction out for no relationship.
+
+## Economy on faction pages
+
+`data/economy.yaml` holds the SV produced by each faction's worlds each StarYear (the "SV Produced"
+row of the faction sheet's FINANCE tab). After each annual update, add the new year under each
+faction, for example `  2603: 46`, and the faction pages redraw their graphs.
+
+## Treaties & Trade
+
+Each treaty is a page in `content/diplomacy/treaties/`, for example `skaro-pact.md`. Its front matter
+sets `year`, `group` (`major` or `sector`), a one-line `summary` for its card, `source` (the Google Doc,
+shown as "See more information"), and `signatories`, plus optional `associates` (signed in
+association) and `applies_to`. Use faction page names such as `pfr` or `union-of-prax` to get linked
+faction cards; any other text shows as a plain card. Treaties appear on each party's faction page.
+
+Trade agreements live in `data/trade.yaml`: name, parties (faction codes), year, `kind` (`trade` or
+`strategic`) and, once it has a page, `treaty` (the page's file name without `.md`).
+
+## GNN markers on the map
+
+Systems named in the latest bulletin get a flashing GNN marker. It follows the bulletins
+automatically, so adding `turn-12.md` moves the markers on. The same `gnn_terms` column that drives
+the map's "In the GNN" list decides which stories count for each system.
 
 ## Library pages
 

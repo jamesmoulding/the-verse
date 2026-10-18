@@ -1,0 +1,16 @@
+{{- /* Treaties a faction signed (or that apply to it), and its trade agreements. */ -}}
+{{- $slug := .File.ContentBaseName }}{{ $code := .Params.short | default "" }}
+{{- $mine := slice }}
+{{- range (where site.RegularPages "Type" "treaty").ByParam "year" }}
+  {{- if or (in (.Params.signatories | default slice) $slug) (in (.Params.associates | default slice) $slug) (in (.Params.applies_to | default slice) $slug) }}{{ $mine = $mine | append . }}{{ end }}
+{{- end }}
+{{- $trade := slice }}
+{{- range hugo.Data.trade }}{{ if in .parties $code }}{{ $trade = $trade | append . }}{{ end }}{{ end }}
+{{- if or $mine $trade }}
+<h2 id="treaties">Treaties &amp; Trade</h2>
+{{- with $mine }}{{ partial "treaty-cards.html" (dict "pages" . "slug" $slug) }}{{ end }}
+{{- with $trade }}
+<h3 id="trade-routes">Trade Routes</h3>
+{{ partial "trade-cards.html" . }}
+{{- end }}
+{{- end }}

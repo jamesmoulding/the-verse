@@ -1,0 +1,57 @@
+# Support Value produced by each faction's worlds each StarYear (FINANCE tab of each faction sheet).
+# Shown as the Economy graph on faction pages. Add the new year's figure after each annual update.
+AFCO:
+  2599: 35
+  2600: 35
+  2601: 35
+  2602: 30
+ASE:
+  2599: 46
+  2600: 46
+  2601: 46
+  2602: 45
+CPA:
+  2599: 42
+  2600: 42
+  2601: 43
+  2602: 44
+LGR:
+  2599: 31
+  2600: 32
+  2601: 36
+  2602: 33
+PFR:
+  2599: 80
+  2600: 80
+  2601: 81
+  2602: 81
+SILK:
+  2599: 53
+  2600: 54
+  2601: 55
+  2602: 53
+SKC:
+  2599: 27
+  2600: 28
+  2601: 29
+  2602: 28
+SNG:
+  2599: 35
+  2600: 35
+  2601: 36
+  2602: 37
+UTF:
+  2599: 80
+  2600: 81
+  2601: 82
+  2602: 83
+VC:
+  2599: 22
+  2600: 22
+  2601: 24
+  2602: 27
+VCW:
+  2599: 50
+  2600: 50
+  2601: 52
+  2602: 47
