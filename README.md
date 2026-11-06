@@ -39,7 +39,8 @@ date: 2026-10-20
 `date` is the real-world posting date, written year-month-day. Under the header, paste the
 bulletin. Start each story with a headline line beginning `## `, for example
 `## PFR FLEET SIGHTED OVER FELGOR`. Headlines become the bulletin's contents list, and any
-headline naming a faction is listed on that faction's page automatically.
+story mentioning a faction (its `gnn_keywords` or `gnn_mentions` terms, in the headline or text) is listed
+on that faction's page automatically.
 
 To add a story image, put it in `static/images/gnn/turn-12/` and add a line above the
 story's headline, e.g. `![Proxima fleet over Felgor](/images/gnn/turn-12/01.jpg)`. Keep images

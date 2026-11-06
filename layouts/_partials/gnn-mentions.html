@@ -1,5 +1,5 @@
 {{- /* Every GNN story (headline or text) that mentions any of the given terms. */ -}}
-{{- $re := printf `(?i)(?:%s)` (delimit .terms "|") }}
+{{- $re := printf `(?i)\b(?:%s)` (delimit .terms "|") }}
 {{- $found := 0 }}
 {{- range sort (where site.RegularPages "Section" "gnn") "Params.turn" "desc" }}
   {{- $p := . }}
