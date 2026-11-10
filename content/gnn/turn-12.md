@@ -125,4 +125,14 @@ Reports suggest SILK forces have been actively engaging in deterring pirate raid
 
 Following the Bionid War, the Proxima Federal Republic has subsidised the monitoring of Bionid infestation across Sector 005. The PFR contracted Zeyland-Butani Corporation and they are now asking for significantly more funding for the contract, 6 SV per year. The University of New Edinburgh’s Centre for Xenogenetics recently published a new report [*Afflicted Worlds: Spore Removal, Ecosystem Restoration and Bionid Monitoring in Sector 005*](https://docs.google.com/document/d/1oiaJUCsffc2z2gJLbE8k9vZUU0LId428h5EFQENaiqI/edit?usp=sharing). The new report details past and current approaches to the management of restoration of Afflicted worlds.
 
+### VCW PRINCESS TO VISIT KEDROS
+
+Heir to the Archon throne, Crown Princess Deanna Brambleforth, is due to tour Vertinian Commonwealth holdings in Sector 005 next cycle on a formal state visit. The Crown Princess Deanna, an animal rights advocate and patron of the Living Worlds Foundation, is reportedly particularly interested in the unusual and tempestuous biosphere on Chakravaat.
+
+Meanwhile, Anima leader Pantone Blush celebrates a significant increase in donations to the organisations this cycle. Grassroots holoforums hailed the news, though many cast their doubts as to the prospects of the organisation after the recent windfall, one said: “Anima will just become another Wildfront, another victim of the non profit industrial complex, you’ll see”. Anima have not publicly released the source of the new philanthropic backers.
+
+### FIRES ON EPIPHANY BLAMED ON AGING INFRASTRUCTURE
+
+Fires broke out on Epiphany last cycle causing thousands to be temporarily evacuated due to the release of highly toxic pollutants. Planetary Governor Sian Serizawa has called for calm and activated emergency measures to concentrate available firefighting resources in the affected areas. Local holo-reporting suggests aging infrastructure is a likely culprit, though True Epiphany, a local chapter of the Seekers evangelist group has caused controversy suggesting it is the work of ‘Kneelers’, referring to the growing fringe Benevolism movement.
+
 ***This has been GNN, live from Sector 005. Bringing you news from across the Verse, as it happens.***
