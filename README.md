@@ -112,7 +112,7 @@ crossed and the cost of entering, in movement points and days, with any leg over
 Measure times the order too: choose the faction HQ issuing it (set in `data/hq.yaml`) and the map adds the
 time the order takes to reach the unit, at 2.5 days per hex. Each system's entry
 cost is the `mp` column in `systems.csv` (1, 2 or 5; Skaro and Pheervaska are the Deep Gravity
-Wells). Routes can be shared as links, e.g. `/map/#route=E18,H6,J8`.
+Wells). Stardata gives Tumber and Terrenz Matheus 5 MP, but the site keeps them at 2 by Control's ruling. Routes can be shared as links, e.g. `/map/#route=E18,H6,J8`.
 
 ## Diplomacy grid
 
